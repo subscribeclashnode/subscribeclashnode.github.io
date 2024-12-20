@@ -79,7 +79,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-9">
-                                          				  				  				<p>众所周知，Java是一种支持多线程的语言，基于自然界，Java中的线程分为两种类型：守护程序线程和用户线程。</p> <p>以下是守护程序线程和用户线程之间的重要区别。</p> <table class="table table-bordered table-striped"> <thead> <tr class="firstRow"> <th>序号</th> <th>键</th> <th>守护进程线程</th> <th>用户线程</th> </tr> </thead> <tbody> <tr> <td>1</td> <td>性质</td> <td>守护程序线程的优先级较低，即JVM不太关心这些类型的线程。</td> <td>用户线程被识别为高优先级线程，即JVM将等待任何活动的用户线程完成。</td> </tr> <tr> <td>2</td> <td>CPU可用性</td> <td>由于优先级低，无法保证Daemon线程总是在需要时获得CPU使用率。</td> <td>用户线程总是优先获得CPU使用率，因为它具有更高的优先级。</td> </tr> <tr> <td>3</td> <td>创建</td> <td>守护程序线程在后台状态下执行，因此通常称为后台线程。</td> <td>用户线程通常是由应用程序创建的，用于并发执行某些任务。</td> </tr> <tr> <td>4</td> <td>刑场</td> <td>守护程序线程在后台状态下执行，因此通常称为后台线程。</td> <td>用户线程在另一方面被称为前台线程。</td> </tr> <tr> <td>5</td> <td>生命周期</td> <td>守护程序线程没有设置生命周期，但是它们完全取决于用户线程。</td> <td>用户线程具有与其他任何普通线程一样的特定生命周期，并且其寿命独立于任何其他线程。</td> </tr> </tbody> </table> <h2>守护程序线程与用户线程的示例</h2> <p><strong>JavaTester.java</strong></p> <pre>class&nbsp;JavaTester&nbsp;extends&nbsp;Thread&nbsp;{ &nbsp;&nbsp;&nbsp;@Override &nbsp;&nbsp;&nbsp;public&nbsp;void&nbsp;run(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("User&nbsp;Thread&nbsp;or&nbsp;Non-Daemon&nbsp;Thread"); &nbsp;&nbsp;&nbsp;} } public&nbsp;class&nbsp;MainThread&nbsp;{ &nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;main(String[]&nbsp;args){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JavaTester&nbsp;mt&nbsp;=&nbsp;new&nbsp;JavaTester(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mt.start(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Main&nbsp;Thread"); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Is&nbsp;"&nbsp;+&nbsp;mt.getName()&nbsp;+&nbsp;"&nbsp;a&nbsp;Daemon&nbsp;Thread:&nbsp;"+&nbsp;mt.isDaemon()); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Is&nbsp;"&nbsp;+&nbsp;Thread.currentThread().getName()&nbsp;+&nbsp;"&nbsp;a&nbsp;Daemon&nbsp;Thread:&nbsp;"&nbsp;+&nbsp;&nbsp;Thread.currentThread().isDaemon()); &nbsp;&nbsp;&nbsp;} }</pre> <p>输出结果</p> <pre>Main&nbsp;Thread Is&nbsp;Thread-0&nbsp;a&nbsp;Daemon&nbsp;Thread:&nbsp;false Is&nbsp;main&nbsp;a&nbsp;Daemon&nbsp;Thread:&nbsp;false User&nbsp;Thread&nbsp;or&nbsp;Non-Daemon&nbsp;Thread</pre> <div></div> 			                <div class="clearfix"></div>
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>众所周知，Java是一种支持多线程的语言，基于自然界，Java中的线程分为两种类型：守护程序线程和用户线程。</p> <p>以下是守护程序线程和用户线程之间的重要区别。</p> <table class="table table-bordered table-striped"> <thead> <tr class="firstRow"> <th>序号</th> <th>键</th> <th>守护进程线程</th> <th>用户线程</th> </tr> </thead> <tbody> <tr> <td>1</td> <td>性质</td> <td>守护程序线程的优先级较低，即JVM不太关心这些类型的线程。</td> <td>用户线程被识别为高优先级线程，即JVM将等待任何活动的用户线程完成。</td> </tr> <tr> <td>2</td> <td>CPU可用性</td> <td>由于优先级低，无法保证Daemon线程总是在需要时获得CPU使用率。</td> <td>用户线程总是优先获得CPU使用率，因为它具有更高的优先级。</td> </tr> <tr> <td>3</td> <td>创建</td> <td>守护程序线程在后台状态下执行，因此通常称为后台线程。</td> <td>用户线程通常是由应用程序创建的，用于并发执行某些任务。</td> </tr> <tr> <td>4</td> <td>刑场</td> <td>守护程序线程在后台状态下执行，因此通常称为后台线程。</td> <td>用户线程在另一方面被称为前台线程。</td> </tr> <tr> <td>5</td> <td>生命周期</td> <td>守护程序线程没有设置生命周期，但是它们完全取决于用户线程。</td> <td>用户线程具有与其他任何普通线程一样的特定生命周期，并且其寿命独立于任何其他线程。</td> </tr> </tbody> </table> <h2>守护程序线程与用户线程的示例</h2> <p><strong>JavaTester.java</strong></p> <pre>class&nbsp;JavaTester&nbsp;extends&nbsp;Thread&nbsp;{ &nbsp;&nbsp;&nbsp;@Override &nbsp;&nbsp;&nbsp;public&nbsp;void&nbsp;run(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("User&nbsp;Thread&nbsp;or&nbsp;Non-Daemon&nbsp;Thread"); &nbsp;&nbsp;&nbsp;} } public&nbsp;class&nbsp;MainThread&nbsp;{ &nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;main(String[]&nbsp;args){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JavaTester&nbsp;mt&nbsp;=&nbsp;new&nbsp;JavaTester(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mt.start(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Main&nbsp;Thread"); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Is&nbsp;"&nbsp;+&nbsp;mt.getName()&nbsp;+&nbsp;"&nbsp;a&nbsp;Daemon&nbsp;Thread:&nbsp;"+&nbsp;mt.isDaemon()); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Is&nbsp;"&nbsp;+&nbsp;Thread.currentThread().getName()&nbsp;+&nbsp;"&nbsp;a&nbsp;Daemon&nbsp;Thread:&nbsp;"&nbsp;+&nbsp;&nbsp;Thread.currentThread().isDaemon()); &nbsp;&nbsp;&nbsp;} }</pre> <p>输出结果</p> <pre>Main&nbsp;Thread Is&nbsp;Thread-0&nbsp;a&nbsp;Daemon&nbsp;Thread:&nbsp;false Is&nbsp;main&nbsp;a&nbsp;Daemon&nbsp;Thread:&nbsp;false User&nbsp;Thread&nbsp;or&nbsp;Non-Daemon&nbsp;Thread</pre> <div></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-24855.htm">兽用疫苗注射器多少钱（兽用疫苗厂）</a></p>
                                         <p>下一个：<a href="/news/article-25322.htm">宠物领养软件推荐下载免费版（宠物领养网免费领养宠物的网站宠物领养中心）</a></p>
@@ -92,16 +93,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-23916.htm" title="猫领养协议书范本图片（领养猫签领养协议有什么套路）">猫领养协议书范本图片（领养猫签领养协议有什么套路）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-22-free-node-subscribe.htm" title="「11月22日」最高速度19.5M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接">「11月22日」最高速度19.5M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-11-free-ssr-subscribe.htm" title="「10月11日」最高速度21.4M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接">「10月11日」最高速度21.4M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-5-free-v2ray-subscribe.htm" title="「12月5日」最高速度19.8M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接">「12月5日」最高速度19.8M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-30-clash-windows.htm" title="「11月30日」最高速度22.2M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接">「11月30日」最高速度22.2M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-22-node-share.htm" title="「10月22日」最高速度22.8M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅链接">「10月22日」最高速度22.8M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-20711.htm" title="宠物用疫苗可以带上高铁吗北京地区（宠物疫苗能上地铁吗）">宠物用疫苗可以带上高铁吗北京地区（宠物疫苗能上地铁吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-23-free-high-speed-nodes.htm" title="「8月23日」最高速度22.6M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接">「8月23日」最高速度22.6M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-2-free-ssr-node.htm" title="「9月2日」最高速度20.7M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接">「9月2日」最高速度20.7M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-9-29-free-ssr-node.htm" title="「9月29日」最高速度18.9M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接">「9月29日」最高速度18.9M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-31-shadowrocket-node.htm" title="「10月31日」最高速度22.7M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接">「10月31日」最高速度22.7M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-6-node-share-links.htm" title="「11月6日」最高速度19.3M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接">「11月6日」最高速度19.3M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-24133.htm" title="宠物店需要办什么证件（宠物店需要的证件）">宠物店需要办什么证件（宠物店需要的证件）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-6-24-free-high-speed-nodes.htm" title="「6月24日」最高速度18M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费节点订阅链接">「6月24日」最高速度18M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-14-free-node-subscribe.htm" title="「12月14日」最高速度22.6M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅链接">「12月14日」最高速度22.6M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-free-node-subscribe-links.htm" title="「11月5日」最高速度18M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅链接">「11月5日」最高速度18M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-22092.htm" title="宠物店一年的利润多少合适（一般宠物店一年的利润多少）">宠物店一年的利润多少合适（一般宠物店一年的利润多少）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-2-clash-node.htm" title="「12月2日」最高速度18.6M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接">「12月2日」最高速度18.6M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-25-clash-windows.htm" title="「7月25日」最高速度22.5M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅链接">「7月25日」最高速度22.5M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -113,7 +114,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">45</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -149,6 +150,15 @@
             <div class="row">
                 <div class="col-lg-6 col-12">
                     <p class="copyright-text mb-0 me-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                         SubscribeClashNode订阅节点站 版权所有 Powered by WordPress
                     </p>
                 </div>

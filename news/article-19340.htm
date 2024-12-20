@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>mysql timestamp_MySQL中的时间字段的几种数据类型比较</title>
         <meta name="description" content="1.序言  最近在项目开发时，对于MySQL数据库中的有关时间的字段该选用何种类型，引发了一些争论。所以做了一些简单的研究，看了一些blog，和官方文档。最后做出一个自己的总结。 2.类型比较 INT" />
-        <link rel="icon" href="__ADDON__/img/subscribeclashnode/favicon.ico" type="image/x-icon"/>
+        <link rel="icon" href="/assets/website/img/subscribeclashnode/favicon.ico" type="image/x-icon"/>
     <!-- CSS FILES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -79,7 +79,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-9">
-                                          				  				  				<div id="content_views" class="htmledit_views"> <div> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220601/0f53b1b2a8bf25e12c64ae28c986bede.jpg" alt="mysql timestamp_MySQL中的时间字段的几种数据类型比较"></div> <h2>1.序言</h2> <p> 最近在项目开发时，对于MySQL数据库中的有关时间的字段该选用何种类型，引发了一些争论。所以做了一些简单的研究，看了一些blog，和官方文档。最后做出一个自己的总结。</p> <h2>2.类型比较</h2> <h2>INT</h2> <p> INT类型一般用于存储Unix时间戳。使用一个简单的 INT 列保存 Unix 时间是最普通的方法。使用 INT，你可以确保你要保存的数字可以快速、可靠地插入到表中。</p> <ul> <li> 占用4个字节</li> <li> 建立索引之后，查询速度快</li> <li> 条件范围搜索可以使用使用between</li> <li> 不能使用MySQL提供的时间函数<br /> 如果只是存储 Unix 时间戳（并且在它的合法日期范围内），而且不打算在它上面使用任何基于日期的查询，我觉得使用 INT 是可以的。它执行简单数值比较查询时非常快，因为只是在处理简单的数字。</li> </ul> <p><b>结论：</b>适合需要进行大量时间范围查询的数据表</p> <h2>TIMESTAMP和DATETIME</h2> <p> Datetime 和 Timestamp 都保存日期和时间信息，同时，使用人类可读的日期形式，如 "2018-01-01"。</p> <blockquote><p>    TIMESTAMP: A four-byte integer representing seconds UTC since the epoch ('1970-01-01 00:00:00' UTC)</p></blockquote> <p> TIMESTAMP：一个四字节的整数，从1970-01-01 00:00:00开始算起。</p> <p> Timestamp 和 Datetime 的核心不同点主要在于 MySQL在内部如何表示这些信息：<b>两种都以二进制而非字符串形式存储</b>，但在表示日期/时间部分时 Timestamp （4 字节） 比 Datetime （5字节，从MySQL 5.6.4版本起，之前为8个字节） 少使用 1 字节。当保存毫秒部分时两种都使用额外的空间 （1到3 字节）。</p> <ul> <li>非分数部分的DATETIME编码（5.6.4版本之后）：</li> </ul> <div class="has"> <pre><code>1 bit  sign           （1= non-negative, 0= negative)    17 bits year*13+month  (year 0-9999, month 0-12)     5 bits day             (0-31)     5 bits hour            (0-23)     6 bits minute          (0-59)     6 bits second          (0-59) ----------------------------- 40 bits = 5 bytes</code></pre> </div> <p>Timestamp 节省的 1 字节是有代价的：你只能存储从 '1970-01-01 00:00:01.000000' 到 '2038-01-19 03:14:07.999999' 之间的时间。而 Datetime 允许你存储从 '1000-01-01 00:00:00.000000' 到 '9999-12-31 23:59:59.999999' 之间的任何时间。</p> <p>另一个重要的差别是MySQL使用<b>服务器的时区</b>转换Timestamp值到它的 UTC 等价值再保存。当获取值是它会再次进行时区转换，所以你得回了你“原始的”日期/时间值。Datetime 列不会被数据库改变。无论时区怎样配置，每次都会保存和获取到同样的值。</p> <p>在5.6版本之后，datetime开始可以使用current time作为默认值，所以不再有timestamp比datetime更适合作为需要随插入和更新来变更时间的类型的说法。</p> <p><b>结论：</b>Datetime 是大多数场景下的最佳选择，理由是</p> <blockquote><p>    无需任何转换即是人类可读的。<br /> 不会因为时区变换产生问题。<br /> 只比TIMESTAMP多用 1 字节<br /> 支持更大的日期范围（从 1000 年到 9999 年）</p></blockquote> <h2>3.总结</h2> <p> 没有完美的数据类型，只要最合适的数据类型。这么多类型同时存在一定是有其道理的，了解清楚了不同类型的差异，就能选择最合适的类型。</p> <p>参考：</p> <p>[1]: https://www.jb51.net/article/125715.htm 解析MySQL中存储时间日期类型的选择问题</p> <p>[2]: https://dev.mysql.com/doc/internals/en/date-and-time-data-type-representation.html Date and Time Data Type Representation</p> <p>[3]: https://www.jianshu.com/p/ec77b0631886 MySQL中你应该使用什么数据类型表示时间？</p> </div> </div> 			                <div class="clearfix"></div>
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div> <div style="text-align:center;"><img decoding="async" src="http://img.555519.xyz/uploads3/20220601/0f53b1b2a8bf25e12c64ae28c986bede.jpg" alt="mysql timestamp_MySQL中的时间字段的几种数据类型比较"></div> <h2>1.序言</h2> <p> 最近在项目开发时，对于MySQL数据库中的有关时间的字段该选用何种类型，引发了一些争论。所以做了一些简单的研究，看了一些blog，和官方文档。最后做出一个自己的总结。</p> <h2>2.类型比较</h2> <h2>INT</h2> <p> INT类型一般用于存储Unix时间戳。使用一个简单的 INT 列保存 Unix 时间是最普通的方法。使用 INT，你可以确保你要保存的数字可以快速、可靠地插入到表中。</p> <ul> <li> 占用4个字节</li> <li> 建立索引之后，查询速度快</li> <li> 条件范围搜索可以使用使用between</li> <li> 不能使用MySQL提供的时间函数<br /> 如果只是存储 Unix 时间戳（并且在它的合法日期范围内），而且不打算在它上面使用任何基于日期的查询，我觉得使用 INT 是可以的。它执行简单数值比较查询时非常快，因为只是在处理简单的数字。</li> </ul> <p><b>结论：</b>适合需要进行大量时间范围查询的数据表</p> <h2>TIMESTAMP和DATETIME</h2> <p> Datetime 和 Timestamp 都保存日期和时间信息，同时，使用人类可读的日期形式，如 "2018-01-01"。</p> <blockquote><p>    TIMESTAMP: A four-byte integer representing seconds UTC since the epoch ('1970-01-01 00:00:00' UTC)</p></blockquote> <p> TIMESTAMP：一个四字节的整数，从1970-01-01 00:00:00开始算起。</p> <p> Timestamp 和 Datetime 的核心不同点主要在于 MySQL在内部如何表示这些信息：<b>两种都以二进制而非字符串形式存储</b>，但在表示日期/时间部分时 Timestamp （4 字节） 比 Datetime （5字节，从MySQL 5.6.4版本起，之前为8个字节） 少使用 1 字节。当保存毫秒部分时两种都使用额外的空间 （1到3 字节）。</p> <ul> <li>非分数部分的DATETIME编码（5.6.4版本之后）：</li> </ul> <div class="has"> <pre><code>1 bit  sign           （1= non-negative, 0= negative)    17 bits year*13+month  (year 0-9999, month 0-12)     5 bits day             (0-31)     5 bits hour            (0-23)     6 bits minute          (0-59)     6 bits second          (0-59) ----------------------------- 40 bits = 5 bytes</code></pre> </div> <p>Timestamp 节省的 1 字节是有代价的：你只能存储从 '1970-01-01 00:00:01.000000' 到 '2038-01-19 03:14:07.999999' 之间的时间。而 Datetime 允许你存储从 '1000-01-01 00:00:00.000000' 到 '9999-12-31 23:59:59.999999' 之间的任何时间。</p> <p>另一个重要的差别是MySQL使用<b>服务器的时区</b>转换Timestamp值到它的 UTC 等价值再保存。当获取值是它会再次进行时区转换，所以你得回了你“原始的”日期/时间值。Datetime 列不会被数据库改变。无论时区怎样配置，每次都会保存和获取到同样的值。</p> <p>在5.6版本之后，datetime开始可以使用current time作为默认值，所以不再有timestamp比datetime更适合作为需要随插入和更新来变更时间的类型的说法。</p> <p><b>结论：</b>Datetime 是大多数场景下的最佳选择，理由是</p> <blockquote><p>    无需任何转换即是人类可读的。<br /> 不会因为时区变换产生问题。<br /> 只比TIMESTAMP多用 1 字节<br /> 支持更大的日期范围（从 1000 年到 9999 年）</p></blockquote> <h2>3.总结</h2> <p> 没有完美的数据类型，只要最合适的数据类型。这么多类型同时存在一定是有其道理的，了解清楚了不同类型的差异，就能选择最合适的类型。</p> <p>参考：</p> <p>[1]: https://www.jb51.net/article/125715.htm 解析MySQL中存储时间日期类型的选择问题</p> <p>[2]: https://dev.mysql.com/doc/internals/en/date-and-time-data-type-representation.html Date and Time Data Type Representation</p> <p>[3]: https://www.jianshu.com/p/ec77b0631886 MySQL中你应该使用什么数据类型表示时间？</p> </div> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-19033.htm">中国十大宠物粮上市公司排名表最新（宠物粮食品牌上市公司）</a></p>
                                         <p>下一个：<a href="/news/article-19341.htm">附近宠物收容中心（附近宠物收容中心电话）</a></p>
@@ -92,16 +93,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-7-17-clash-node-daily-updates.htm" title="「7月17日」最高速度21.6M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接">「7月17日」最高速度21.6M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-19797.htm" title="开一家宠物医院赚钱吗多少钱（开一家宠物医院大概需要投资多少钱）">开一家宠物医院赚钱吗多少钱（开一家宠物医院大概需要投资多少钱）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-2-clash-v2ray-ss-ssr.htm" title="「10月2日」最高速度19.5M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅链接">「10月2日」最高速度19.5M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-5-free-ssr-node.htm" title="「9月5日」最高速度22.9M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接">「9月5日」最高速度22.9M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-26-clash-node-daily-updates.htm" title="「10月26日」最高速度22.1M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接">「10月26日」最高速度22.1M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-6-node-share-links.htm" title="「11月6日」最高速度19.3M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接">「11月6日」最高速度19.3M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-7-free-clash.htm" title="「8月7日」最高速度22.6M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅链接">「8月7日」最高速度22.6M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-6-21-free-high-speed-nodes.htm" title="「6月21日」最高速度21.1M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费节点订阅链接">「6月21日」最高速度21.1M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-30-clash-windows.htm" title="「11月30日」最高速度22.2M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接">「11月30日」最高速度22.2M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-12-clash-node-daily-updates.htm" title="「11月12日」最高速度19.9M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅链接">「11月12日」最高速度19.9M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-28-free-clash-subscribe.htm" title="「8月28日」最高速度20M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接">「8月28日」最高速度20M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-25791.htm" title="Vuex入门mapState, mapGetters, mapMutations, mapActions详解终结篇带源码">Vuex入门mapState, mapGetters, mapMutations, mapActions详解终结篇带源码</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-8-free-subscribe-node.htm" title="「10月8日」最高速度18M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅链接">「10月8日」最高速度18M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-29-free-clash.htm" title="「11月29日」最高速度21.4M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接">「11月29日」最高速度21.4M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-9-free-high-speed-nodes.htm" title="「9月9日」最高速度18M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接">「9月9日」最高速度18M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-20711.htm" title="宠物用疫苗可以带上高铁吗北京地区（宠物疫苗能上地铁吗）">宠物用疫苗可以带上高铁吗北京地区（宠物疫苗能上地铁吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-12-clash-node-daily-updates.htm" title="「6月12日」最高速度19.2M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费节点订阅链接">「6月12日」最高速度19.2M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-13-clash-node-daily-updates.htm" title="「9月13日」最高速度21.4M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅链接">「9月13日」最高速度21.4M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-2-free-ssr-node.htm" title="「9月2日」最高速度20.7M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接">「9月2日」最高速度20.7M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-15-clash-v2ray-ss-ssr.htm" title="「10月15日」最高速度20.7M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅链接">「10月15日」最高速度20.7M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -113,7 +114,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">15</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -149,6 +150,15 @@
             <div class="row">
                 <div class="col-lg-6 col-12">
                     <p class="copyright-text mb-0 me-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                         SubscribeClashNode订阅节点站 版权所有 Powered by WordPress
                     </p>
                 </div>
