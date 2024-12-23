@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://subscribeclashnode.github.io/news/article-29779.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>git命令详解</title>
+        <meta name="description" content="Git是目前世界上最先进的分布式版本控制系统(没有之一)，什么是版本控制？大白话就是可以控制每个人每一次提交，保证代码互不干扰，可进行历史记录查询、回退版本、分支合并，极大的提高了协同开发的效率   " />
+        <link rel="icon" href="/assets/website/img/subscribeclashnode/favicon.ico" type="image/x-icon"/>
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/tooplate-waso-strategy.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPWBEXR622"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KPWBEXR622');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="projects-detail-page" id="section_1" data-page="detail">
+        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+        <div class="container">
+                        <a href="/" class="navbar-brand">Subscribe <span class="text-danger">ClashNode</span></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="#">关于</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">联系</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="hero section-hero section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mx-auto">
+                        <div class="section-hero-text">
+                            <h1 class="text-white">git命令详解</h1>
+                            <small class="small-title text-warning">
+                                <a href="/" class="text-warning">首页</a> / <a href="/news/" class="text-warning">新闻资讯</a> / <span>正文</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about section-padding" id="section_2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> </h1> <p>Git是目前世界上最先进的分布式版本控制系统(没有之一)，什么是版本控制？大白话就是可以控制每个人每一次提交，保证代码互不干扰，可进行历史记录查询、回退版本、分支合并，极大的提高了协同开发的效率</p> </h1> <ul> <li>本地缓存<br /> 一般指<code>git clone</code>后的状态，即将代码缓存cache到本地</li> <li>暂存区<br /> 一般指<code>git add</code>之后的状态，即将代码添加至暂存区</li> <li>本地仓库<br /> 一般指<code>git commit</code>之后的状态，即将代码提交到本地仓库</li> <li>远端仓库<br /> 一般指<code>git push</code>之后的状态，即将代码推送到在远端仓库</li> </ul> </h1> <h2> <a id="1_14" rel="nofollow"></a>1、查看</h2> <ol> <li>查看所有分支<br /><code>git branch -a</code> </li> <li>查看分析信息<br /><code>git branch -v</code> </li> <li>查看本地分支与远程分支关系<br /><code>git branch -vv</code> </li> <li>查看本地与上一次暂存区的差异<br /><code>git status</code> </li> <li>查看文件与上一次暂存区的差异。假设文件为test.py<br /><code>git diff test.py</code> </li> <li>查看本地与远端仓库分支分支映射是否异常<br /><code>git remote show origin</code> </li> <li>查看本地缓存序列<br /><code>git stash list</code> </li> <li>查看stash缓存具体内容，数字0代表序列为0的缓存<br /><code>git stash show stash@{0}</code> </li> <li>查看所在分支历史提交记录<br /><code>git log</code> </li> <li>查看文件在git中的跟踪状态<br /><code>git status -sb</code> </li> </ol> <h2> <a id="2_36" rel="nofollow"></a>2、删除</h2> <ol> <li>删除git索引，删除本地文件。假设文件为test.txt<br /><code>git rm test.txt</code> </li> <li>删除git索引，保留本地文件。假设文件为test.txt<br /><code>git rm --cache test.txt</code> </li> <li>删除本地分支(常用)，假设分支为test<br /><code>git branch -d test</code> </li> <li>强制删除本地分支，应用场景一般为合并不完全导致push失败，解决方案一般是强制删除未完全合并分支，重新从远端库拉取分支。假设分支为test<br /><code>git status -D test</code> </li> <li>删除远端分支。假设远端分支为test<br /><code>git push --delete origin test</code> </li> <li>删除某个缓存cache，数字0代表序列为0的缓存<br /><code>git stash drop stash@{0}</code> </li> <li>删除所有缓存<br /><code>git stash clear</code> </li> </ol> <h2> <a id="3_52" rel="nofollow"></a>3、增加</h2> <ol> <li>将远端仓库拉取(映射)到本地。假设项目地址为test<br /><code>git clone test</code> </li> <li>拉取远端库最新代码至本地<br /><code>git pull</code> </li> <li>将本地仓库的修改提交到远端仓库<br /><code>git push</code> </li> <li>将某个文件添加到暂存区。假设文件为test.txt<br /><code>git add test.txt</code> </li> <li>将当前路径下的所有文件及目录添加到暂存区<br /><code>git add .</code> </li> <li>新建本地分支(新分支索引模板即当前所在分支)。假设新分支名为test(切记不可与远端分支名重复，否则此操作不再是新建分支，而是拉取远端分支到本地)<br /><code>git branch test</code> </li> <li>新建远程分支。假设本地/远程分支名都为test。分两步：①新建本地分支 ②推送到远端仓库<br /> ①<code>git branch test</code><br /> ②<code>git push origin test:test # 第一个test是本地分支名，第二个是远端分支名</code> </li> <li>新增cache缓存，数字0代表新增序列为0的缓存<br /><code>git stash save 0</code> </li> <li>提交暂存区代码至本地仓库并添加备注信息。假设备注信息为test<br /><code>git commit -m test</code> </li> </ol> <h2> <a id="4_73" rel="nofollow"></a>4、修改</h2> <ol> <li>修改本地分支名字。假设当前分支名为oldName，修改后分支名为newName<br /><code>git branch -m oldName newName</code> </li> <li>修改提交到本地仓库的备注信息<br /><code>git commit --amend</code> </li> </ol> <h2> <a id="5_80" rel="nofollow"></a>5、回退</h2> <ol> <li>将本地修改但未提交到缓存区的文件回退到未修改前的状态。假设文件为test.py<br /><code>git restore test.py</code> </li> <li>将某个add(添加)到暂存区的文件回退到本地，但本地所做修改依旧存在。假设文件为test.py<br /><code>git reset head test.py</code> </li> <li>将add(添加)到暂存区的所有文件回退到本地，但本地所做修改依旧存在<br /><code>git restore --staged</code> </li> <li>commit提交回退后所有修改都不保留(慎用)<br /><code>git reset --hard HEAD^</code> </li> <li>commit提交回退到add之前，保留本地修改，一般也用于分支回退(最常用)<br /><code>git reset --mixed HEAD^</code>等同于<code>git reset HEAD^</code> </li> <li>commit提交回退到add之后，commit之前<br /><code>git reset --soft HEAD^</code> </li> <li>将某个保存在缓存区的修改回退到当前分支，而且所有相关文件都变为未缓存状态。假设缓存序列为0<br /><code>git stash apply stash@{0}</code> </li> <li>将某个保存在缓存区的修改回退到当前分支，但不修改已add(添加)到暂存区文件的状态。假设缓存序列为0<br /><code>git stash apply stash@{0} --index</code> </li> <li>将最近的一次缓存区的修改回退到当前分支，相关文件都变为未缓存状态<br /><code>git stash pop</code> </li> </ol> <h2> <a id="6_100" rel="nofollow"></a>6、组合命令</h2> <ol> <li>新建本地分支并切换到新建分支。假设新建分支为test<br /><code>git checkout -b test</code> </li> <li>添加本地修改至暂存区&amp;提交到本地仓库。假设备注信息为test<br /> 注：本地修改不包含新文件(不在git跟踪范围)<br /><code>git commit -am test</code> </li> </ol> <h2> <a id="7_108" rel="nofollow"></a>7、合并</h2> <p>注：merge合并时，要变更的分支(即当前所处分支)内不应存在未commit的文件，否则会导致这些文件无法恢复到merge前的状态。解决方法是merge之前将其stash到缓存中，merge结束后pop再还原回来</p> <ol> <li>不同分支合并某次commit提交(无需push，有commit号即可合并)。假设commit号为test001<br /><code>git cherry-pick test001</code> </li> <li>单个分支将多次提交记录合并成一个提交记录。假设起始合并的commit号的上一个commit号为test001(包尾不包头)<br /><code>git rebase -i test001</code> </li> <li>将dev分支修改信息合并到master(目前处于master分支中，将会修改master分支内容)<br /><code>git merge dev</code> </li> </ol> <h2> <a id="8_117" rel="nofollow"></a>8、补充</h2> <ol> <li>本地关联远程分支。假设本地分支名为test，远端分支名为ogn_test<br /><code>git branch --set-upstream-to=origin/ogn_test test</code> </li> <li>git reset --merge 退回merge之前</li> <li>放弃合并并恢复到合并前的状态。网上有说相同效果如<code>git reset --merge</code>，其实这是老版本的语法，最新的语法合并回退命令如下：<br /><code>git merge --abort</code> </li> </ol> <h2> <a id="9_125" rel="nofollow"></a>9、场景</h2> <ol> <li>删除远端分支test<br /> ①、先将要删除的远端分支test拉到本地<code>git checkout test</code><br /> ②、切换到其它分支以便删除<code>git checkout dev</code><br /> ③、执行删除远端分支命令<code>git push --delete origin test</code>，须知，此时只是删除了远端分支，本地分支还存在，只是缺少了上游分支<br /> ④、输入账号密码确认删除操作</li> <li>删除在本地有但在远程库中已经不存在的分支<br /> ①、查看远端分支情况(是否删除)<code>git remote show origin</code>，输入账号密码确认查看<br /> ②、更新本地远程仓映射(即保持本地映射与远端仓对应)<code>git remote prune origin</code> </li> <li>远端分支更名<br /> ①、切换到其它分支<code>git checkout dev</code><br /> ②、先修改本地分支名字<code>git branch -m test newName</code><br /> ③、删除远端旧分支<code>git push --delete origin test</code><br /> ④、将新分支推远程仓库<code>git push origin newName</code><br /> ⑤、把修改后的本地分支与远程分支关联<code>git branch --set-upstream-to origin/newName</code> </li> </ol> </h1> <p>以上就是本文全部内容，希望可以给予你们以帮助！</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-29487.htm">动物疫苗注射方法有哪些图片 动物疫苗注射方法有哪些图片大全</a></p>
+                                        <p>下一个：<a href="/news/article-29780.htm">学宠物美容师怎么样,有前景吗知乎（学宠物美容师怎么样,有前景吗知乎）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-19-free-v2ray.htm" title="「10月19日」最高速度20.8M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅链接">「10月19日」最高速度20.8M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-29780.htm" title="学宠物美容师怎么样,有前景吗知乎（学宠物美容师怎么样,有前景吗知乎）">学宠物美容师怎么样,有前景吗知乎（学宠物美容师怎么样,有前景吗知乎）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-clash-node-daily-updates.htm" title="「11月10日」最高速度22.4M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接">「11月10日」最高速度22.4M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-10-clash-v2ray-ss-ssr.htm" title="「8月10日」最高速度20.6M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接">「8月10日」最高速度20.6M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-30-free-clash-subscribe.htm" title="「8月30日」最高速度22.5M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅链接">「8月30日」最高速度22.5M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-21-clash-node.htm" title="「10月21日」最高速度22.8M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接">「10月21日」最高速度22.8M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-22-free-node-subscribe.htm" title="「11月22日」最高速度19.5M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接">「11月22日」最高速度19.5M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-31-shadowrocket-node.htm" title="「10月31日」最高速度22.7M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接">「10月31日」最高速度22.7M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-28-clash-node-daily-updates.htm" title="「7月28日」最高速度18.2M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅链接">「7月28日」最高速度18.2M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-5-free-node-subscribe-links.htm" title="「10月5日」最高速度21.2M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接">「10月5日」最高速度21.2M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">69</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <p class="copyright-text mb-0 me-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        SubscribeClashNode订阅节点站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JAVASCRIPT FILES -->
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.sticky.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/magnific-popup-options.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/click-scroll.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
