@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://subscribeclashnode.github.io/news/article-34269.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PHP如何在同一文件中定义多个命名空间</title>
+        <meta name="description" content="介绍 一个扩展名为.php的文件可以定义多个命名空间。为此，规定了两种不同的方法。组合语法和方括号内的语法 具有组合语法的多个命名空间 在此示例中，两个命名空间定义为一个在另一个之下。在第二个定义开始" />
+        <link rel="icon" href="/assets/website/img/subscribeclashnode/favicon.ico" type="image/x-icon"/>
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/tooplate-waso-strategy.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPWBEXR622"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KPWBEXR622');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="projects-detail-page" id="section_1" data-page="detail">
+        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+        <div class="container">
+                        <a href="/" class="navbar-brand">Subscribe <span class="text-danger">ClashNode</span></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="#">关于</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">联系</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="hero section-hero section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mx-auto">
+                        <div class="section-hero-text">
+                            <h1 class="text-white">PHP如何在同一文件中定义多个命名空间</h1>
+                            <small class="small-title text-warning">
+                                <a href="/" class="text-warning">首页</a> / <a href="/news/" class="text-warning">新闻资讯</a> / <span>正文</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about section-padding" id="section_2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<h2>介绍</h2> <p>一个扩展名为.php的文件可以定义多个命名空间。为此，规定了两种不同的方法。组合语法和方括号内的语法</p> <h2>具有组合语法的多个命名空间</h2> <p>在此示例中，两个命名空间定义为一个在另一个之下。在第二个定义开始之前，第一个命名空间中的资源可用。如果要使命名空间成为当前名称，请使用use关键字加载它。</p> <h2>示例</h2> <pre>&lt;?php namespace&nbsp;myspace1; function&nbsp;hello()&nbsp;{ &nbsp;&nbsp;&nbsp;echo&nbsp;"Hello&nbsp;World&nbsp;from&nbsp;space1\n"; } echo&nbsp;"myspace1&nbsp;:&nbsp;"; hello(); namespace&nbsp;myspace\space2; function&nbsp;hello(){ &nbsp;&nbsp;&nbsp;echo&nbsp;"Hello&nbsp;World&nbsp;from&nbsp;space2\n"; } echo&nbsp;"myspace2&nbsp;:&nbsp;"; hello(); use&nbsp;myspace1; hello(); use&nbsp;myspace2; hello(); ?&gt;</pre> <p>输出结果</p> <p>上面的代码显示以下输出</p> <pre>myspace1&nbsp;:&nbsp;Hello&nbsp;World&nbsp;from&nbsp;space1 myspace2&nbsp;:&nbsp;Hello&nbsp;World&nbsp;from&nbsp;space2 Hello&nbsp;World&nbsp;from&nbsp;space2 Hello&nbsp;World&nbsp;from&nbsp;space2</pre> <h2>带括号语法的多个命名空间</h2> <p>在以下示例中，定义了两个命名空间，它们的范围用大括号括起来</p> <h2>示例</h2> <pre>&lt;?php namespace&nbsp;myspace1{ &nbsp;&nbsp;&nbsp;function&nbsp;hello()&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;"Hello&nbsp;World&nbsp;from&nbsp;space1\n"; &nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;echo&nbsp;"myspace1&nbsp;:&nbsp;"; &nbsp;&nbsp;&nbsp;hello(); } namespace&nbsp;myspace\space2{ function&nbsp;hello(){ &nbsp;&nbsp;&nbsp;echo&nbsp;"Hello&nbsp;World&nbsp;from&nbsp;space2\n"; } echo&nbsp;"myspace2&nbsp;:&nbsp;"; hello(); } ?&gt;</pre> <p>输出结果</p> <p>上面的代码显示以下输出</p> <pre>myspace1&nbsp;:&nbsp;Hello&nbsp;World&nbsp;from&nbsp;space1 myspace2&nbsp;:&nbsp;Hello&nbsp;World&nbsp;from&nbsp;space2</pre> <p>建议使用多个命名空间的方括号语法，而不要使用组合语法。括号和未括号的命名空间不能混合使用。除了开头的声明语句外，在命名空间括号之外可能没有其他PHP代码。如果必须将全局命名空间与命名命名空间组合在一起，则仅允许使用方括号括起来的语法。</p> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-34268.htm">Android 4.0.1破坏了WebView HTML 5本地存储？</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-22544.htm" title="深圳宠物领养公众号有哪些（深圳宠物领养公众号有哪些）">深圳宠物领养公众号有哪些（深圳宠物领养公众号有哪些）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-4-clash-v2ray-ss-ssr.htm" title="「8月4日」最高速度20.2M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅链接">「8月4日」最高速度20.2M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-29-free-v2ray.htm" title="「10月29日」最高速度18.5M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅链接">「10月29日」最高速度18.5M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-29034.htm" title="在上海开一家宠物店（上海开一家宠物店赚钱吗）">在上海开一家宠物店（上海开一家宠物店赚钱吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-6-free-shadowrocket-node.htm" title="「9月6日」最高速度22.7M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接">「9月6日」最高速度22.7M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-clash-node-daily-updates.htm" title="「11月12日」最高速度19.9M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅链接">「11月12日」最高速度19.9M/S，2024年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-24-node-share-links.htm" title="「12月24日」最高速度18.8M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接">「12月24日」最高速度18.8M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-23-free-node-subscribe.htm" title="「9月23日」最高速度19.4M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅链接">「9月23日」最高速度19.4M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19033.htm" title="中国十大宠物粮上市公司排名表最新（宠物粮食品牌上市公司）">中国十大宠物粮上市公司排名表最新（宠物粮食品牌上市公司）</a></li>
+                        <li class="py-2"><a href="/news/article-31873.htm" title="FreeRTOS实时操作系统的内核控制示例解析_操作系统">FreeRTOS实时操作系统的内核控制示例解析_操作系统</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <p class="copyright-text mb-0 me-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        SubscribeClashNode订阅节点站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JAVASCRIPT FILES -->
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.sticky.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/magnific-popup-options.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/click-scroll.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

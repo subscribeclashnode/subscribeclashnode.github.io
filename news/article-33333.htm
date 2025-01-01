@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://subscribeclashnode.github.io/news/article-33333.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>解决UnicodeEncodeError: &#8216;ascii&#8217; codec can&#8217;t encode character</title>
+        <meta name="description" content="问题说明： 代码环境：python3.7，PyCharm中编译。 在用urllib.request.urlopen 访问 url 的时候，报错如下： Traceback(most recent cal" />
+        <link rel="icon" href="/assets/website/img/subscribeclashnode/favicon.ico" type="image/x-icon"/>
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/tooplate-waso-strategy.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPWBEXR622"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KPWBEXR622');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="projects-detail-page" id="section_1" data-page="detail">
+        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+        <div class="container">
+                        <a href="/" class="navbar-brand">Subscribe <span class="text-danger">ClashNode</span></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="#">关于</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">联系</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="hero section-hero section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mx-auto">
+                        <div class="section-hero-text">
+                            <h1 class="text-white">解决UnicodeEncodeError: &#8216;ascii&#8217; codec can&#8217;t encode character</h1>
+                            <small class="small-title text-warning">
+                                <a href="/" class="text-warning">首页</a> / <a href="/news/" class="text-warning">新闻资讯</a> / <span>正文</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about section-padding" id="section_2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> </h1> <h3><a id="_1" rel="nofollow"></a>问题说明：</h3> <p>代码环境：python3.7，PyCharm中编译。<br /> 在用<code>urllib.request.urlopen</code> 访问 url 的时候，报错如下：</p> <pre><code class="prism language-python3">Traceback<span class="token punctuation">(</span>most recent call last<span class="token punctuation">)</span><span class="token punctuation">:</span>  File<span class="token string">"/usr/local/lib/python3.7/urllib/request.py"</span><span class="token punctuation">,</span> line<span class="token number">222</span><span class="token punctuation">,</span><span class="token keyword">in</span> urlopen<span class="token keyword">return</span> opener<span class="token punctuation">.</span><span class="token builtin">open</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> data<span class="token punctuation">,</span> timeout<span class="token punctuation">)</span>  File<span class="token string">"/usr/local/lib/python3.7/urllib/request.py"</span><span class="token punctuation">,</span> line<span class="token number">525</span><span class="token punctuation">,</span><span class="token keyword">in</span><span class="token builtin">open</span> response<span class="token operator">=</span> self<span class="token punctuation">.</span>_open<span class="token punctuation">(</span>req<span class="token punctuation">,</span> data<span class="token punctuation">)</span>  File<span class="token string">"/usr/local/lib/python3.7/urllib/request.py"</span><span class="token punctuation">,</span> line<span class="token number">543</span><span class="token punctuation">,</span><span class="token keyword">in</span> _open<span class="token string">'_open'</span><span class="token punctuation">,</span> req<span class="token punctuation">)</span> File<span class="token string">"/usr/local/lib/python3.7/urllib/request.py"</span><span class="token punctuation">,</span> line<span class="token number">503</span><span class="token punctuation">,</span><span class="token keyword">in</span> _call_chain result<span class="token operator">=</span> func<span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">)</span>  File<span class="token string">"/usr/local/lib/python3.7/urllib/request.py"</span><span class="token punctuation">,</span> line<span class="token number">1345</span><span class="token punctuation">,</span><span class="token keyword">in</span> http_open<span class="token keyword">return</span> self<span class="token punctuation">.</span>do_open<span class="token punctuation">(</span>http<span class="token punctuation">.</span>client<span class="token punctuation">.</span>HTTPConnection<span class="token punctuation">,</span> req<span class="token punctuation">)</span>  File<span class="token string">"/usr/local/lib/python3.7/urllib/request.py"</span><span class="token punctuation">,</span> line<span class="token number">1317</span><span class="token punctuation">,</span><span class="token keyword">in</span> do_open encode_chunked<span class="token operator">=</span>req<span class="token punctuation">.</span>has_header<span class="token punctuation">(</span><span class="token string">'Transfer-encoding'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  File<span class="token string">"/usr/local/lib/python3.7/http/client.py"</span><span class="token punctuation">,</span> line<span class="token number">1229</span><span class="token punctuation">,</span><span class="token keyword">in</span> request self<span class="token punctuation">.</span>_send_request<span class="token punctuation">(</span>method<span class="token punctuation">,</span> url<span class="token punctuation">,</span> body<span class="token punctuation">,</span> headers<span class="token punctuation">,</span> encode_chunked<span class="token punctuation">)</span>  File<span class="token string">"/usr/local/lib/python3.7/http/client.py"</span><span class="token punctuation">,</span> line<span class="token number">1240</span><span class="token punctuation">,</span><span class="token keyword">in</span> _send_request self<span class="token punctuation">.</span>putrequest<span class="token punctuation">(</span>method<span class="token punctuation">,</span> url<span class="token punctuation">,</span><span class="token operator">**</span>skips<span class="token punctuation">)</span>  File<span class="token string">"/usr/local/lib/python3.7/http/client.py"</span><span class="token punctuation">,</span> line<span class="token number">1107</span><span class="token punctuation">,</span><span class="token keyword">in</span> putrequest self<span class="token punctuation">.</span>_output<span class="token punctuation">(</span>request<span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'ascii'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  UnicodeEncodeError<span class="token punctuation">:</span><span class="token string">'ascii'</span> codec can<span class="token string">'t encode character '</span>\uff1f'<span class="token keyword">in</span> position<span class="token number">22</span><span class="token punctuation">:</span> ordinal<span class="token operator">not</span><span class="token keyword">in</span><span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">)</span></code></pre> <p>check url后确定问题是url中有无法用ASCII码表示的<strong>中文</strong>字符，因此需要对url重新编码。</p> <h3><a id="_17" rel="nofollow"></a>解决办法：</h3> <p>python3 中的<code>urllib.parse</code>函数可以解析url，这里可以用来重构url，具体采用其中的<code>quote</code> 函数。</p> <pre><code class="prism language-python3"><span class="token keyword">from</span> urllib<span class="token keyword">import</span> request<span class="token punctuation">,</span> parse<span class="token keyword">import</span> string  f<span class="token operator">=</span><span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">'./check_url.txt'</span><span class="token punctuation">,</span><span class="token string">'r'</span><span class="token punctuation">)</span><span class="token keyword">for</span> line<span class="token keyword">in</span> f<span class="token punctuation">:</span><span class="token comment"># encode url</span>     url<span class="token operator">=</span> parse<span class="token punctuation">.</span>quote<span class="token punctuation">(</span>line<span class="token punctuation">,</span> safe<span class="token operator">=</span>string<span class="token punctuation">.</span>printable<span class="token punctuation">)</span><span class="token comment"># aviod SSL verification</span>     context<span class="token operator">=</span> ssl<span class="token punctuation">.</span>_create_unverified_context<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment"># request to open url</span><span class="token comment"># 'safe' refers to characters that can be ignored</span>     response<span class="token operator">=</span> request<span class="token punctuation">.</span>urlopen<span class="token punctuation">(</span>url<span class="token punctuation">,</span> context<span class="token operator">=</span>context<span class="token punctuation">)</span></code></pre> <blockquote> <p><strong>注意：</strong></p> <ol> <li>python3.7中默认环境编码格式为 utf-8，因此在python2.7中的改变默认编码格式来解决此问题的方法不可行；</li> <li>在<code>parse.quote</code> 中需要设置参数<em>safe</em> ，防止url中字符完全被编码，否则会导致url中非字母的字符都变成带 ‘%’ 的转码字符，这样url就无法打开了。</li> <li>参数<em>string.printable</em> 的具体说明：该参数表示ASCII码第33～126号可打印字符，其中第48～57号为0～9十个阿拉伯数字；65～90号为26个大写英文字母，97～122号为26个小写英文字母，其余的是一些标点符号、运算符号等。</li> </ol> </blockquote> <hr/> <p>解法参考：https://blog.csdn.net/qq_25406563/article/details/81253347</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-32834.htm">开宠物店不会美容怎么办呀（开宠物店不会美容怎么办呀女生）</a></p>
+                                        <p>下一个：<a href="/news/article-33334.htm">Water 2.6.1 发布，一站式服务治理平台</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-19797.htm" title="开一家宠物医院赚钱吗多少钱（开一家宠物医院大概需要投资多少钱）">开一家宠物医院赚钱吗多少钱（开一家宠物医院大概需要投资多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-28-clash-node-daily-updates.htm" title="「7月28日」最高速度18.2M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅链接">「7月28日」最高速度18.2M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-26-free-high-speed-nodes.htm" title="「8月26日」最高速度22.2M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接">「8月26日」最高速度22.2M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-14-free-high-speed-nodes.htm" title="「7月14日」最高速度18.7M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接">「7月14日」最高速度18.7M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-31873.htm" title="FreeRTOS实时操作系统的内核控制示例解析_操作系统">FreeRTOS实时操作系统的内核控制示例解析_操作系统</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-16-node-share.htm" title="「8月16日」最高速度21.4M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接">「8月16日」最高速度21.4M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-7-free-subscribe-node.htm" title="「6月7日」最高速度21.2M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅链接">「6月7日」最高速度21.2M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-5-free-node-subscribe-links.htm" title="「10月5日」最高速度21.2M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接">「10月5日」最高速度21.2M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-5-shadowrocket-node.htm" title="「8月5日」最高速度22.3M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅链接">「8月5日」最高速度22.3M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-26-clash-node-daily-updates.htm" title="「10月26日」最高速度22.1M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接">「10月26日」最高速度22.1M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <p class="copyright-text mb-0 me-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        SubscribeClashNode订阅节点站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JAVASCRIPT FILES -->
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.sticky.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/magnific-popup-options.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/click-scroll.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
