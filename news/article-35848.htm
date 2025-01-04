@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://subscribeclashnode.github.io/news/article-35848.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>C语言实现顺序表的基本操作(简单版)</title>
+        <meta name="description" content="由于很简单,所以我把注释写的很详细,欢迎大家指正错误!! #include &lt;stdio.h&gt; #include &lt;malloc.h&gt; #include &lt;assert." />
+        <link rel="icon" href="/assets/website/img/subscribeclashnode/favicon.ico" type="image/x-icon"/>
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/tooplate-waso-strategy.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPWBEXR622"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KPWBEXR622');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="projects-detail-page" id="section_1" data-page="detail">
+        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+        <div class="container">
+                        <a href="/" class="navbar-brand">Subscribe <span class="text-danger">ClashNode</span></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="#">关于</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">联系</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="hero section-hero section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mx-auto">
+                        <div class="section-hero-text">
+                            <h1 class="text-white">C语言实现顺序表的基本操作(简单版)</h1>
+                            <small class="small-title text-warning">
+                                <a href="/" class="text-warning">首页</a> / <a href="/news/" class="text-warning">新闻资讯</a> / <span>正文</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about section-padding" id="section_2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p><span style="color:#ff9900;">由于很简单,所以我把注释写的很详细,欢迎大家指正错误!!</span></p> <pre><code>#include &lt;stdio.h&gt; #include &lt;malloc.h&gt; #include &lt;assert.h&gt; //创建动态顺序表 typedef struct node { 	int* arr;//指针指向头 	int  szie;//有效元素 	int capacity;//总容量 }node; //1.顺序表初始化 void NodeInit(node* ps, int initcapacity); //2.顺序表释放 void NodeDestory(node* ps); //3.顺序表打印 void NodePrint(node* ps); //4.顺序表尾插 void NodePushback(node* ps, int x); //5.顺序表头插 void NodePushfront(node* ps, int x); //6.顺序表头删 void NodePopfront(node* ps); //7.顺序表尾删 void NodePopback(node* ps); //8.顺序表测试 void Testnode(); int NodeisEmpty(node* ps); //9.判断顺序表是否为空 int NodeisEmpty(node* ps) { 	assert(ps); 	return 0 == ps-&gt;szie; } //10.顺序表寻找元素返回下标 int NodeFind(node* ps, int x); //11.顺序表在pos位置插入x void NodeInsert(node* ps, size_t pos, int x); //12.顺序表删除pos位置的元素 void Nodedelet(node* ps, size_t pos); //1.顺序表的初始化 void NodeInit(node* ps, int initcapacity) { 	assert(ps); 	ps-&gt;arr = (int*)malloc(sizeof(int) * initcapacity); 	if (NULL == ps-&gt;arr) { 		assert(0); 		return; 	} 	ps-&gt;capacity = initcapacity; 	ps-&gt;szie = 0; } //2.顺序表的释放 void NodeDestory(node* ps) { 	assert(ps); 	if (ps-&gt;arr) { 		free(ps-&gt;arr); 		ps-&gt;capacity = 0; 		ps-&gt;szie = 0; 	} } //3.顺序表的打印 void NodePrint(node* ps) { 	assert(ps); 	for (int i = 0; i &lt; ps-&gt;szie; i++) { 		printf("%d ", ps-&gt;arr[i]); 	} 	printf("\n"); } //4.顺序表的尾插 void NodePushback(node* ps, int x) { 	assert(ps); 	if (ps-&gt;capacity &gt; ps-&gt;szie) { 		ps-&gt;arr[ps-&gt;szie] = x; 		ps-&gt;szie++; 	} 	else { 		printf("添加失败!\n"); 	} } //5.顺序表的头插 void NodePushfront(node* ps, int x) { 	assert(ps); 	if (ps-&gt;capacity &gt; ps-&gt;szie) { 		int tmp = ps-&gt;arr[0]; 		for (int i = ps-&gt;szie - 1; i &gt;= 0; i--) { 			ps-&gt;arr[i+1] = ps-&gt;arr[i]; 		} 		ps-&gt;arr[0] = x; 		ps-&gt;szie++; 	} 	else { 		printf("插入失败!\n"); 	}  } //6.顺序表的头删 void NodePopfront(node* ps) { 	assert(ps); 	for (int i = 0; i &lt; ps-&gt;szie - 1; i++) { 		ps-&gt;arr[i] = ps-&gt;arr[i+1]; 	} 	ps-&gt;szie--; } //7.顺序表的尾删 void NodePopback(node* ps) { 	if (NodeisEmpty(ps)) { 		return; 	} 	else { 		ps-&gt;szie--; 	} } //10.顺序表寻找元素返回下标 int NodeFind(node* ps, int x) { 	assert(ps); 	for (int i = 0; i &lt; ps-&gt;szie - 1; i++) { 		if (ps-&gt;arr[i] == x) { 			return i; 		} 	} 	return -1; } //11.顺序表在pos位置插入x void NodeInsert(node* ps, size_t pos, int x) { 	assert(ps); 	if (ps-&gt;capacity &gt; ps-&gt;szie) { 		for (int i =ps-&gt;szie-1; i &gt;pos-1; i--) { 			ps-&gt;arr[i+1] = ps-&gt;arr[i]; 		} 		ps-&gt;arr[pos] = x; 		ps-&gt;szie++; 	} } //12.顺序表删除pos位置的元素 void Nodedelet(node* ps, size_t pos) { 	assert(ps); 	for (int i = pos; i &lt; ps-&gt;szie; i++) { 		ps-&gt;arr[i] = ps-&gt;arr[i+1]; 	} 	ps-&gt;szie--; } //测试用例1 void Testnode1() { 	node s;//创建变量 	NodeInit(&amp;s, 10);//初始化 	NodePushback(&amp;s, 1);//尾插1 	NodePushback(&amp;s, 2);//尾插2 	NodePushback(&amp;s, 3);//尾插3 	NodePushback(&amp;s, 4);//尾插4 	NodePushback(&amp;s, 5);//尾插5 	NodePushback(&amp;s, 6);//尾插6	----&gt;顺序表里的数字为1 2 3 4 5 6 	NodePrint(&amp;s); 	NodePopback(&amp;s);//尾删1位元素 	NodePrint(&amp;s); 	NodePushback(&amp;s, 6);//再加回来 	NodePrint(&amp;s); 	NodePushfront(&amp;s, 0);//头插0;								----&gt;顺序表里的数字为0 1 2 3 4 5 6 	NodePrint(&amp;s); 	NodePopfront(&amp;s, 0);//头删0;								----&gt;顺序表里的数字为1 2 3 4 5 6 	NodePrint(&amp;s); 	NodeInsert(&amp;s, 3, 5);//在顺序表下标为3的元素前面插入5		----&gt;顺序表里的数字为1 2 3 5 4 5 6 	NodePrint(&amp;s); 	Nodedelet(&amp;s, 3);//删除下标为3的元素 	NodePrint(&amp;s); 	NodePrint(&amp;s); 	printf("找到数字3的下标为%d\n", NodeFind(&amp;s, 3));//找到3所对应的下标 	NodeDestory(&amp;s); 	NodePrint(&amp;s); } void Testnode() { 	Testnode1(); } int main() { 	Testnode(); 	return 0; }</code></pre> <p>&nbsp;<span style="color:#ffd900;">运行结果如下:</span></p> <p><img fetchpriority="high" decoding="async" alt="" height="647" src="http://img.555519.xyz/uploads/20230217/1e8de708f1b6eb6cf36e6995aec6b339.jpg"></p> <p>&nbsp;<span style="color:#ffd900;">非常简单,学会的扣1,没学会的扣眼珠子.</span></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-34968.htm">Docker最常用的镜像命令和容器命令</a></p>
+                                        <p>下一个：<a href="/news/article-35849.htm">网上开店无货源（网上开店无货源的货源在哪）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-31-free-high-speed-nodes.htm" title="「12月31日」最高速度19.1M/S，2025年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接">「12月31日」最高速度19.1M/S，2025年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-18-free-ssr-subscribe.htm" title="「7月18日」最高速度22.2M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅链接">「7月18日」最高速度22.2M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-16-clash-windows.htm" title="「6月16日」最高速度18.2M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接">「6月16日」最高速度18.2M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-29-shadowrocket-node.htm" title="「12月29日」最高速度22.5M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接">「12月29日」最高速度22.5M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-clash-node-daily-updates.htm" title="「11月14日」最高速度22.7M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接">「11月14日」最高速度22.7M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-5-free-v2ray-subscribe.htm" title="「12月5日」最高速度19.8M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接">「12月5日」最高速度19.8M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-free-high-speed-nodes.htm" title="「11月7日」最高速度21.3M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接">「11月7日」最高速度21.3M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-35849.htm" title="网上开店无货源（网上开店无货源的货源在哪）">网上开店无货源（网上开店无货源的货源在哪）</a></li>
+                        <li class="py-2"><a href="/news/article-27185.htm" title="动物疫苗规定有哪些类型（动物疫苗管理办法）">动物疫苗规定有哪些类型（动物疫苗管理办法）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-30-free-clash-subscribe.htm" title="「8月30日」最高速度22.5M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅链接">「8月30日」最高速度22.5M/S，2024年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <p class="copyright-text mb-0 me-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        SubscribeClashNode订阅节点站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JAVASCRIPT FILES -->
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.sticky.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/magnific-popup-options.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/click-scroll.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

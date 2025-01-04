@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://subscribeclashnode.github.io/news/article-34967.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Springboot的自动配置原理</title>
+        <meta name="description" content="Springboot：是对Spring框架做的一系列优化，减少了大量繁琐的配置，并提供了内置web服务器，让程序运行更快。 自动配置：用注解来对一些常规的配置做默认配置，简化xml配置内容，使你的项目" />
+        <link rel="icon" href="/assets/website/img/subscribeclashnode/favicon.ico" type="image/x-icon"/>
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/tooplate-waso-strategy.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPWBEXR622"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KPWBEXR622');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="projects-detail-page" id="section_1" data-page="detail">
+        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+        <div class="container">
+                        <a href="/" class="navbar-brand">Subscribe <span class="text-danger">ClashNode</span></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="#">关于</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">联系</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="hero section-hero section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mx-auto">
+                        <div class="section-hero-text">
+                            <h1 class="text-white">Springboot的自动配置原理</h1>
+                            <small class="small-title text-warning">
+                                <a href="/" class="text-warning">首页</a> / <a href="/news/" class="text-warning">新闻资讯</a> / <span>正文</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about section-padding" id="section_2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <p><strong>Springboot：</strong>是对Spring<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://so.csdn.net/so/search?q=%E6%A1%86%E6%9E%B6&amp;spm=1001.2101.3001.7020"  title="框架" rel="nofollow">框架</a>做的一系列优化，减少了大量繁琐的配置，并提供了内置web服务器，让程序运行更快。</p> <p><strong>自动配置：</strong>用注解来对一些常规的配置做默认配置，简化xml配置内容，使你的项目能够快速运行。自动装配最明显的特征就是不用xml文件去做配置，而是用properties文件或者yml文件，简单地写一些坐标就能实现各类负载地配置。简单来说，就是自动将Bean装配到IOC容器中<strong>。</strong></p> <p><strong>为什么需要自动配置</strong>：无须各种的配置文件，无须各种繁杂的pom坐标，一个main方法，就能run起来。</p> </h1> <p>Springboot的启动类，启动类的main方法 上有一个Springboot的核心注解<strong><span style="background-color:#e6b223;">@SpringbootApplication</span></strong></p> <p><img fetchpriority="high" decoding="async" alt="" height="258" src="http://img.555519.xyz/uploads/20230204/9649aa865e259d637d1fdd403d68a363.jpg"></p> <p>点进去SpringbootApplication注解看</p> <pre><code class="language-java">@Target({ElementType.TYPE}) //修饰类或接口、枚举 @Retention(RetentionPolicy.RUNTIME)//注解在源码,class文件中存在且运行时可以通过反射机制获取到 @Documented//可以在api文档显示 @Inherited//子类可以继承该注解 @SpringBootConfiguration //配置类 @EnableAutoConfiguration//开启自动装配 @ComponentScan //扫描 （不指明包名则默认范围自己所在包及其子类下） (     excludeFilters = {@Filter(     type = FilterType.CUSTOM,     classes = {TypeExcludeFilter.class} ), @Filter(     type = FilterType.CUSTOM,     classes = {AutoConfigurationExcludeFilter.class} )} )</code></pre> <p>&nbsp;关键作用的注解是<strong><span style="background-color:#e6b223;">@EnableAutoConfiguration，</span></strong>根据名称翻译就是开启自动配置。而@EnableAutoConfiguration也是一个复合注解，它包含了@AutoConfigurationPackage和@Import({AutoConfigurationImportSelector.class})。</p> <pre><code class="language-java">@Target({ElementType.TYPE}) @Retention(RetentionPolicy.RUNTIME) @Documented @Inherited @AutoConfigurationPackage @Import({AutoConfigurationImportSelector.class}) public @interface EnableAutoConfiguration {     String ENABLED_OVERRIDE_PROPERTY = "spring.boot.enableautoconfiguration";       Class&lt;?&gt;[] exclude() default {};       String[] excludeName() default {}; }</code></pre> <p>可以看到<strong><span style="background-color:#e6b223;">@AutoConfigurationPackage</span></strong>和<strong><span style="background-color:#e6b223;">@Import({AutoConfigurationImportSelector.class})</span></strong>注解加起来就是实现了自动配置的关键。</p> <p>@AutoConfigurationPackage注解，从字面意思上来看就是自动配置包。点进去可以看到就是⼀个 @Import 注解：@Import(AutoConfigurationPackages.Registrar.class) ，导⼊了⼀个Registrar 的组件，这个注解的作用就是将主配置类（@SpringBootConfiguration标注的类）所在的包及其下面所有子包里面所有的组件扫描到IOC容器中。所以说，默认情况下主配置类所在包及其子包以外的组件，Spring IOC容器是扫描不到的。</p> <p>@Import(AutoConfigurationImportSelector.class)注解通过@Import导入了AutoConfigurationImportSelector类，而这个类的selectImports方法会通过SpringFactoriesLoader得到大量的配置类。而每个配置类则根据条件化配置类做出决策，以实现自动配置的功能。</p> <p>我们写配置类只需要加入一个@Configuration注解，Springboot就可以轻松地自己找到想要地目标文件。</p> <p><strong>总结：</strong></p> <p>1.@EnableAutoConfiguration注解内部使用@Import（AutoConfigurationImportSelector.class）来加载配置类。</p> <p>2.配置文件位置：META-INF/spring.factories，该配置文件中定义了大量的配置类，当Springboot应用启动的时候，会自动加载这些配置类，初始化Bean。</p> <p>3.并不是所有的Bean都会被初始化，需要在配置类中使用Condition来加载满足条件的Bean。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-34745.htm">在Centos7上安装Redis6_在线工具</a></p>
+                                        <p>下一个：<a href="/news/article-34968.htm">Docker最常用的镜像命令和容器命令</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-7-20-free-v2ray-subscribe.htm" title="「7月20日」最高速度19.5M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接">「7月20日」最高速度19.5M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-5-clash-node-daily-updates.htm" title="「7月5日」最高速度18.9M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅链接">「7月5日」最高速度18.9M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-28103.htm" title="小型宠物粮食加工设备价格表最新（小型宠物粮加工厂需要什么手续）">小型宠物粮食加工设备价格表最新（小型宠物粮加工厂需要什么手续）</a></li>
+                        <li class="py-2"><a href="/news/article-25791.htm" title="Vuex入门mapState, mapGetters, mapMutations, mapActions详解终结篇带源码">Vuex入门mapState, mapGetters, mapMutations, mapActions详解终结篇带源码</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-28-free-node-subscribe.htm" title="「10月28日」最高速度20.4M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费机场订阅链接">「10月28日」最高速度20.4M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-25-free-shadowrocket-node.htm" title="「12月25日」最高速度18.6M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接">「12月25日」最高速度18.6M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-clash-node-daily-updates.htm" title="「11月14日」最高速度22.7M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接">「11月14日」最高速度22.7M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-1-free-v2ray-subscribe.htm" title="「9月1日」最高速度20.6M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅链接">「9月1日」最高速度20.6M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-20711.htm" title="宠物用疫苗可以带上高铁吗北京地区（宠物疫苗能上地铁吗）">宠物用疫苗可以带上高铁吗北京地区（宠物疫苗能上地铁吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-7-free-clash.htm" title="「8月7日」最高速度22.6M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅链接">「8月7日」最高速度22.6M/S，2024年Clash/Shadowrocket/SSR/V2ray每天更新免费机场订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <p class="copyright-text mb-0 me-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        SubscribeClashNode订阅节点站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JAVASCRIPT FILES -->
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.sticky.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/magnific-popup-options.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/click-scroll.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

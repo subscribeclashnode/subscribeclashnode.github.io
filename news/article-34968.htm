@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://subscribeclashnode.github.io/news/article-34968.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Docker最常用的镜像命令和容器命令</title>
+        <meta name="description" content="官方文档：https://docs.docker.com/referenc 1.1查看镜像 [root@localhost ~]# docker images REPOSITORY    TAG   " />
+        <link rel="icon" href="/assets/website/img/subscribeclashnode/favicon.ico" type="image/x-icon"/>
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/tooplate-waso-strategy.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPWBEXR622"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KPWBEXR622');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="projects-detail-page" id="section_1" data-page="detail">
+        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+        <div class="container">
+                        <a href="/" class="navbar-brand">Subscribe <span class="text-danger">ClashNode</span></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="#">关于</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">联系</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="hero section-hero section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mx-auto">
+                        <div class="section-hero-text">
+                            <h1 class="text-white">Docker最常用的镜像命令和容器命令</h1>
+                            <small class="small-title text-warning">
+                                <a href="/" class="text-warning">首页</a> / <a href="/news/" class="text-warning">新闻资讯</a> / <span>正文</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about section-padding" id="section_2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				</h1> <p>官方文档：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.docker.com/referenc"  target="_blank" rel="nofollow">https://docs.docker.com/referenc</a></p> <h2 id="11查看镜像">1.1查看镜像</h2> <pre><code class="language-sh">[root@localhost ~]# docker images REPOSITORY    TAG                IMAGE ID       CREATED         SIZE hello-world   latest             feb5d9fea6a5   6 months ago    13.3kB mysql         5.7                8cf625070931   8 months ago    448MB rabbitmq      3.8.3-management   867da7fcdf92   22 months ago   181MB</code></pre> <ul> <li>REPOSITORY：镜像在仓库中的名称</li> <li>TAG：镜像标签</li> <li>IMAGE ID：镜像ID</li> <li>CREATED：镜像创建日期（不是获取该镜像的日期）</li> <li>SIZE：镜像大小</li> </ul> <p>这些镜像都是存储在 Docker 宿主机的<code>var/lib/docker</code> 目录下的。</p> <h2 id="12搜索镜像">1.2搜索镜像</h2> <p>当需要从网络中找出需要的镜像，就可以通过以下命令搜索。</p> <pre><code class="language-sh">docker search 镜像名称</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/3a31e1f9454f0fd176d8a2fae0e03f58.jpg" alt="Docker最常用的镜像命令和容器命令"></p> <ul> <li>NAME：镜像名称</li> <li>DESCRIPTION：镜像描述</li> <li>STARS：用户评价（受欢迎的程度）</li> <li>OFFICIAL：是否为官方构建</li> <li>AUTOMATED：自动构建，表示该镜像是由 Docker Hub 自动构建流程创建的</li> </ul> <h2 id="13拉取镜像">1.3拉取镜像</h2> <p>拉取镜像就是从中央仓管总下载镜像到本地</p> <pre><code class="language-sh">docker pull 镜像名称</code></pre> <p>例如拉取 CentOS 镜像到本地，如果不声明 Tag 镜像标签信息则默认拉取 Latest 版本，也可以通过：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://hub.docker.com"  target="_blank" rel="nofollow">https://hub.docker.com</a> 搜索该镜像，查看支持的 Tag 信息。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/b41322327cf8a4d5e0282c0ca4819088.jpg" alt="Docker最常用的镜像命令和容器命令"></p> <p>通过 Tag 信息，下载centos7 的镜像。</p> <pre><code class="language-sh">docker pull centos:7</code></pre> <h2 id="14删除镜像">1.4删除镜像</h2> <p>按镜像 ID 删除镜像</p> <pre><code class="language-sh"># 删除单个镜像 docker rmi 镜像ID  # 删除多个镜像 docker rmi 镜像ID 镜像ID 镜像ID</code></pre> <p><code>docker images -q</code> 可以查询到所有镜像的 ID，通过组合命令可以实现删除所有镜像的操作。</p> <pre><code class="language-sh">docker rmi `docker images -q`</code></pre> <blockquote> <p>注意：如果通过了某个镜像创建了容器，则该镜像无法删除。</p> <p>解决办法：先删除镜像中的容器，在删除该镜像。</p> </blockquote> </h1> <h2 id="21查看容器">2.1查看容器</h2> <p>查看正在运行的容器</p> <pre><code class="language-sh">[root@localhost ~]# docker ps CONTAINER ID   IMAGE      COMMAND       CREATED         STATUS         PORTS     NAMES fdda4b253da0   centos:7   "/bin/bash"   3 seconds ago   Up 2 seconds             centos</code></pre> <ul> <li>CONTAINER ID：容器ID</li> <li>IMAGE：所属容器</li> <li>CREATED：创建时间</li> <li>STATUS：容器状态</li> <li>PORTS：端口</li> <li>NAMES：容器名称</li> </ul> <p>查看停止的容器</p> <pre><code class="language-sh">docker ps -f startus=exited</code></pre> <p>查看所有容器（包括运行和停止）</p> <pre><code class="language-sh">docker ps -a</code></pre> <p>查看最后一次运行的容器</p> <pre><code>docker ps -l</code></pre> <p>列出最近创建的 n 个容器</p> <pre><code>docker ps -n 3</code></pre> <h2 id="22创建与启动容器">2.2创建与启动容器</h2> <pre><code class="language-sh">docker run [OPTIONS] image [COMMAND] [ARG...]</code></pre> <ul> <li><code>-i</code>：表示运行容器；</li> <li><code>-t</code>：表示容器启动后会进入其命令行，也就是创建容器后就能登录进去；</li> <li><code>--name</code>：为创建的容器命名；</li> <li><code>-v</code>：表示目录映射关系（前者是宿主机目录，后者是映射到宿主机的目录）可以用多个<code>-v</code>做多个目录映射；</li> <li><code>-d</code>：创建一个守护式容器在后台运行，不会自动登录容器；</li> <li><code>-p</code>：表示端口映射，前者是宿主机端口，后者是容器内的映射端口，可以使用多个<code>-p</code>做多端口映射；</li> <li><code>-P</code>：随机使用宿主机的可用端口与容器内暴露的端口映射；</li> </ul> <h3 id="221创建并进入容器">2.2.1创建并进入容器</h3> <p>通过一个镜像名称创建一个容器，并进入容器的<code>/bin/bash</code></p> <pre><code class="language-sh">docker run -it --name 容器名称 镜像名称:标签 /bin/bash</code></pre> <blockquote> <p>注意：Docker 容器运行必须有一个前台进程，如果没有前台进程执行，容器认为是空闲状态，就会自动退出。</p> </blockquote> <p>退出当前容器</p> <pre><code class="language-sh">exit</code></pre> <h3 id="222守护式方式创建容器">2.2.2守护式方式创建容器</h3> <pre><code class="language-sh">docker run -id --name 容器名称 镜像名称:标签  # 登录守护式容器 docker exec -it 容器名称|容器ID /bin/bash</code></pre> <h2 id="23停止与启动容器">2.3停止与启动容器</h2> <pre><code class="language-sh"># 停止容器 docker stop 容器名称|容器ID  # 启动容器 docker start 容器名称|容器ID</code></pre> <h2 id="24文件拷贝">2.4文件拷贝</h2> <p>将文件拷贝到容器内可以使用<code>cp</code> 命令</p> <pre><code class="language-sh">docker cp 需要拷贝的文件或目录 容器名称:容器目录</code></pre> <p>将文件从容器内拷贝出来</p> <pre><code class="language-sh">docker cp 容器名称:容器目录 需要拷贝的文件或目录</code></pre> <h2 id="25目录挂载">2.5目录挂载</h2> <p>		目录挂载是属于容器数据卷操作，我们可以在创建容器的时候，将宿主机的目录与容器内的目录进行映射，这样的话可以通过修改宿主机某个目录的文件而去影响容器，而且这个操作是双向绑定的，也就是说容器内的操作也会影响到宿主机，实现备份功能。</p> <p>		但是容器被删除的时候，宿主机的内容并不会被删除，如果多个容器挂载同一个目录，其中一个容器被删除，其他容器的内容也不会受到影响。</p> <p>创建容器添加<code>-v</code> 参数，格式为<code>宿主机目录:容器目录</code>， 例如：</p> <pre><code class="language-sh">docker run -id -v /mydata/docker_centos/data:/usr/local/data --name centos01 centos:7  # 多个目录挂载 docker run -id -v 宿主机目录1:容器目录1 -v 宿主机目录2:容器目录2 --name 容器名 镜像名</code></pre> <blockquote> <p>在挂载时可能会出现权限不足的提示。这是因为 CentOS7 中的安全模块 SELinux 把权限禁掉了，在 docker run 时通过<code>-privileged=true</code> 给该容器加权限来解决挂载的目录没有权限的问题</p> </blockquote> <h3 id="251匿名挂载">2.5.1匿名挂载</h3> <p>匿名挂载只需要写容器目录即可，容器外对应的目录会在<code>/var/lib/docker/volumes</code> 中生成。</p> <pre><code class="language-sh"># 匿名挂载 docker run -id -v /usr/local/data --name centos02 centos:7  # 查看 volume 数据卷信息 docker volume ls</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/bd45da2e33bc914eb61686533199e5e2.jpg" alt="Docker最常用的镜像命令和容器命令"></p> <h3 id="252具名挂载">2.5.2具名挂载</h3> <p>具名挂载就是给数据卷取个名字，容器外对应的目录就会在<code>/var/lib/docker/volume</code>  中生成。</p> <pre><code class="language-sh"># 具名挂载 docker run -id -v docker_centos_data:/usr/local/data --name centos03 centos:7  # 查看 volume 数据卷信息 docker volume ls</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/87787cf92f7ead9c02f5ed156fa1f0e4.jpg" alt="Docker最常用的镜像命令和容器命令"></p> <h3 id="253指定目录挂载">2.5.3指定目录挂载</h3> <p>最开始的挂载就是指定目录挂载，这种方式的挂载不会在<code>/var/lib/docker/volume</code> 目录生成内容。</p> <pre><code class="language-sh">docker run -id -v /mydata/docker_centos/data:/usr/local/data --name centos01 centos:7  # 多个目录挂载 docker run -id -v 宿主机目录1:容器目录1 -v 宿主机目录2:容器目录2 --name 容器名 镜像名</code></pre> <h3 id="254查看目录挂载关系">2.5.4查看目录挂载关系</h3> <p>通过<code>docker volue inspect 数据卷名称</code> 可以查看该数据卷对应宿主机目录地址。</p> <pre><code class="language-sh">[root@localhost ~]# docker volume inspect centos_data [     {         "CreatedAt": "2022-03-30T20:40:07-07:00",         "Driver": "local",         "Labels": null,         "Mountpoint": "/var/lib/docker/volumes/centos_data/_data",         "Name": "centos_data",         "Options": null,         "Scope": "local"     } ]</code></pre> <p>通过<code>docker inspect 容器ID或名称</code>，在返回的 JSON 节点中找到<code>Mounts</code>， 可以查看详细数据挂载信息。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/99524020ce67dfaa60d88eff0e86d7c1.jpg" alt="Docker最常用的镜像命令和容器命令"></p> <h3 id="255只读只写">2.5.5只读只写</h3> <p>只读：只能通过修改宿主机内容实现对容器的数据管理</p> <pre><code class="language-sh">docker run -it -v 宿主机目录:容器目录:ro --name 容器名 镜像名:标签</code></pre> <p>只写：默认，宿主机和容器可以双向操作数据</p> <pre><code class="language-sh">docker run -it -v 宿主机目录:容器目录:rw --name 容器名 镜像名:标签</code></pre> <h3 id="256继承volumes-from">2.5.6继承（volumes-from）</h3> <p>也就是将其他一个或多个容器继承于某一个容器的挂载目录</p> <pre><code class="language-sh"># 容器 centos7-01 指定目录挂载 docker run -id -v /mydata/data:/usr/local/data --name centos7-01 centos:7  # 容器 centos7-02 和 centos7-03 相当于继承 centos7-01 容器的挂载目录、 docker run -id --volumes-from centos7-01:ro --name centos7-04 centos:7	# 只读 docker run -id --volumes-from centos7-01:rw --name centos7-05 centos:7	# 双向（默认）</code></pre> <h2 id="26查看容器ip地址">2.6查看容器IP地址</h2> <p>通过元信息查看</p> <pre><code class="language-sh">docker inspect 容器名称|容器ID</code></pre> <p>直接输入IP地址</p> <pre><code class="language-sh">docker inspect --format='{{.NetworkSettings.IPAddress}}' 容器名|容器ID</code></pre> <h2 id="27删除容器">2.7删除容器</h2> <pre><code class="language-sh"># 删除指定容器 docker rm 容器名称|容器ID  # 删除多个容器 docker rm 容器名称1|容器ID1 容器名称2|容器ID2</code></pre> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-34967.htm">Springboot的自动配置原理</a></p>
+                                        <p>下一个：<a href="/news/article-35848.htm">C语言实现顺序表的基本操作(简单版)</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-24855.htm" title="兽用疫苗注射器多少钱（兽用疫苗厂）">兽用疫苗注射器多少钱（兽用疫苗厂）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-21-clash-node-daily-updates.htm" title="「12月21日」最高速度22.4M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅链接">「12月21日」最高速度22.4M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-23-free-high-speed-nodes.htm" title="「6月23日」最高速度18.6M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费节点订阅链接">「6月23日」最高速度18.6M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-20-shadowrocket-node.htm" title="「11月20日」最高速度21.6M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接">「11月20日」最高速度21.6M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-21-free-clash.htm" title="「9月21日」最高速度22M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅链接">「9月21日」最高速度22M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-19-free-ssr-subscribe.htm" title="「7月19日」最高速度19.3M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接">「7月19日」最高速度19.3M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-5-free-v2ray-subscribe.htm" title="「12月5日」最高速度19.8M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接">「12月5日」最高速度19.8M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-11-free-ssr-subscribe.htm" title="「10月11日」最高速度21.4M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接">「10月11日」最高速度21.4M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-15-clash-windows.htm" title="「9月15日」最高速度18.1M/S，2024年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅链接">「9月15日」最高速度18.1M/S，2024年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-30926.htm" title="动物疫苗价格一览表图片高清大全图 动物疫苗价格一览表图片高清大全图库">动物疫苗价格一览表图片高清大全图 动物疫苗价格一览表图片高清大全图库</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <p class="copyright-text mb-0 me-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        SubscribeClashNode订阅节点站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JAVASCRIPT FILES -->
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.sticky.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/magnific-popup-options.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/click-scroll.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

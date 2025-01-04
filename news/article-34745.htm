@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://subscribeclashnode.github.io/news/article-34745.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>在Centos7上安装Redis6_在线工具</title>
+        <meta name="description" content="Redis是一个非常流行的NOSQL数据库，拥有的数据类型非常丰富，此处我们简单记录一下在Centos7上是如何安装Redis6的。Redis的安装是推荐使用源码进行安装的。  1、安装gcc依赖  " />
+        <link rel="icon" href="/assets/website/img/subscribeclashnode/favicon.ico" type="image/x-icon"/>
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/tooplate-waso-strategy.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPWBEXR622"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KPWBEXR622');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="projects-detail-page" id="section_1" data-page="detail">
+        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+        <div class="container">
+                        <a href="/" class="navbar-brand">Subscribe <span class="text-danger">ClashNode</span></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="#">关于</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">联系</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="hero section-hero section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mx-auto">
+                        <div class="section-hero-text">
+                            <h1 class="text-white">在Centos7上安装Redis6_在线工具</h1>
+                            <small class="small-title text-warning">
+                                <a href="/" class="text-warning">首页</a> / <a href="/news/" class="text-warning">新闻资讯</a> / <span>正文</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about section-padding" id="section_2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				</h1> <p><code>Redis</code>是一个非常流行的NOSQL数据库，拥有的数据类型非常丰富，此处我们简单记录一下在<code>Centos7</code>上是如何安装<code>Redis6</code>的。Redis的安装是推荐使用源码进行安装的。</p> </h1> <h2 id="1安装gcc依赖">1、安装gcc依赖</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220428/d43fa77edbc5ee762502994063d5f1e9.jpg" alt="在Centos7上安装Redis6_在线工具"></p> <h2 id="2下载redis6">2、下载redis6</h2> <pre><code class="language-bash">wget https://download.redis.io/releases/redis-6.2.6.tar.gz </code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220428/b14ba5e99db7cd1bb57c7b08b7f48911.jpg" alt="在Centos7上安装Redis6_在线工具"></p> <h2 id="3解压编译">3、解压编译</h2> <pre><code class="language-bash"># 解压 tar -zxvf redis-6.2.6.tar.gz # 进入解压后的目录 cd redis-6.2.6 # 执行编译，如果make出错，可以看下方 可能出现的错误 的这个标题 make </code></pre> <h2 id="4安装">4、安装</h2> <h3 id="1安装到默认的位置">1、安装到默认的位置</h3> <pre><code class="language-bash">make install </code></pre> <h3 id="2安装redis到指定的位置">2、安装redis到指定的位置</h3> <pre><code class="language-bash">make PREFIX=具体的路径 install </code></pre> <p><strong>此处我们安装到默认的路径下。</strong></p> <h2 id="5启动redis">5、启动redis</h2> <h2 id="1前台启动">1、前台启动</h2> <pre><code class="language-bash">redis-server </code></pre> <h2 id="2后台启动">2、后台启动</h2> <p><code>vim redis.conf</code>，这个文件默认在<code>redis-6.2.6/redis.conf</code><br /> 修改</p> <pre><code class="language-bash">daemonize yes </code></pre> <p>启动</p> <pre><code class="language-bash">redis-server redis.conf </code></pre> <h2 id="6防火墙放行6379端口">6、防火墙放行6379端口</h2> <pre><code class="language-bash">[root@centos01 redis-6.2.6]# firewall-cmd --zone=public --add-port=6379/tcp --permanent success [root@centos01 redis-6.2.6]# firewall-cmd --reload success </code></pre> <h2 id="7连接到redis">7、连接到redis</h2> <pre><code class="language-bash">[appuser@centos01 ~]$ redis-cli -h 127.0.0.1 -p 6379 127.0.0.1:6379&gt; </code></pre> </h1> <table> <thead> <tr> <th>配置项</th> <th>值</th> <th>解释</th> </tr> </thead> <tbody> <tr> <td>port</td> <td>6379</td> <td>客户端通讯端口,redis服务器启动的端口</td> </tr> <tr> <td>daemonize</td> <td>yes</td> <td>以后台的方式运行</td> </tr> <tr> <td>bind</td> <td>192.168.56.101</td> <td>redis服务启动时绑定的ip地址,是本地网卡的地址</td> </tr> <tr> <td>pidfile</td> <td>/var/run/redis_6379.pid</td> <td>当是以后台方式运行时，会产生一个pid文件</td> </tr> <tr> <td>logfile</td> <td>/var/log/redis_6379.log</td> <td>指定日志文件的路径</td> </tr> <tr> <td>dir</td> <td>./</td> <td>数据库的持久化文件保存的路径，必须是目录</td> </tr> <tr> <td>appendonly</td> <td>yes</td> <td>打开aof持久化</td> </tr> <tr> <td>appendfsync</td> <td>everysec</td> <td>aof每秒写入一次</td> </tr> <tr> <td>appendfilename</td> <td>appendonly.aof</td> <td>aof文件名</td> </tr> <tr> <td>requirepass</td> <td>123456</td> <td>设置一个redis的密码，可以设置的复杂一些</td> </tr> <tr> <td>maxclients</td> <td>10000</td> <td>设置最大可以有多少个连接连接到redis server</td> </tr> <tr> <td>maxmemory</td> <td>2GB</td> <td>设置redis最多可用的内存</td> </tr> </tbody> </table> </h1> <h2 id="1zmalloch5031-致命错误jemallocjemalloch没有那个文件或目录">1、zmalloc.h:50:31: 致命错误：jemalloc/jemalloc.h：没有那个文件或目录</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220428/8fd4f9fb1d18e7863a35e6800cf21962.jpg" alt="在Centos7上安装Redis6_在线工具"><br /> 经过百度，可知通过<code>make MALLOC=libc</code>命令解决。</p> <h2 id="2如果出现了connection-refused">2、如果出现了Connection refused</h2> <p>1、检查redis端口是否放行<br /> 2、检查redis.conf 中bind的值，默认只能通过127.0.0.1来访问。<br /> 学习测试可以配置成 <code>bind 0.0.0.0</code>，生产环境不可以。</p> <h2 id="3如果rdb保存失败时">3、如果rdb保存失败时</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220428/f730df0ff3921752da6748f1b5af3618.jpg" alt="在Centos7上安装Redis6_在线工具"><br /> 如果出现了如上日志，那么我们可以修改<code>vm.overcommit_memory=1</code>来解决。</p> </h1> <p>1、<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://redis.io/topics/quickstart"  target="_blank"  rel="nofollow">Redis Quick Start</a></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-34743.htm">vue中给buttion按钮添加键盘回车（enter）事件</a></p>
+                                        <p>下一个：<a href="/news/article-34967.htm">Springboot的自动配置原理</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-8-15-free-node-subscribe-links.htm" title="「8月15日」最高速度21M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接">「8月15日」最高速度21M/S，2024年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-23462.htm" title="聊城宠物用品批发市场在哪里呀（聊城宠物用品批发市场在哪里呀多少钱）">聊城宠物用品批发市场在哪里呀（聊城宠物用品批发市场在哪里呀多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-13-clash-node-daily-updates.htm" title="「9月13日」最高速度21.4M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅链接">「9月13日」最高速度21.4M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-28-free-node-subscribe.htm" title="「10月28日」最高速度20.4M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费机场订阅链接">「10月28日」最高速度20.4M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-7-free-high-speed-nodes.htm" title="「10月7日」最高速度20.9M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接">「10月7日」最高速度20.9M/S，2024年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-16-free-shadowrocket-node.htm" title="「11月16日」最高速度18.3M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅链接">「11月16日」最高速度18.3M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-27-free-v2ray-subscribe.htm" title="「8月27日」最高速度21.5M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接">「8月27日」最高速度21.5M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-31-shadowrocket-node.htm" title="「10月31日」最高速度22.7M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接">「10月31日」最高速度22.7M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-24-free-node-subscribe-links.htm" title="「11月24日」最高速度20.4M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接">「11月24日」最高速度20.4M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-19-free-high-speed-nodes.htm" title="「6月19日」最高速度18M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费节点订阅链接">「6月19日」最高速度18M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <p class="copyright-text mb-0 me-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        SubscribeClashNode订阅节点站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JAVASCRIPT FILES -->
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.sticky.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/magnific-popup-options.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/click-scroll.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

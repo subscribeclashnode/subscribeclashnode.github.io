@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://subscribeclashnode.github.io/news/article-34743.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>vue中给buttion按钮添加键盘回车（enter）事件</title>
+        <meta name="description" content="项目中遇到点击查询按钮可以查出数据，点击回车键也能查出数据，所以就想点击回车键时调用查询方法。 以下代码可实现此功能。 首先，button上有click事件，点击可实现搜索查询； created(){" />
+        <link rel="icon" href="/assets/website/img/subscribeclashnode/favicon.ico" type="image/x-icon"/>
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/tooplate-waso-strategy.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPWBEXR622"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KPWBEXR622');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="projects-detail-page" id="section_1" data-page="detail">
+        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+        <div class="container">
+                        <a href="/" class="navbar-brand">Subscribe <span class="text-danger">ClashNode</span></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="#">关于</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">联系</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="hero section-hero section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mx-auto">
+                        <div class="section-hero-text">
+                            <h1 class="text-white">vue中给buttion按钮添加键盘回车（enter）事件</h1>
+                            <small class="small-title text-warning">
+                                <a href="/" class="text-warning">首页</a> / <a href="/news/" class="text-warning">新闻资讯</a> / <span>正文</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about section-padding" id="section_2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>项目中遇到点击查询按钮可以查出数据，点击回车键也能查出数据，所以就想点击回车键时调用查询方法。</p> <p>以下代码可实现此功能。</p> <p>首先，button上有click事件，点击可实现搜索查询；</p> <p>created(){}函数里面调用回车按下的事件方法</p> <p>关键的地方就是按下回车键的方法</p> <p><code class="language-html">methods:{<!-- --><br /> &nbsp;keyupEnter(){<!-- --><br /> &nbsp; &nbsp;document.onkeydown = e =&gt;{<!-- --><br /> &nbsp; &nbsp; &nbsp; let body = document.getElementsByTagName('body')[0]<br /> &nbsp; &nbsp; &nbsp; &nbsp; if (e.keyCode === 13 &amp;&amp; e.target.baseURI.match(/inputbook/) &amp;&amp; e.target === body) {<!-- --><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console.log('enter') // match(此处应填写文件在浏览器中的地址，如 '/home/index')，不写的话，其他页面也会有调用回车按下的方法<br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;this.handleAddBook() //调用查询方法<br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br /> &nbsp; &nbsp; &nbsp; &nbsp;}<br /> &nbsp; &nbsp; },<br /> &nbsp; &nbsp; handleAddBook(){<!-- --><br /> &nbsp; &nbsp; &nbsp;&nbsp;<br /> &nbsp; &nbsp; }<br /> }</code></p> <p>&nbsp;</p> <p>示例代码如下：</p> <p>一、第一步： 给button按钮绑定@keyup.enter</p> <pre><code class="language-html hljs">&lt;div class="btn"&gt; &lt;!--如果是封装过的按钮，不是原生的按钮，需要加上.native才能生效--&gt;        &lt;Button  type="primary" @click="handleAddBook" @keyup.enter.native="handleAddBook"&gt;录入&lt;/Button&gt; &lt;/div&gt;</code></pre> <p>&nbsp;</p> <p>二、第二步：浏览器url：event.target.baseURI; 获取浏览器的路径地址</p> <pre><code class="language-html hljs">// 创建时 created(){        this.keyupEnter()//页面在创建时就调用键盘的回车事件，在结构代码中也可以不写@keyup.enter.native="handleAddBook"  },   methods:{             keyupEnter(){                 document.onkeydown = e =&gt;{                     let body = document.getElementsByTagName('body')[0]                     if (e.keyCode === 13 &amp;&amp; e.target.baseURI.match(/inputbook/) &amp;&amp; e.target === body) {                         console.log('enter') // match(此处应填写文件在浏览器中的地址，如 '/home/index')                         this.handleAddBook()                     }                 }             },             handleAddBook(){                 if(this.validate()){                     this._printQrcode()                 }               } }     </code></pre> <p>&nbsp;</p> <p>转载于:https://www.cnblogs.com/wangdashi/p/9646219.html</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-34269.htm">PHP如何在同一文件中定义多个命名空间</a></p>
+                                        <p>下一个：<a href="/news/article-34745.htm">在Centos7上安装Redis6_在线工具</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-8-3-shadowrocket-node.htm" title="「8月3日」最高速度19.5M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅链接">「8月3日」最高速度19.5M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-23-free-v2ray-subscribe.htm" title="「12月23日」最高速度20.6M/S，2024年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅链接">「12月23日」最高速度20.6M/S，2024年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-25-free-high-speed-nodes.htm" title="「10月25日」最高速度21.8M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅链接">「10月25日」最高速度21.8M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-13-free-shadowrocket-node.htm" title="「8月13日」最高速度20.3M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅链接">「8月13日」最高速度20.3M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-27-free-v2ray-subscribe.htm" title="「9月27日」最高速度19.8M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费机场订阅链接">「9月27日」最高速度19.8M/S，2024年V2ray/Clash/Shadowrocket/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-8-clash-node-daily-updates.htm" title="「6月8日」最高速度20.4M/S，2024年Clash/SSR/Shadowrocket/V2ray每天更新免费节点订阅链接">「6月8日」最高速度20.4M/S，2024年Clash/SSR/Shadowrocket/V2ray每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-27185.htm" title="动物疫苗规定有哪些类型（动物疫苗管理办法）">动物疫苗规定有哪些类型（动物疫苗管理办法）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-6-19-free-high-speed-nodes.htm" title="「6月19日」最高速度18M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费节点订阅链接">「6月19日」最高速度18M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-1-free-subscribe-node.htm" title="「10月1日」最高速度22M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅链接">「10月1日」最高速度22M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-23-free-node-subscribe.htm" title="「9月23日」最高速度19.4M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅链接">「9月23日」最高速度19.4M/S，2024年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2024-06/" title="2024-06 归档">2024-06</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <p class="copyright-text mb-0 me-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        SubscribeClashNode订阅节点站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JAVASCRIPT FILES -->
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.sticky.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/magnific-popup-options.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/click-scroll.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
