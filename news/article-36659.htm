@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://subscribeclashnode.github.io/news/article-36659.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>数据库事务四大特性、四大隔离级别以及解决的三种问题</title>
+        <meta name="description" content="一、数据库事务的四大特性：（ACID）  原子性( Atomicity )：指的是事务是一个不可分割的工作单位，要不全部成功，要不全部回滚 一致性( Consistensy )：事务在执行前后数据库处" />
+        <link rel="icon" href="/assets/website/img/subscribeclashnode/favicon.ico" type="image/x-icon"/>
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/tooplate-waso-strategy.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPWBEXR622"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KPWBEXR622');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="projects-detail-page" id="section_1" data-page="detail">
+        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+        <div class="container">
+                        <a href="/" class="navbar-brand">Subscribe <span class="text-danger">ClashNode</span></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="#">关于</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">联系</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="hero section-hero section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mx-auto">
+                        <div class="section-hero-text">
+                            <h1 class="text-white">数据库事务四大特性、四大隔离级别以及解决的三种问题</h1>
+                            <small class="small-title text-warning">
+                                <a href="/" class="text-warning">首页</a> / <a href="/news/" class="text-warning">新闻资讯</a> / <span>正文</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about section-padding" id="section_2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p><strong>一、数据库事务的四大特性：（ACID）</strong></p> <ul> <li><strong>原子性( Atomicity )</strong>：指的是事务是一个不可分割的工作单位，要不全部成功，要不全部回滚</li> <li><strong>一致性( Consistensy )</strong>：事务在执行前后数据库处于一致性。（如：AB之间转账，A少100，B必须要增加100）</li> <li><strong>隔离性( Isolation )：</strong>多个用户并发访问数据库时，一个用户的事务不能被其他用户的事务所干扰，多个并发事务之间数据要相互隔离</li> <li><strong>持久性( Durability )：</strong>指一个事务一旦被提交，他对数据库的影响是永久性的。</li> </ul> <p><strong>二、数据库事务隔离级别</strong><strong>与</strong><strong>数据（脏读，不可重复读，幻读）</strong></p> <p><strong>前提：事务并发情况下</strong></p> <p>由低到高依次为Read uncommitted 、Read committed 、Repeatable read 、Serializable ，这四个级别可以逐个解决脏读 、不可重复读 、幻读 这几类问题</p> <p><strong>1、读未提交（Read Uncommitted）</strong></p> <p>当隔离级别设置 read uncommittend时，容易出现数据的脏读。</p> <p>如：A向B还钱，但是该事务没有提交，此时B正好去查看发现多了100，觉得A可以啊，可是此时A 发现了多打了100，迅速回滚事务，修改金额，提交事务，最后B 心理有了落差感</p> <p><strong>脏读：读取到了未提交的数据</strong></p> <p><strong>2、读已提交（Read Committed ）</strong></p> <p>当隔离级别设置为 read committed 时，避免了脏读，但是可能会造成不可重复读。</p> <p>如：A与B 同时操作A的卡，A在进行插卡付款这个过程中，插卡时显示有500元，此时B在他付款前，把A中的 500 元全花了，导致A 付款失败，刷了一夜盘子</p> <p><strong>不可重复读：是指在一个事务内,多次读同一条数据。在这个事务还没有结束时,另一个事务对该数据进行了修改了，导致两次读取的数据不同</strong></p> <p>注意：大多数数据库的默认级别就是Read committed，比如Sql Server , Oracle。</p> <p><strong>3、可重复读 ( Repeatable Read )</strong></p> <p>当隔离级别设置为 repeatable read 时，避免了不可重复读，但是可能会造成幻读。</p> <p>如：当B 在查看A 的消费记录时，转了一下头，A此时买了一个裤衩，又新增了一条记录，回头时B发现怎么又多了一条记录，以为出现了幻觉</p> <p><strong>幻读：指的在一个事务内，前后查询同一范围内的数据，发现前后两次查询的数据不一样。</strong></p> <p>注意：Mysql的默认隔离级别是Repeatable read。</p> <p><strong>4、可串行化 ( Serialzable )</strong></p> <p>serializable是最高的事务隔离级别，在此级别下，事务顺序执行，不仅可以避免脏读，不可重复读，还避免了幻读，但是，性能很低，代价高昂，一般很少使用</p> <p>注意：脏读与不可重复读针对的都是同一条数据，幻读针对的是一部分数据</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-35953.htm">北京有没有免费领养宠物（北京在哪领养宠物）</a></p>
+                                        <p>下一个：<a href="/news/article-36660.htm">厦门同安宠物领养中心地址电话查询（同安有哪些宠物医院）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-26719.htm" title="上海宠物医院有多少家分院啊（上海宠物医院知乎）">上海宠物医院有多少家分院啊（上海宠物医院知乎）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-24-node-share-links.htm" title="「12月24日」最高速度18.8M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接">「12月24日」最高速度18.8M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-27-free-ssr-node.htm" title="「12月27日」最高速度22.2M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅链接">「12月27日」最高速度22.2M/S，2024年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-33787.htm" title="动物疫苗打一次管多长时间有效呢（动物疫苗打一次管多长时间有效呢图片）">动物疫苗打一次管多长时间有效呢（动物疫苗打一次管多长时间有效呢图片）</a></li>
+                        <li class="py-2"><a href="/news/article-19341.htm" title="附近宠物收容中心（附近宠物收容中心电话）">附近宠物收容中心（附近宠物收容中心电话）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-9-free-node-subscribe.htm" title="「10月9日」最高速度20.5M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅链接">「10月9日」最高速度20.5M/S，2024年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-29780.htm" title="学宠物美容师怎么样,有前景吗知乎（学宠物美容师怎么样,有前景吗知乎）">学宠物美容师怎么样,有前景吗知乎（学宠物美容师怎么样,有前景吗知乎）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-24-clash-node.htm" title="「10月24日」最高速度18M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅链接">「10月24日」最高速度18M/S，2024年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-29779.htm" title="git命令详解">git命令详解</a></li>
+                        <li class="py-2"><a href="/news/article-35953.htm" title="北京有没有免费领养宠物（北京在哪领养宠物）">北京有没有免费领养宠物（北京在哪领养宠物）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <p class="copyright-text mb-0 me-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        SubscribeClashNode订阅节点站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JAVASCRIPT FILES -->
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.sticky.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/magnific-popup-options.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/click-scroll.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
