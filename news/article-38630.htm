@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://subscribeclashnode.github.io/news/article-38630.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>React18新增特性released的使用_React</title>
+        <meta name="description" content="目录  新功能：Automatic Batching 新功能：Transitions 新的Suspense功能 新的客户端和服务器Rendering APIs  React DOM Client Re" />
+        <link rel="icon" href="/assets/website/img/subscribeclashnode/favicon.ico" type="image/x-icon"/>
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/tooplate-waso-strategy.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPWBEXR622"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KPWBEXR622');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="projects-detail-page" id="section_1" data-page="detail">
+        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+        <div class="container">
+                        <a href="/" class="navbar-brand">Subscribe <span class="text-danger">ClashNode</span></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="#">关于</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">联系</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="hero section-hero section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mx-auto">
+                        <div class="section-hero-text">
+                            <h1 class="text-white">React18新增特性released的使用_React</h1>
+                            <small class="small-title text-warning">
+                                <a href="/" class="text-warning">首页</a> / <a href="/news/" class="text-warning">新闻资讯</a> / <span>正文</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about section-padding" id="section_2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">新功能：Automatic Batching</a></li> <li><a href="#_label1" rel="nofollow">新功能：Transitions</a></li> <li><a href="#_label2" rel="nofollow">新的Suspense功能</a></li> <li><a href="#_label3" rel="nofollow">新的客户端和服务器Rendering APIs</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_3_0" rel="nofollow">React DOM Client</a></li> <li><a href="#_lab2_3_1" rel="nofollow">React DOM Server</a></li> </ul> <li><a href="#_label4" rel="nofollow">新的Strict Mode Behaviors</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_4_2" rel="nofollow">新Hooks</a></li> </ul> </ul> </div> <p>React 18 中的新增功能</p> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>新功能：Automatic Batching</h2> <p>批处理是指 React 将多个状态更新分组到单个重新呈现中以获得更好的性能。在没有自动批处理的情况下，我们只在 React 事件处理程序中批处理更新。默认情况下，promises、setTimeout、本机事件处理程序或任何其他事件内部的更新不会在 React 中进行批处理。使用自动批处理时，将自动批处理这些更新：</p> <div class="ay1code"> <pre class="brush:js;">// Before: only React events were batched.  setTimeout(() =&gt; {    setCount(c =&gt; c + 1);    setFlag(f =&gt; !f);    // React will render twice, once for each state update (no batching)  }, 1000);    // After: updates inside of timeouts, promises,  // native event handlers or any other event are batched.`  setTimeout(() =&gt; {    setCount(c =&gt; c + 1);    setFlag(f =&gt; !f);    // React will only re-render once at the end (that's batching!)  }, 1000);</pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>新功能：Transitions</h2> <p>Transitions是 React 中的一个新概念，用于区分紧急和非紧急更新。</p> <p>紧急更新反映了直接交互，如打字、单击、按下等。</p> <p>过渡更新将 UI 从一个视图转换为另一个视图。</p> <p>紧急更新，如打字，点击或按下，需要立即响应，以匹配我们对物理对象行为方式的直觉。否则他们会觉得"错了"。但是，过渡是不同的，因为用户不希望在屏幕上看到每个中间值。</p> <p>例如，当您在下拉列表中选择筛选器时，您希望筛选器按钮本身在单击时立即响应。但是，实际结果可能会单独转换。一个小小的延迟是难以察觉的，而且往往是意料之中的。如果在结果渲染完成之前再次更改滤镜，则只需查看最新结果即可。</p> <p>通常，为了获得最佳用户体验，单个用户输入应同时导致紧急更新和非紧急更新。您可以在输入事件中使用 startTransition API 来通知 React 哪些更新是紧急的，哪些是"转换"：</p> <div class="ay1code"> <pre class="brush:js;">import {startTransition} from 'react';    // Urgent: Show what was typed  setInputValue(input);    // Mark any state updates inside as transitions  startTransition(() =&gt; {    // Transition: Show the results    setSearchQuery(input);  });</pre> </div> <p>startTransition 中包装的更新将作为非紧急更新进行处理，如果出现更紧急的更新（如单击或按键），则会中断。如果一个过渡被用户打断（例如，通过连续键入多个字符），React 将抛出未完成的陈旧的渲染工作，只渲染最新的更新。</p> <p>useTransition：用于启动转换的挂钩，包括用于跟踪挂起状态的值。</p> <p>startTransition：一种在无法使用挂钩时启动转换的方法。</p> <p>转换将选择加入并发渲染，从而允许中断更新。如果内容重新挂起，过渡还会告诉 React 继续显示当前内容，同时在后台呈现过渡内容（有关详细信息，请参阅悬念 RFC）。</p> <p>在此处查看有关过渡的文档.</p> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>新的Suspense功能</h2> <p>Suspense 允许您以声明方式指定组件树的某个部分的加载状态（如果该部分尚未准备好显示）：</p> <div class="ay1code"> <pre class="brush:xml;">&lt;Suspense fallback={&lt;Spinner /&gt;}&gt;    &lt;Comments /&gt;&lt;/Suspense&gt;</pre> </div> <p>Suspense 使"UI 加载状态"成为 React 编程模型中的第一类声明性概念。这使我们能够在其上构建更高级别的功能。</p> <p>几年前，我们推出了限量版的悬疑。但是，唯一受支持的用例是使用 React.lazy 进行代码拆分，并且在服务器上渲染时根本不支持。</p> <p>在 React 18 中，我们在服务器上添加了对 Suspense 的支持，并使用并发渲染功能扩展了其功能。</p> <p>React 18 中的悬念在与过渡 API 结合使用时效果最佳。如果在转换期间挂起，React 将阻止已经可见的内容被回退替换。相反，React 将延迟渲染，直到加载了足够的数据以防止错误的加载状态。</p> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>新的客户端和服务器Rendering APIs</h2> <p>在此版本中，我们借此机会重新设计了用于在客户端和服务器上呈现的 API。这些更改允许用户在升级到 React 18 中的新 API 时，在 React 17 模式下继续使用旧 API。</p> <p class="maodian"><a name="_lab2_3_0" rel="nofollow"></a></p> <h3>React DOM Client</h3> <p>这些新的 API 现在从 react-dom/client 导出:</p> <p>createRoot：用于创建要render或unmount的根的新方法。使用它而不是 ReactDOM.render。React 18 中的新功能没有它就无法正常工作。</p> <p>hydrateRoot：冻结服务器呈现的应用程序的新方法。将它而不是 ReactDOM.hydrate 与新的 React DOM Server API 结合使用。React 18 中的新功能没有它就无法正常工作。</p> <p>createRoot 和 hydrateRoot 都接受一个名为 onRecoverableError 的新选项，以防您希望在 React 从渲染或用于日志记录的水化错误中恢复时收到通知。默认情况下，React 将在较旧的浏览器中使用 reportError 或 console.error。</p> <p class="maodian"><a name="_lab2_3_1" rel="nofollow"></a></p> <h3>React DOM Server</h3> <p>这些新的 API 现在从 react-dom/server 导出，并且完全支持服务器上的流式 Suspense：</p> <p>renderToPipeableStream：用于在 Node 环境中进行流式处理。</p> <p>renderToReadableStream：适用于现代边缘运行时环境，如 Deno 和 Cloudflare worker。</p> <p>现有的 renderToString 方法继续工作，但不鼓励使用。</p> <p class="maodian"><a name="_label4" rel="nofollow"></a></p> <h2>新的Strict Mode Behaviors</h2> <p>以后我们希望添加一个功能，允许 React 在保留状态的同时添加和删除 UI 的各个部分。例如，当用户离开屏幕并返回时，React 应该能够立即显示上一个屏幕。为此，React 将使用与以前相同的组件状态卸载和重新挂载树。</p> <p>此功能将为 React 应用程序提供更好的开箱即用性能，但要求组件能够灵活应对多次装载和破坏的效果。大多数效果无需任何更改即可工作，但有些效果假定它们只安装或销毁一次。</p> <p>为了帮助解决这些问题，React 18 在严格模式下引入了一个新的仅限开发的检查。每当组件首次装载时，此新检查将自动卸载并重新装载每个组件，并在第二次装载时恢复以前的状态。</p> <p>在此更改之前，React 将挂载组件并创建效果：</p> <p>React mounts the component.</p> <ul> <li>Layout effects are created.</li> <li>Effects are created.</li> </ul> <p>在 React 18 中的严格模式中，React 将模拟在开发模式下卸载和重新挂载组件：</p> <p>React mounts the component.</p> <ul> <li>Layout effects are created.</li> <li>Effects are created.</li> </ul> <p>React simulates unmounting the component.</p> <ul> <li>Layout effects are destroyed.</li> <li>Effects are destroyed.</li> </ul> <p>React simulates mounting the component with the previous state.</p> <ul> <li>Layout effects are created.</li> <li>Effects are created.</li> </ul> <p class="maodian"><a name="_lab2_4_2" rel="nofollow"></a></p> <h3>新Hooks</h3> <p><strong>useId</strong></p> <p>useId 是一个新的钩子，用于在客户端和服务器上生成唯一 ID，同时避免水化不匹配。它主要用于与需要唯一 ID 的辅助功能 API 集成的组件库。这解决了 React 17 及更低版本中已经存在的问题，但在 React 18 中更为重要，因为新的流式处理服务器呈现器如何无序地交付 HTML。</p> <p><strong>useTransition</strong></p> <p>useTransition 和 startTransition 允许您将某些状态更新标记为不紧急。默认情况下，其他状态更新被视为紧急。React 将允许紧急状态更新（例如，更新文本输入）以中断非紧急状态更新（例如，呈现搜索结果列表）。</p> <p><strong>useDeferredValue</strong></p> <p>useDeferredValue 允许您推迟重新呈现树的非紧急部分。它类似于去抖动，但与它相比具有一些优点。没有固定的时间延迟，所以 React 会在第一个渲染反映在屏幕上后立即尝试延迟渲染。延迟的渲染是可中断的，并且不会阻止用户输入。</p> <p><strong>useSyncExternalStore</strong></p> <p>useSyncExternalStore 是一个新的挂钩，它允许外部存储通过强制对存储的更新进行同步来支持并发读取。在实现对外部数据源的订阅时，它消除了对 useEffect 的需求，并且建议用于与 React 外部的状态集成的任何库。</p> <p>注意：useSyncExternalStore 旨在供库使用，而不是应用程序代码。</p> <p><strong>useInsertionEffect</strong></p> <p>useInsertionEffect 是一个新的钩子，它允许 CSS-in-JS 库解决在渲染中注入样式的性能问题。除非你已经构建了一个CSS-in-JS库，否则我们不希望你使用它。此挂钩将在 DOM 发生突变后运行，但在布局效果读取新布局之前运行。这解决了 React 17 及更低版本中已经存在的问题，但在 React 18 中更为重要，因为 React 在并发渲染期间让位于浏览器，使其有机会重新计算布局。</p> <p>注意：useInsertionEffect 旨在供库使用，而不是应用程序代码。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-38628.htm">PHP与JSON的一些常用操作</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-19341.htm" title="附近宠物收容中心（附近宠物收容中心电话）">附近宠物收容中心（附近宠物收容中心电话）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-20-clash-windows.htm" title="「10月20日」最高速度22.4M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接">「10月20日」最高速度22.4M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-33788.htm" title="小型宠物粮食加工设备价格表 小型宠物粮食加工设备价格表图片">小型宠物粮食加工设备价格表 小型宠物粮食加工设备价格表图片</a></li>
+                        <li class="py-2"><a href="/news/article-28103.htm" title="小型宠物粮食加工设备价格表最新（小型宠物粮加工厂需要什么手续）">小型宠物粮食加工设备价格表最新（小型宠物粮加工厂需要什么手续）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-25-free-shadowrocket-node.htm" title="「12月25日」最高速度18.6M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接">「12月25日」最高速度18.6M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-29780.htm" title="学宠物美容师怎么样,有前景吗知乎（学宠物美容师怎么样,有前景吗知乎）">学宠物美容师怎么样,有前景吗知乎（学宠物美容师怎么样,有前景吗知乎）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-18-free-clash-subscribe.htm" title="「11月18日」最高速度22.9M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接">「11月18日」最高速度22.9M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-1-shadowrocket-node.htm" title="「12月1日」最高速度21.2M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接">「12月1日」最高速度21.2M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-clash-v2ray-ss-ssr.htm" title="「1月8日」最高速度19.7M/S，2025年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接">「1月8日」最高速度19.7M/S，2025年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-17-free-ssr-subscribe.htm" title="「12月17日」最高速度21.6M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接">「12月17日」最高速度21.6M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <p class="copyright-text mb-0 me-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        SubscribeClashNode订阅节点站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JAVASCRIPT FILES -->
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.sticky.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/magnific-popup-options.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/click-scroll.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

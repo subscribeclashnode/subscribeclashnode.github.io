@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://subscribeclashnode.github.io/news/article-38628.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PHP与JSON的一些常用操作</title>
+        <meta name="description" content="PHP把数据写入JSON文件 &lt;?php // 生成一个PHP数组 $data  =  array (); $data ["fruit"] = "apple" ; $data ["animal"" />
+        <link rel="icon" href="/assets/website/img/subscribeclashnode/favicon.ico" type="image/x-icon"/>
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/tooplate-waso-strategy.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPWBEXR622"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KPWBEXR622');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="projects-detail-page" id="section_1" data-page="detail">
+        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+        <div class="container">
+                        <a href="/" class="navbar-brand">Subscribe <span class="text-danger">ClashNode</span></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="#">关于</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">联系</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="hero section-hero section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mx-auto">
+                        <div class="section-hero-text">
+                            <h1 class="text-white">PHP与JSON的一些常用操作</h1>
+                            <small class="small-title text-warning">
+                                <a href="/" class="text-warning">首页</a> / <a href="/news/" class="text-warning">新闻资讯</a> / <span>正文</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about section-padding" id="section_2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-github-gist"> <h4> <a id="PHPJSON_2" rel="nofollow"></a>PHP把数据写入JSON文件</h4> <pre><code class="prism language-php"><span class="token delimiter important">&lt;?php</span> <span class="token comment">// 生成一个PHP数组</span> <span class="token variable">$data</span>  <span class="token operator">=</span>  <span class="token keyword">array</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token variable">$data</span> <span class="token punctuation">[</span><span class="token double-quoted-string string">"fruit"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token double-quoted-string string">"apple"</span> <span class="token punctuation">;</span> <span class="token variable">$data</span> <span class="token punctuation">[</span><span class="token double-quoted-string string">"animal"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token double-quoted-string string">"tiget"</span><span class="token punctuation">;</span>   <span class="token comment">// 把PHP数组转成JSON字符串,写入文件</span> <span class="token variable">$json_string</span>  <span class="token operator">=</span> <span class="token function">json_encode</span><span class="token punctuation">(</span> <span class="token variable">$data</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter important">?&gt;</span> </code></pre> <h4> <a id="PHPJSON_16" rel="nofollow"></a>PHP读取JSON数据?</h4> <pre><code class="prism language-php"><span class="token delimiter important">&lt;?php</span> <span class="token comment">// 从文件中读取数据到PHP变量</span> <span class="token variable">$str</span> <span class="token operator">=</span>  file_get_contents <span class="token punctuation">(</span> <span class="token single-quoted-string string">'one.json'</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// 把JSON字符串转成PHP数组,并显示</span> <span class="token variable">$data</span>  <span class="token operator">=</span> <span class="token function">json_decode</span><span class="token punctuation">(</span> <span class="token variable">$str</span> <span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token function">print_r</span><span class="token punctuation">(</span><span class="token variable">$data</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token delimiter important">?&gt;</span> </code></pre> <h4> <a id="jsgetElementByIDPHP_29" rel="nofollow"></a>js通过getElementByID获取PHP数据</h4> <pre><code class="prism language-php+HTML">&lt;html&gt;  &lt;head&gt;     &lt;meta charset="utf-8"&gt;     &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;     &lt;style&gt;      &lt;/style&gt;      &lt;script type="text/JavaScript"&gt;         function test()         {                 alert(document.getElementById("hid").value)         }  &lt;/script&gt; &lt;/head&gt;  &lt;body&gt;     &lt;?php     $data = array("fruit" =&gt; ["apple", "banana", "aa"], "animal" =&gt; "tiger");   // 定义一个数组     $data = json_encode($data);  //转成json格式     ?&gt;     &lt;form method="post" action="hh.php"&gt;         &lt;input type="hidden" id="hid" name="hid" value="&lt;?php print_r($data); ?&gt;"&gt;         &lt;input type="button" value="点击" οnclick="test()"&gt;     &lt;/form&gt; &lt;/body&gt;  &lt;/html&gt; </code></pre> <h4> <a id="PHPjs_64" rel="nofollow"></a>PHP向js传递数组</h4> <pre><code class="prism language-php+HTML">&lt;!DOCTYPE HTML&gt; &lt;html&gt;  &lt;head&gt;     &lt;meta charset="utf-8"&gt; &lt;/head&gt;  &lt;body&gt;     &lt;script&gt;         function add(array) {             alert(array);         }     &lt;/script&gt;     &lt;?php     $arr = array('1', '2', '3', '4', '5');     $str = json_encode($arr);     echo "&lt;input type='button' name='insert' value='点击' onClick='add($str)'&gt;";     ?&gt; &lt;/body&gt;  &lt;/html&gt; </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-38115.htm">动物活疫苗对人的伤害有哪些症状图片（动物疫苗作用）</a></p>
+                                        <p>下一个：<a href="/news/article-38630.htm">React18新增特性released的使用_React</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-24855.htm" title="兽用疫苗注射器多少钱（兽用疫苗厂）">兽用疫苗注射器多少钱（兽用疫苗厂）</a></li>
+                        <li class="py-2"><a href="/news/article-25792.htm" title="青岛旅游景点都在哪个区(青岛的旅游景点集中在哪里)">青岛旅游景点都在哪个区(青岛的旅游景点集中在哪里)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-clash-v2ray-ss-ssr.htm" title="「12月4日」最高速度19M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接">「12月4日」最高速度19M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-20-shadowrocket-node.htm" title="「11月20日」最高速度21.6M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接">「11月20日」最高速度21.6M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-32358.htm" title="Eureka Server及Client 配置信息详解">Eureka Server及Client 配置信息详解</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-8-free-subscribe-node.htm" title="「10月8日」最高速度18M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅链接">「10月8日」最高速度18M/S，2024年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21170.htm" title="动物疫苗间隔时间多长有效期（动物疫苗注射后多久产生抗体）">动物疫苗间隔时间多长有效期（动物疫苗注射后多久产生抗体）</a></li>
+                        <li class="py-2"><a href="/news/article-30456.htm" title="急售二手颗粒饲料机一台多少钱（二手颗粒饲料机饲料颗粒机）">急售二手颗粒饲料机一台多少钱（二手颗粒饲料机饲料颗粒机）</a></li>
+                        <li class="py-2"><a href="/news/article-38630.htm" title="React18新增特性released的使用_React">React18新增特性released的使用_React</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-5-free-node-subscribe-links.htm" title="「11月5日」最高速度18M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅链接">「11月5日」最高速度18M/S，2024年SSR/Clash/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <p class="copyright-text mb-0 me-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        SubscribeClashNode订阅节点站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JAVASCRIPT FILES -->
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.sticky.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/magnific-popup-options.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/click-scroll.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
