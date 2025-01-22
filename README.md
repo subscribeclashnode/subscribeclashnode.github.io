@@ -1,4 +1,4 @@
-# 「1月19日」最高速度21.2M/S，2025年SSR/V2ray/Shadowrocket/Clash每天更新免费机场订阅链接  更新时间 2025-01-19 07:23:58
+# 「1月22日」最高速度18.4M/S，2025年V2ray/SSR/Clash/Shadowrocket每天更新免费机场订阅链接  更新时间 2025-01-22 10:27:01
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://subscribeclashnode.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://subscribeclashnode.github.io/uploads/2025/01/0-20250119.yaml
-- https://subscribeclashnode.github.io/uploads/2025/01/1-20250119.yaml
-- https://subscribeclashnode.github.io/uploads/2025/01/2-20250119.yaml
-- https://subscribeclashnode.github.io/uploads/2025/01/3-20250119.yaml
-- https://subscribeclashnode.github.io/uploads/2025/01/4-20250119.yaml
+- https://subscribeclashnode.github.io/uploads/2025/01/0-20250122.yaml
+- https://subscribeclashnode.github.io/uploads/2025/01/1-20250122.yaml
+- https://subscribeclashnode.github.io/uploads/2025/01/2-20250122.yaml
+- https://subscribeclashnode.github.io/uploads/2025/01/3-20250122.yaml
+- https://subscribeclashnode.github.io/uploads/2025/01/4-20250122.yaml
 
 ### V2ray订阅链接
 
-- https://subscribeclashnode.github.io/uploads/2025/01/0-20250119.txt
-- https://subscribeclashnode.github.io/uploads/2025/01/1-20250119.txt
-- https://subscribeclashnode.github.io/uploads/2025/01/2-20250119.txt
-- https://subscribeclashnode.github.io/uploads/2025/01/3-20250119.txt
-- https://subscribeclashnode.github.io/uploads/2025/01/4-20250119.txt
+- https://subscribeclashnode.github.io/uploads/2025/01/0-20250122.txt
+- https://subscribeclashnode.github.io/uploads/2025/01/1-20250122.txt
+- https://subscribeclashnode.github.io/uploads/2025/01/2-20250122.txt
+- https://subscribeclashnode.github.io/uploads/2025/01/3-20250122.txt
+- https://subscribeclashnode.github.io/uploads/2025/01/4-20250122.txt
 
 ### Sing-box订阅链接
 
-- https://subscribeclashnode.github.io/uploads/2025/01/20250119.json
+- https://subscribeclashnode.github.io/uploads/2025/01/20250122.json
 
 ## 更多clash节点订阅 ：
 
