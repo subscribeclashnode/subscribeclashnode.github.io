@@ -1,0 +1,199 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://subscribeclashnode.github.io/news/article-45071.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>spring boot 导入配置文件</title>
+        <meta name="description" content="@ImportResource：通过locations属性加载对应的xml配置文件，同时需要配合@Configuration注解一起使用，定义为配置类； @Configuration@ImportRe" />
+        <link rel="icon" href="/assets/website/img/subscribeclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SubscribeClashNode订阅节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://subscribeclashnode.github.io/news/article-45071.htm" />
+    <meta property="og:site_name" content="SubscribeClashNode订阅节点站" />
+    <meta property="og:title" content="spring boot 导入配置文件" />
+    <meta property="og:image" content="https://subscribeclashnode.github.io/uploads/20240607/a86a622062926de605a20118e77df7e3.webp" />
+        <meta property="og:release_date" content="2025-01-23T10:41:24" />
+    <meta property="og:updated_time" content="2025-01-23T10:41:24" />
+        <meta property="og:description" content="@ImportResource：通过locations属性加载对应的xml配置文件，同时需要配合@Configuration注解一起使用，定义为配置类； @Configuration@ImportRe" />
+        
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="spring boot 导入配置文件">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/tooplate-waso-strategy.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPWBEXR622"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KPWBEXR622');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="projects-detail-page" id="section_1" data-page="detail">
+        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+        <div class="container">
+                        <a href="/" class="navbar-brand">Subscribe <span class="text-danger">ClashNode</span></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="#">关于</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">联系</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="hero section-hero section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mx-auto">
+                        <div class="section-hero-text">
+                            <h1 class="text-white">spring boot 导入配置文件</h1>
+                            <small class="small-title text-warning">
+                                <a href="/" class="text-warning">首页</a> / <a href="/news/" class="text-warning">新闻资讯</a> / <span>正文</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about section-padding" id="section_2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>@ImportResource：通过locations属性加载对应的xml配置文件，同时需要配合@Configuration注解一起使用，定义为配置类；</p> <pre class="prettyprint"><code class="hljs java"><span class="hljs-annotation">@Configuration</span><span class="hljs-annotation">@ImportResource</span>(locations = {<!-- --><span class="hljs-string">"classpath:druid.xml"</span>,<span class="hljs-string">"classpath:spring-mybatis.xml"</span>})<span class="hljs-keyword">public</span><span class="hljs-class"><span class="hljs-keyword">class</span><span class="hljs-title">ConfigDataSource</span> {<!-- --></span>  }</code></pre> <p>@PropertySource：<br /> value：这里指定配置文件，替代原来@ConfigurationProperties的locations<br /> encoding：指定读取配置文件时的编码，这个encoding很重要，如果不指定使用默认的话很可能出现读取乱码的情况，<br /> @PropertySource注解可以从properties文件中，获取对应的key-value值，将其赋予变量；</p> <pre class="prettyprint"><code class="hljs ruby"><span class="hljs-variable">@PropertySource</span>({<span class="hljs-string">"classpath:config.properties"</span>,<span class="hljs-string">"classpath:db.properties"</span>  })<span class="hljs-variable">@PropertySources</span>({<span class="hljs-variable">@PropertySource</span>(<span class="hljs-string">"classpath:config.properties"</span>),<span class="hljs-variable">@PropertySource</span>(<span class="hljs-string">"classpath:db.properties"</span>) })<span class="hljs-variable">@PropertySource</span>(value= {<!-- --><span class="hljs-string">"classpath:config/app-dev.properties"</span>},ignoreResourceNotFound=<span class="hljs-keyword">false</span>,encoding=<span class="hljs-string">"UTF-8"</span>,name=<span class="hljs-string">"app-dev.properties"</span>)</code></pre> <p>上述的代码目的是加载classpath路径中config文件中的app-dev.properties。其中encoding用于指定读取属性文件所使用的编码，我们通常使用的是UTF-8；ignoreResourceNotFound含义是当指定的配置文件不存在是否报错，默认是false;比如上文中指定的加载属性文件是app-dev.properties。如果该文件不存在，则ignoreResourceNotFound为true的时候，程序不会报错，如果ignoreResourceNotFound为false的时候，程序直接报错。实际项目开发中，最好设置ignoreResourceNotFound为false。该参数默认值为false。value值是设置需要加载的属性文件，可以一次性加载多个。name的值我们设置的是app-dev.properties。这个值在Springboot的环境中必须是唯一的，如果不设置，则值为：“class path resource [config/app-dev.properties]“。<br /> 为什么是“class path resource [config/app-dev.properties]“呢？这个就涉及到了Spring中对资源文件的封装类Resource。上文我们配置的value值为”classpath:config/app-dev.properties”，因此Spring发现是classpath开头的，因此最终使用的是Resource的子类ClassPathResource。如果是file开头的，则最终使用的类是FileSystemResource。<br /> 了解了上文所述的Resource类之后。如果@PropertySource中如果没有设置name值，则name值的生成规则是：根据value值查找到最终封装的Resource子类，然后调用具体的Resource子类实例对象中的getDescription方法，getDescription方法的返回值为最终的name值。</p> <pre class="prettyprint"><code class="hljs ruby"><span class="hljs-variable">@ConfigurationProperties</span>： 常用的两个属性是： locations：指定配置文件 prefix：指定该配置文件中的某个属性群的前缀</code></pre> <pre class="prettyprint"><code class="hljs cs">@ConfigurationProperties(prefix =<span class="hljs-string">"spring.datasource.druid"</span>)   @PropertySource( name=<span class="hljs-string">"datasource-dev.properties"</span>,<span class="hljs-keyword">value</span>= {<!-- --><span class="hljs-string">"classpath:config/datasource-dev.properties"</span>},ignoreResourceNotFound=<span class="hljs-keyword">false</span>,encoding=<span class="hljs-string">"UTF-8"</span>)<span class="hljs-keyword">public</span><span class="hljs-keyword">class</span> DruidDataSourceConfig  {<span class="hljs-keyword">private</span>  String url;   }</code></pre> <p>指明了属性的前缀为spring.datasource.druid。这样Springboot在处理的时候，会去扫描当前类中的所有字段并进行属性的查找以及组装。比如我们配置的prefix = “spring.datasource.druid”，DruidDataSourceConfig类中的url字段，则url字段需要匹配的属性是prefix+字段=spring.datasource.druid.url。<br /> 如果指定的字段没有找到属性怎么办呢？ignoreUnknownFields：忽略未知的字段。ignoreInvalidFields：是否忽略验证失败的字段。在配置文件中配置了一个字符串类型的变量，类中的字段是int类型，那肯定会报错的。如果出现这种情况我们可以容忍，则需要配置该属性值为true。该参数值默认为false。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-44577.htm">合肥宠物领养微信群号 合肥宠物领养微信群号是多少</a></p>
+                                        <p>下一个：<a href="/news/article-45072.htm">动物医院有公立的吗还是私立的好（动物医院有公立的吗还是私立的好一点）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-clash-v2ray-ss-ssr.htm" title="「12月4日」最高速度19M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接">「12月4日」最高速度19M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-16-free-shadowrocket-node.htm" title="「11月16日」最高速度18.3M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅链接">「11月16日」最高速度18.3M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-1-free-high-speed-nodes.htm" title="「1月1日」最高速度22.7M/S，2025年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅链接">「1月1日」最高速度22.7M/S，2025年Shadowrocket/V2ray/Clash/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-clash-v2ray-ss-ssr.htm" title="「1月8日」最高速度19.7M/S，2025年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接">「1月8日」最高速度19.7M/S，2025年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-18-free-v2ray.htm" title="「10月18日」最高速度21.8M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅链接">「10月18日」最高速度21.8M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-28576.htm" title="[Java]如何获取指定日期一天的开始时间和结束时间">[Java]如何获取指定日期一天的开始时间和结束时间</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-15-shadowrocket-node.htm" title="「12月15日」最高速度21.5M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接">「12月15日」最高速度21.5M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-39133.htm" title="动物打一针疫苗多少钱（动物疫苗贵吗）">动物打一针疫苗多少钱（动物疫苗贵吗）</a></li>
+                        <li class="py-2"><a href="/news/article-35848.htm" title="C语言实现顺序表的基本操作(简单版)">C语言实现顺序表的基本操作(简单版)</a></li>
+                        <li class="py-2"><a href="/news/article-20712.htm" title="拌料机的用途（大型拌料机的工作视频）">拌料机的用途（大型拌料机的工作视频）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">75</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <p class="copyright-text mb-0 me-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        SubscribeClashNode订阅节点站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JAVASCRIPT FILES -->
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.sticky.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/magnific-popup-options.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/click-scroll.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
