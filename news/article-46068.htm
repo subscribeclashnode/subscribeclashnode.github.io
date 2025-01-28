@@ -111,6 +111,7 @@
                   				  				  				<div id="content_views" class="htmledit_views"> <h3>python读取hdfs上的parquet文件</h3> <p>在使用python做大数据和机器学习处理过程中，首先需要读取hdfs数据，对于常用格式数据一般比较容易读取，parquet略微特殊。从hdfs上使用python获取parquet格式数据的方法(当然也可以先把文件拉到本地再读取也可以)：</p> <p>1、安装anaconda环境。</p> <p>2、安装hdfs3。<br /> &nbsp; &nbsp; &nbsp;&nbsp;conda install hdfs3</p> <p>3、安装fastparquet。<br /> &nbsp; &nbsp; &nbsp; conda install fastparquet</p> <p>4、安装python-snappy。<br /> &nbsp; &nbsp; &nbsp;&nbsp;conda install python-snappy</p> <p>5、读取文件</p> <pre class="has"><code class="language-python">##namenode mode: from hdfs3 import HDFileSystem from fastparquet import ParquetFile  hdfs = HDFileSystem(host=IP, port=8020) sc = hdfs.open  pf = ParquetFile(filename, open_with=sc) df = pf.to_pandas()  ##返回pandas的DataFrame类型   ##HA mode: from hdfs3 import HDFileSystem from fastparquet import ParquetFile  host = "nameservice1" conf = { &nbsp; &nbsp; &nbsp; &nbsp; "dfs.nameservices":"nameservice1", &nbsp; &nbsp; &nbsp; &nbsp; ......  } hdfs = HDFileSystem(host = host, pars = conf) ......</code></pre> <h3>python访问HDFS HA的三种方法</h3> <p>python访问hdfs常用的包有三个，如下：</p> <p>1、hdfs3</p> <p>其实从安装便捷性和使用上来说，并不推荐hdfs3，因为他的系统依赖和网络要求较高，但是某些情况下使用hdfs3会比较方便，<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://hdfs3.readthedocs.io/en/latest/"  rel="nofollow">官网资料点这里</a>。如上面介绍，IP直接访问namenode：</p> <pre class="has"><code class="language-python">from hdfs3 import HDFileSystem  hdfs = HDFileSystem(host=namenode, port=8020) hdfs.ls('/tmp')</code></pre> <p>HA访问：</p> <pre class="has"><code class="language-python">host = "nameservice1" conf = {"dfs.nameservices": "nameservice1",         "dfs.ha.namenodes.nameservice1": "namenode113,namenode188",         "dfs.namenode.rpc-address.nameservice1.namenode113": "hostname_of_server1:8020",         "dfs.namenode.rpc-address.nameservice1.namenode188": "hostname_of_server2:8020",         "dfs.namenode.http-address.nameservice1.namenode188": "hostname_of_server1:50070",         "dfs.namenode.http-address.nameservice1.namenode188": "hostname_of_server2:50070",         "hadoop.security.authentication": "kerberos" } fs = HDFileSystem(host=host, pars=conf)   ##或者下面这种配置 host = "ns1" conf = {         "dfs.nameservices":"ns1", 		"dfs.ha.namenodes.ns1":"namenode122,namenode115", 		"dfs.namenode.rpc-address.ns1.namenode122":"nnlab01:8020", 		"dfs.namenode.servicerpc-address.ns1.namenode122":"nnlab01:8022", 		"dfs.namenode.http-address.ns1.namenode122":"nnlab01:50070", 		"dfs.namenode.https-address.ns1.namenode122":"nnlab01:50470", 		"dfs.namenode.rpc-address.ns1.namenode115":"nnlab02:8020", 		"dfs.namenode.servicerpc-address.ns1.namenode115":"nnlab02:8022", 		"dfs.namenode.http-address.ns1.namenode115":"nnlab02:50070", 		"dfs.namenode.https-address.ns1.namenode115":"nnlab02:50470", }  hdfs = HDFileSystem(host = host, pars = conf)</code></pre> <p>2、hdfs</p> <p>这种方法在使用的时候配置比较简单，<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://hdfscli.readthedocs.io/en/latest/"  rel="nofollow">官网资料</a>也比较丰富，但是需要注意的是该API可以模拟用户访问，权限较大。IP直接访问：</p> <pre class="has"><code>import hdfs  client = hdfs.client.InsecureClient(url="http://namenode:50070", user="hdfs")</code></pre> <p>HA访问：</p> <pre class="has"><code class="language-python">import hdfs  client = hdfs.client.InsecureClient(url="http://namenode1:50070;http://namenode2:50070", user="hdfs")</code></pre> <p>3、pyhdfs</p> <p>安装命令：pip install PyHDFS</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://pyhdfs.readthedocs.io/en/latest/"  rel="nofollow">官网地址</a>，直接访问：</p> <pre class="has"><code class="language-python">import pyhdfs  client = pyhdfs.HdfsClient(hosts="namenode:50070",user_name="hdfs")</code></pre> <p>HA访问</p> <pre class="has"><code class="language-python">import pyhdfs  client = pyhdfs.HdfsClient(hosts=["namenode1:50070","namenode2:50070"],user_name="hdfs")</code></pre> <p>&nbsp;</p> </p></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-46067.htm">DDL(数据定义语言)</a></p>
+                                        <p>下一个：<a href="/news/article-46560.htm">宠物粮行业分析报告范文（宠物粮食市场前景）</a></p>
                                     </div>
                                     </div>
                     <div class="col-md-3">
@@ -120,16 +121,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-32359.htm" title="动物疫苗一般在哪里打的呢 动物疫苗一般在哪里打的呢多少钱">动物疫苗一般在哪里打的呢 动物疫苗一般在哪里打的呢多少钱</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-18-free-node-subscribe-links.htm" title="「12月18日」最高速度23M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接">「12月18日」最高速度23M/S，2024年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-23004.htm" title="高速的通行卡拿出来了（把高速通行卡带回来了怎么办?）">高速的通行卡拿出来了（把高速通行卡带回来了怎么办?）</a></li>
-                        <li class="py-2"><a href="/news/article-24133.htm" title="宠物店需要办什么证件（宠物店需要的证件）">宠物店需要办什么证件（宠物店需要的证件）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-22-node-share.htm" title="「12月22日」最高速度20.1M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费机场订阅链接">「12月22日」最高速度20.1M/S，2024年Clash/V2ray/Shadowrocket/SSR每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-38114.htm" title="动物医院英文绘本怎么写好看一点（动物医院单词）">动物医院英文绘本怎么写好看一点（动物医院单词）</a></li>
-                        <li class="py-2"><a href="/news/article-43082.htm" title="动物防疫站能打疫苗吗（动物防疫站可以驱虫吗）">动物防疫站能打疫苗吗（动物防疫站可以驱虫吗）</a></li>
-                        <li class="py-2"><a href="/news/article-42083.htm" title="如何开一家宠物店赚钱（怎么开宠物店利润多少）">如何开一家宠物店赚钱（怎么开宠物店利润多少）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-18-free-v2ray.htm" title="「10月18日」最高速度21.8M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅链接">「10月18日」最高速度21.8M/S，2024年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-28577.htm" title="宠物店的粮适合买吗现在 宠物店的粮适合买吗现在怎么样">宠物店的粮适合买吗现在 宠物店的粮适合买吗现在怎么样</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-13-node-share-links.htm" title="「12月13日」最高速度22M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接">「12月13日」最高速度22M/S，2024年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-44063.htm" title="猫咪三针疫苗打多久可以洗澡了（猫咪三针疫苗打完多久可以绝育）">猫咪三针疫苗打多久可以洗澡了（猫咪三针疫苗打完多久可以绝育）</a></li>
+                        <li class="py-2"><a href="/news/article-47533.htm" title="成都宠物领养中心免费领养猫咪（成都宠物领养中心免费领养猫咪的地方）">成都宠物领养中心免费领养猫咪（成都宠物领养中心免费领养猫咪的地方）</a></li>
+                        <li class="py-2"><a href="/news/article-23462.htm" title="聊城宠物用品批发市场在哪里呀（聊城宠物用品批发市场在哪里呀多少钱）">聊城宠物用品批发市场在哪里呀（聊城宠物用品批发市场在哪里呀多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-15-free-ssr-node.htm" title="「1月15日」最高速度21.6M/S，2025年Clash/V2ray/Shadowrocket/SSR每天更新免费机场订阅链接">「1月15日」最高速度21.6M/S，2025年Clash/V2ray/Shadowrocket/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-41087.htm" title="带你了解了解Future和CompletableFuture">带你了解了解Future和CompletableFuture</a></li>
+                        <li class="py-2"><a href="/news/article-40606.htm" title="我所在的城市有一家宠物医院的英语怎么写（我所在的城市有一家宠物医院的英语怎么写作文）">我所在的城市有一家宠物医院的英语怎么写（我所在的城市有一家宠物医院的英语怎么写作文）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-10-free-subscribe-node.htm" title="「1月10日」最高速度18M/S，2025年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅链接">「1月10日」最高速度18M/S，2025年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19796.htm" title="有没有出售宠物的平台（有什么出售宠物的app）">有没有出售宠物的平台（有什么出售宠物的app）</a></li>
+                        <li class="py-2"><a href="/news/article-29779.htm" title="git命令详解">git命令详解</a></li>
                     </ul>
     </div>
 </div>
@@ -141,7 +142,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">75</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
