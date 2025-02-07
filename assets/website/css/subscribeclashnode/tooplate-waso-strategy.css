@@ -896,6 +896,7 @@ strong {
   }
 }
 
+.xcblog-blog-logo h1, .xcblog-blog-logo span {font-size: 2.0rem;font-weight: bold;}
 
 #section_2 .item h3 {font-size: 1.25rem;}
 #section_2 .item .about-thumb {padding:27px;}
