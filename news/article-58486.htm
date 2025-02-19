@@ -1,0 +1,198 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://subscribeclashnode.github.io/news/article-58486.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>详解Mysql事务隔离级别与锁机制</title>
+        <meta name="description" content="一.概述 我们的数据库一般都会并发执行多个事务，多个事务可能会并发的对相同的一批数据进行增删改查操作，可能 就会导致我们说的脏写、 胀读和不可重复读、幻读这些问题。 	这些问题的本质都是数据库的多事务" />
+        <link rel="icon" href="/assets/website/img/subscribeclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SubscribeClashNode订阅节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://subscribeclashnode.github.io/news/article-58486.htm" />
+    <meta property="og:site_name" content="SubscribeClashNode订阅节点站" />
+    <meta property="og:title" content="详解Mysql事务隔离级别与锁机制" />
+    <meta property="og:image" content="https://subscribeclashnode.github.io/uploads/20240607/0c041fdf67178a82a47f8be3f7d5e52c.webp" />
+        <meta property="og:release_date" content="2025-02-18T00:38:15" />
+    <meta property="og:updated_time" content="2025-02-18T00:38:15" />
+        <meta property="og:description" content="一.概述 我们的数据库一般都会并发执行多个事务，多个事务可能会并发的对相同的一批数据进行增删改查操作，可能 就会导致我们说的脏写、 胀读和不可重复读、幻读这些问题。 	这些问题的本质都是数据库的多事务" />
+        
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="详解Mysql事务隔离级别与锁机制">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/tooplate-waso-strategy.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPWBEXR622"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KPWBEXR622');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="projects-detail-page" id="section_1" data-page="detail">
+        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+        <div class="container">
+            <a href="/" class="xcblog-blog-logo">
+                        <span>Subscribe <b class="text-danger">ClashNode</b></span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/client.htm">客户端</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="hero section-hero section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mx-auto">
+                        <div class="section-hero-text">
+                            <h1 class="text-white">详解Mysql事务隔离级别与锁机制</h1>
+                            <small class="small-title text-warning">
+                                <a href="/" class="text-warning">首页</a> / <a href="/news/" class="text-warning">新闻资讯</a> / <span>正文</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about section-padding" id="section_2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<h2 id="一概述"><strong>一.概述</strong></h2> <p>我们的数据库一般都会并发执行多个事务，多个事务可能会并发的对相同的一批数据进行增删改查操作，可能 就会导致我们说的脏写、 胀读和不可重复读、幻读这些问题。 	这些问题的本质都是数据库的多事务并发问题，为了解决多事务并发问题，数据库设计了事务隔离机制、锁机制、MVCC多版本并发控制隔离机制，用一整套机制来解决多事务并发问题。接下来，我们会深入讲解这些机制，让大家彻底理解数据库内部的执行原理。</p> <h2 id="二事务及其acid属性"><strong>二.事务及其ACID属性</strong></h2> <p>事务是由一组SQL语句组成的逻辑处理单元,事务具有以下4个属性,通常简称为事务的ACID属性。<br /> 1.原子性(Atomicity) ：事务是一个原子操作单元,其对数据的修改,要么全都执行,要么全都不执行。<br /> 2.一致性(Consistent)：在事务开始和完成时,数据都必须保持一致状态。这意味着所有相关的数据规 则都必须应用于事务的修改,以保持数 据的完整性。<br /> 3.隔离性(Isolation) ：数据库系统提供一定的隔离机制,保证事务在不受外部并发操作影响的“独立”环境执行。这意味着事务处理过程中的中间状态对外部是不可见的,反之亦然。<br /> 4.持久性(Durable)：事务完成之后,它对于数据的修改是永久性的,即使出现系统故障也能够保持。<br /> 原子性和一致性有点类似, 原子性表现在操作层面,一致性表现在数据层面.</p> </h1> <ol> <li>更新丢失(Lost Update)或脏写<br /> 当两个或多个事务选择同一行，然后基于最初选定的值更新该行时，由于每个事务都不知道其他事务的存在，就会发生丢失更新问题–最 	 后的更新覆盖了由其他事务所做的更新。</li> <li>脏读（Dirty Reads）<br /> 一个事务正在对一条记录做修改，在这个事务完成并提交前，这条记录的数据就处于不一致的状态；这时，另一个事务也来读取同一条记录，如果不加控制，第二个事务读取了这些“脏”数据，并据此作进一步的处理，就会产生未提交的数据依赖关系。这种现象被形象的叫做“脏读”。 一句话：事务A读取到了事务B已经修改但尚未提交的数据，还在这个数据基础上做了操作。此时，如果B事务回滚，A读取的数据无效，不符合一致性要求。<br /> 3.不可重读（Non-Repeatable Reads）<br /> 一个事务在读取某些数据后的某个时间，再次读取以前读过的数据，却发现其读出的数据已经发生了改变、或某些记录已经被删除了！这种现象就叫做“不可重复读”。 一句话：事务A内部的相同查询语句在不同时刻读出的结果不一致，不符合隔离性<br /> 4.幻读（Phantom Reads）<br /> 一个事务按相同的查询条件重新读取以前检索过的数据，却发现其他事务插入了满足其查询条件的新数据，这种现象就称为“幻读”。 一句话：事务A读取到了事务B提交的新增数据，不符合隔离性</li> </ol> <p>“脏读”、“不可重复读”和“幻读”,其实都是数据库读一致性问题,必须由数据库提供一定的事务隔离机制 来解决。</p> <h2 id="四事务隔离级别">四.事务隔离级别</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/d22e03ce572e9fda49b98c6e6dff2064.jpg" alt="详解Mysql事务隔离级别与锁机制"><br /> 1.数据库的事务隔离越严格,并发副作用越小,但付出的代价也就越大,因为事务隔离实质上就是使事务在一定程度 上“串行化”进行,这显然与“并发”是矛盾的。<br /> 2.同时,不同的应用对读一致性和事务隔离程度的要求也是不同的,比如许多应用对“不可重复读"和“幻读”并不 敏感,可能更关心数据并发访问的能力。<br /> 3.查看当前数据库的事务隔离级别: show variables like 'tx_isolation'; 设置事务隔离级别：set tx_isolation='REPEATABLE-READ';<br /> 4.Mysql默认的事务隔离级别是可重复读，用Spring开发程序时，如果不设置隔离级别默认用Mysql设置的隔 离级别，如果Spring设置了就用 已经设置的隔离级别</p> <h2 id="五锁详解">五.锁详解</h2> <p>1.概述<br /> 锁是计算机协调多个进程或线程并发访问某一资源的机制。 在数据库中，除了传统的计算资源（如CPU、RAM、I/O等）的争用以外，数据也是一种供需要用户共享的资源。如何保证数据并发访问的一致性、有效性是所有数据库必须解决的一个问题，锁冲突也是影响数据库并发 访问性能的一个重要因素。</p> <p>2.锁分类<br /> 2.1从性能上分为乐观锁(用版本对比来实现)和悲观锁<br /> 2.2从对数据库操作的类型分，分为读锁和写锁(都属于悲观锁)<br /> 读锁（共享锁，S锁(Shared)）：针对同一份数据，多个读操作可以同时进行 而不会互相影响<br /> 写锁（排它锁，X锁(eXclusive)）：当前写操作没有完成前，它会阻断其他写锁和读锁<br /> 2.3从对数据操作的粒度分，分为表锁和行锁</p> <p>3.表锁<br /> 3.1概述<br /> 每次操作锁住整张表。开销小，加锁快；不会出现死锁；锁定粒度大，发生锁冲突的概率最高，并发度最低； 一般用在整表数据迁移的  场景。但在实际工作中,表锁用得少.<br /> 3.2 基本操作<br /> --建表SQL<br /> CREATE TABLE<code>mylock</code> (<br /><code>id</code> INT (11) NOT NULL AUTO_INCREMENT,<br /><code>NAME</code> VARCHAR (20) DEFAULT NULL,<br /> PRIMARY KEY (<code>id</code>)<br /> ) ENGINE = MyISAM DEFAULT CHARSET = utf8;</p> <p>--插入数据<br /> INSERT INTO<code>test</code>.<code>mylock</code> (<code>id</code>,<code>NAME</code>) VALUES ('1', 'a');<br /> INSERT INTO<code>test</code>.<code>mylock</code> (<code>id</code>,<code>NAME</code>) VALUES ('2', 'b');<br /> INSERT INTO<code>test</code>.<code>mylock</code> (<code>id</code>,<code>NAME</code>) VALUES ('3', 'c');<br /> INSERT INTO<code>test</code>.<code>mylock</code> (<code>id</code>,<code>NAME</code>) VALUES ('4', 'd');</p> <p><strong>手动增加表锁</strong><br /> lock table 表名称 read(write),表名称2 read(write);<br /> 查看表上加过的锁<br /> show open tables;<br /> 删除表锁<br /> unlock tables;<br /> 案例分析(加读锁）<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/24309ef8ca7c49944f277168d1930b62.jpg" alt="详解Mysql事务隔离级别与锁机制"></p> <p>当前session和其他session都可以读该表<br /> 当前session中插入或者更新锁定的表都会报错，其他session插入或更新则会等待</p> <p><strong>案例分析(加写锁）</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/82fedd207736aef9f2f8eb94110b383d.jpg" alt="详解Mysql事务隔离级别与锁机制"><br /> 当前session对该表的增删改查都没有问题，其他session对该表的所有操作被阻塞</p> <p><strong>案例结论</strong><br /> 对MyISAM表的读操作(加读锁) ,不会阻塞其他进程对同一表的读请求,但会阻塞对同一表的写请求。只有当读锁释放后,才会执行其它进程的写操作。<br /> 对MylSAM表的写操作(加写锁) ,会阻塞其他进程对同一表的读和写操作,只有当写锁释放后,才会执行其它进程的读写操作</p> <p>4.行锁<br /> 4.1概述:<br /> 每次操作锁住一行数据。开销大，加锁慢；会出现死锁；锁定粒度最小，发生锁冲突的概率最低，并发度最高。</p> <p>4.2InnoDB与MYISAM的最大不同有两点：<br /> InnoDB支持事务（TRANSACTION）InnoDB支持行级锁</p> <p>4.3行锁演示<br /> 一个session开启事务更新不提交，另一个session更新同一条记录会阻塞，更新不同记录不会阻塞</p> <p>4.4总结：<br /> MyISAM在执行查询语句SELECT前，会自动给涉及的所有表加读锁,在执行update、insert、delete操作会自动给涉及的表加写锁。<br /> InnoDB在执行查询语句SELECT时(非串行隔离级别)，不会加锁。但是update、insert、delete操作会加行锁。<br /> 简而言之，就是读锁会阻塞写，但是不会阻塞读。而写锁则会把读和写都阻塞</p> <p>4.5行锁与事务隔离级别案例分析<br /> 4.5.1 先创建表<br /> CREATE TABLE<code>account</code> (<br /><code>id</code> int(11) NOT NULL AUTO_INCREMENT,<br /><code>name</code> varchar(255) DEFAULT NULL,<br /><code>balance</code> int(11) DEFAULT NULL,<br /> &nbsp; PRIMARY KEY (<code>id</code>)<br /> ) ENGINE=InnoDB DEFAULT CHARSET=utf8;<br /> INSERT INTO<code>test</code>.<code>account</code> (<code>name</code>,<code>balance</code>) VALUES ('lilei', '450');<br /> INSERT INTO<code>test</code>.<code>account</code> (<code>name</code>,<code>balance</code>) VALUES ('hanmei', '16000');<br /> INSERT INTO<code>test</code>.<code>account</code> (<code>name</code>,<code>balance</code>) VALUES ('lucy', '2400');<br /> 4.5.2 读未提交：<br /> （1）打开一个客户端A，并设置当前事务模式为read uncommitted（未提交读），查询表account的初始值：<br /> set tx_isolation='read-uncommitted';<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/a91fa3215599e5c87c8e23830b675d80.jpg" alt="详解Mysql事务隔离级别与锁机制"><br /> （2）在客户端A的事务提交之前，打开另一（2）在客户端A的事务提交之前，打开另一个客户端B，更新表account：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/f808f60d61f3cb3f97e72d7222c67fa1.jpg" alt="详解Mysql事务隔离级别与锁机制"></p> <p>（3）这时，虽然客户端B的事务还没提交，但是客户端A就可以查询到B已经更新的数据：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/fc61402f906ea5bde00e51a25cbda427.jpg" alt="详解Mysql事务隔离级别与锁机制"></p> <p> （4）一旦客户端B的事务因为某种原因回滚，所有的操作都将会被撤销，那客户端A查询到的数据其实就是脏数据：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/f47decad7c985c2d22a7049bd9e86da1.jpg" alt="详解Mysql事务隔离级别与锁机制"></p> <p> （5）在客户端A执行更新语句update account set balance = balance - 50 where id =1，lilei的balance没有变成350，居然是400，是不是很奇怪，数据不一致啊，<br /> 如果你这么想就太天真 了，在应用程序中，我们会用400-50=350，并不知道其他会话回滚了，要想解决这个问题可以采用读已提交的隔离级别<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/fa1896299c2e687b42bfaa8b5ddb7380.jpg" alt="详解Mysql事务隔离级别与锁机制"></p> <p>4.5.3读已提交<br /> （1）打开一个客户端A，并设置当前事务模式为read committed（未提交读），查询表account的所有记录：<br /> set tx_isolation='read-committed';<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/f2c554a260d09689bcecd8259198fee5.jpg" alt="详解Mysql事务隔离级别与锁机制"></p> <p> （2）在客户端A的事务提交之前，打开另一个客户端B，更新表account：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/3d0612e2be548383bb21728f412acbfb.jpg" alt="详解Mysql事务隔离级别与锁机制"></p> <p> （3）这时，客户端B的事务还没提交，客户端A不能查询到B已经更新的数据，解决了脏读问题：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/f20bd308b3754eb870e36e44d26fb5ac.jpg" alt="详解Mysql事务隔离级别与锁机制"></p> <p> （4）客户端B的事务提交<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/e30a3190b672cb71a36f0b9824512b1b.jpg" alt="详解Mysql事务隔离级别与锁机制"></p> <p>（5）客户端A执行与上一步相同的查询，结果 与上一步不一致，即产生了不可重复读的问题<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/c8e1db2514c75dadc04b05ad7bdf5eed.jpg" alt="详解Mysql事务隔离级别与锁机制"></p> <p>4.5.4可重复读<br /> （1）打开一个客户端A，并设置当前事务模式为repeatable read，查询表account的所有记录<br /> set tx_isolation='repeatable-read';<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/1bc7c76f473c8176ead9fedc3486b05a.jpg" alt="详解Mysql事务隔离级别与锁机制"><br /> 2）在客户端A的事务提交之前，打开另一个客户端B，更新表account并提交<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/ba8f2e3b6c9285ed7b30e1f0b878a90b.jpg" alt="详解Mysql事务隔离级别与锁机制"><br /> 3）在客户端A查询表account的所有记录，与步骤（1）查询结果一致，没有出现不可重复读的问题<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/4e2fab39ec9a57206087715ee977f79a.jpg" alt="详解Mysql事务隔离级别与锁机制"></p> <p>4）在客户端A，接着执行update account set balance = balance - 50 where id = 1，balance没有变成400-50=350，lilei的balance值用的是步骤2中的350来算的，<br /> 所以是300，数据的一致性倒是没有被破坏。可重复读的隔离级别下使用了MVCC(multi-version concurrency control)机制，select操作不会更新版本号，是快照读（历史版本）；<br /> insert、update和delete会更新版本号，是当前读（当前版本）。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/0ff91cc86c825900c3601be3ccfcce81.jpg" alt="详解Mysql事务隔离级别与锁机制"></p> <p>（5）重新打开客户端B，插入一条新数据后提交<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/6e47b10248d540e329bf29bdbb6e81ba.jpg" alt="详解Mysql事务隔离级别与锁机制"></p> <p>(6）在客户端A查询表account的所有记录，没有查出新增数据，所以没有出现幻读<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/0e0901cb98545cd2f0573a5cb6f05e1f.jpg" alt="详解Mysql事务隔离级别与锁机制"><br /> （7)验证幻读<br /> 在客户端A执行update account set balance=888 where id = 4;能更新成功，再次查询能查到客户端B新增的数据<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/5bd908dfde8f60e36f7d29d3a0ba839d.jpg" alt="详解Mysql事务隔离级别与锁机制"></p> <p>4.5.5、串行化<br /> （1）打开一个客户端A，并设置当前事务模式为serializable，查询表account的初始值：set tx_isolation='serializable';<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/8859977fa68bcd44eeee2cd9f2cb066b.jpg" alt="详解Mysql事务隔离级别与锁机制"><br /> （2）打开一个客户端B，并设置当前事务模式为serializable，更新相同的id为1的记录会被阻塞等待，更新id为2的记录可以成功，说明在串行模式下innodb的查询也会被加上行锁。<br /> 如果客户端A执行的是一个范围查询，那么该范围内的所有行包括每行记录所在的间隙区间范围(就算该行数据还未被插入也会加锁，这种是间隙锁)都会被加锁。此时如果客户端B在该范围内插入数据都会被阻塞，所以就避免了幻读。<br /> 这种隔离级别并发性极低，开发中很少会用到。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/582be4fa12fdd04497b6afb292498dbd.jpg" alt="详解Mysql事务隔离级别与锁机制"></p> <p>5.间隙锁(Gap Lock)<br /> 间隙锁，锁的就是两个值之间的空隙。Mysql默认级别是repeatable-read，有办法解决幻读问题吗？间隙锁在某些情况下可以解决幻读问题。<br /> 假设account表里数据如下：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/f07d9252be3a09cd4d678ce5373e468a.jpg" alt="详解Mysql事务隔离级别与锁机制"><br /> 那么间隙就有 id 为 (3,10)，(10,20)，(20,正无穷) 这三个区间，<br /> 在Session_1下面执行 update account set name = 'zhuge' where id &gt; 8 and id &lt;18;，则其他Session没法在这个范围所包含的所有行记录(包括间隙行记录)<br /> 以及行记录所在的间隙里插入或修改任何数据，即id在(3,20]区间都无法修改数据，注意最后那个20也是包含在内的。<br /> 间隙锁是在可重复读隔离级别下才会生效。</p> <p>6.临键锁(Next-key Locks)<br /> Next-Key Locks是行锁与间隙锁的组合。像上面那个例子里的这个(3,20]的整个区间可以叫做临键锁。</p> <p>7.注意点:<br /> 无索引行锁会升级为表锁(RR级别会升级为表锁，RC级别不会升级为表锁)<br /> 锁主要是加在索引上，如果对非索引字段更新，行锁可能会变表锁<br /> session1 执行：update account set balance = 800 where name = 'lilei';<br /> session2 对该表任一行操作都会阻塞住<br /> InnoDB的行锁是针对索引加的锁，不是针对记录加的锁。并且该索引不能失效，否则都会从行锁升级为表锁。<br /> 锁定某一行还可以用lock in share mode(共享锁) 和for update(排它锁)，例如：select * from test_innodb_lock where a = 2 for update;<br /> 这样其他session只能读这行数据，修改则会被阻塞，直到锁定行的session提交</p> <p><strong>六.结论</strong><br /> Innodb存储引擎由于实现了行级锁定，虽然在锁定机制的实现方面所带来的性能损耗可能比表级锁定会要更高一下，但是在整体并发处理能力方面要远远优于MYISAM的表级锁定的。<br /> 当系统并发量高的时候，Innodb的整体性能和MYISAM相比就会有比较明显的优势了。但是，Innodb的行级锁定同样也有其脆弱的一面，当我们使用不当的时候，可能会让Innodb的整体性能表现不仅不能比MYISAM高，甚至可能会更差。</p> <p><strong>七.锁优化建议</strong><br /> 尽可能让所有数据检索都通过索引来完成，避免无索引行锁升级为表锁<br /> 合理设计索引，尽量缩小锁的范围<br /> 尽可能减少检索条件范围，避免间隙锁<br /> 尽量控制事务大小，减少锁定资源量和时间长度，涉及事务加锁的sql尽量放在事务最后执行<br /> 尽可能低级别事务隔离</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-58207.htm">动物诊所英文翻译（动物诊所英文翻译怎么说）</a></p>
+                                        <p>下一个：<a href="/news/article-58487.htm">海拉鲁左上角第二个神庙（海拉鲁丘陵下面神庙）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-13-free-node-subscribe-links.htm" title="「2月13日」最高速度22.7M/S，2025年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接">「2月13日」最高速度22.7M/S，2025年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-38628.htm" title="PHP与JSON的一些常用操作">PHP与JSON的一些常用操作</a></li>
+                        <li class="py-2"><a href="/news/article-21173.htm" title="宠物领养协议书怎么生效的 宠物领养协议书怎么生效的呢">宠物领养协议书怎么生效的 宠物领养协议书怎么生效的呢</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-2-clash-node.htm" title="「12月2日」最高速度18.6M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接">「12月2日」最高速度18.6M/S，2024年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-free-high-speed-nodes.htm" title="「1月5日」最高速度18.6M/S，2025年SSR/V2ray/Shadowrocket/Clash每天更新免费机场订阅链接">「1月5日」最高速度18.6M/S，2025年SSR/V2ray/Shadowrocket/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-58207.htm" title="动物诊所英文翻译（动物诊所英文翻译怎么说）">动物诊所英文翻译（动物诊所英文翻译怎么说）</a></li>
+                        <li class="py-2"><a href="/news/article-37635.htm" title="数据结构与算法知识点总结数组与链表">数据结构与算法知识点总结数组与链表</a></li>
+                        <li class="py-2"><a href="/news/article-26256.htm" title="宠物物品批发平台（宠物批发网站大全）">宠物物品批发平台（宠物批发网站大全）</a></li>
+                        <li class="py-2"><a href="/news/article-46560.htm" title="宠物粮行业分析报告范文（宠物粮食市场前景）">宠物粮行业分析报告范文（宠物粮食市场前景）</a></li>
+                        <li class="py-2"><a href="/news/article-28103.htm" title="小型宠物粮食加工设备价格表最新（小型宠物粮加工厂需要什么手续）">小型宠物粮食加工设备价格表最新（小型宠物粮加工厂需要什么手续）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <p class="copyright-text mb-0 me-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        SubscribeClashNode订阅节点站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JAVASCRIPT FILES -->
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.sticky.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/magnific-popup-options.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/click-scroll.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

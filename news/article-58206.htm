@@ -1,0 +1,198 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://subscribeclashnode.github.io/news/article-58206.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>feign实现微服务之间的远程调用</title>
+        <meta name="description" content="原因：RestTemplate存在代码可读性差，编程体验不统一，参数复杂URL难以维护等缺点，因此可以用Feign替代RestTemplate实现微服务之间的远程调用。步骤如下： 1.在需要远程调用的" />
+        <link rel="icon" href="/assets/website/img/subscribeclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SubscribeClashNode订阅节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://subscribeclashnode.github.io/news/article-58206.htm" />
+    <meta property="og:site_name" content="SubscribeClashNode订阅节点站" />
+    <meta property="og:title" content="feign实现微服务之间的远程调用" />
+    <meta property="og:image" content="https://subscribeclashnode.github.io/uploads/20240607/fe79a46f28a8d90a789f0405bcefabbe.webp" />
+        <meta property="og:release_date" content="2025-02-17T09:58:09" />
+    <meta property="og:updated_time" content="2025-02-17T09:58:09" />
+        <meta property="og:description" content="原因：RestTemplate存在代码可读性差，编程体验不统一，参数复杂URL难以维护等缺点，因此可以用Feign替代RestTemplate实现微服务之间的远程调用。步骤如下： 1.在需要远程调用的" />
+        
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="feign实现微服务之间的远程调用">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/tooplate-waso-strategy.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPWBEXR622"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KPWBEXR622');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="projects-detail-page" id="section_1" data-page="detail">
+        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+        <div class="container">
+            <a href="/" class="xcblog-blog-logo">
+                        <span>Subscribe <b class="text-danger">ClashNode</b></span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/client.htm">客户端</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="hero section-hero section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mx-auto">
+                        <div class="section-hero-text">
+                            <h1 class="text-white">feign实现微服务之间的远程调用</h1>
+                            <small class="small-title text-warning">
+                                <a href="/" class="text-warning">首页</a> / <a href="/news/" class="text-warning">新闻资讯</a> / <span>正文</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about section-padding" id="section_2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>原因：RestTemplate存在代码可读性差，编程体验不统一，参数复杂URL难以维护等缺点，因此可以用Feign替代RestTemplate实现微服务之间的远程调用。步骤如下：</p> <p>1.在需要远程调用的微服务的pom文件中增加feign的依赖。</p> <pre><code class="language-java">&lt;dependency&gt;     &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;     &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt; &lt;/dependency&gt;</code></pre> <p>2.在启动类上添加注解开启Feign的功能。@EnableFeignClients//开启feign的功能</p> <p>3.编写Feign的客户端（注意是接口）例子如下</p> <pre><code class="language-java">@FeignClient("userservice") //被调用服务名 public interface UserClient {     @GetMapping("/user/{id}")     User findById(@PathVariable("id") Long id);//被调用的方法 }</code></pre> <p>4.测试在测试类中自动注入编写的接口</p> <pre><code class="language-java">@Service public class OrderService {      @Autowired     private OrderMapper orderMapper;     @Autowired     private RestTemplate restTemplate;     @Autowired     private UserClient userClient;//编写的Feign接口      public Order queryOrderById(Long orderId) {         // 1.查询订单         Order order = orderMapper.findById(orderId);         //第一种方式：用restTemplate实现，代码编写不规范 /*        String url="http://localhost:8081/user/"+order.getUserId();         User user = restTemplate.getForObject(url, User.class);*/         //第二种方式：用feign实现远程调用是常用的方式         User user = userClient.findById(order.getUserId());         order.setUser(user);         // 4.返回         return order;     }</code></pre> <p>5.Feign的简单调用已经完成。总结一下：先引入依赖、启动类加上注解添加@EnableFeignClients注解 ，编写FeignClient接口 ，使用FeignClient中定义的方法代替RestTemplate。</p> <h2>注意点：feign支持自定义配置</h2> <p>1.修改配置文件yml文件可以更改feign的日志级别。例如：</p> <pre><code class="language-java">feign:     client:     config:        default: # 这里用default就是全局配置，如果是写服务名称，则是针对某个微服务的配置         loggerLevel: FULL #  日志级别</code></pre> <p>也可以用代码方式更改日志级别此处省略。</p> <p>以上是feign的简单使用，底层发起的http请求时默认的URLConnection，不支持连接池，为了提高性能应该用连接池代替默认的URLConnection。本文用Apache的HttpClient来演示。以下是步骤</p> <p>1.调用者的pom文件中引入依赖</p> <pre><code class="language-java">        &lt;!--httpClient的依赖 --&gt;         &lt;dependency&gt;             &lt;groupId&gt;io.github.openfeign&lt;/groupId&gt;             &lt;artifactId&gt;feign-httpclient&lt;/artifactId&gt;         &lt;/dependency&gt;</code></pre> <p>2.yml文件中修改feign的配置</p> <pre><code class="language-java"># 修改feign的日志级别 feign:   client:     config:       default: # default全局的配置         loggerLevel: BASIC # 日志级别，BASIC就是基本的请求和响应信息 # 开启feign对HttpClient的支持           httpclient:     enabled: true # 开启feign对HttpClient的支持     max-connections: 200 # 最大的连接数     max-connections-per-route: 50 # 每个路径的最大连接数</code></pre> <p>3.结束，feign的最佳实践此处略。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-57638.htm">动物疫苗过敏反应有哪些症状和表现（打动物疫苗有什么过敏反应）</a></p>
+                                        <p>下一个：<a href="/news/article-58207.htm">动物诊所英文翻译（动物诊所英文翻译怎么说）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-53763.htm" title="被猫抓伤了过了5天去***还有用吗（被猫抓伤五天后在打的针有效果吗）">被猫抓伤了过了5天去***还有用吗（被猫抓伤五天后在打的针有效果吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-free-high-speed-nodes.htm" title="「1月5日」最高速度18.6M/S，2025年SSR/V2ray/Shadowrocket/Clash每天更新免费机场订阅链接">「1月5日」最高速度18.6M/S，2025年SSR/V2ray/Shadowrocket/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-40606.htm" title="我所在的城市有一家宠物医院的英语怎么写（我所在的城市有一家宠物医院的英语怎么写作文）">我所在的城市有一家宠物医院的英语怎么写（我所在的城市有一家宠物医院的英语怎么写作文）</a></li>
+                        <li class="py-2"><a href="/news/article-44062.htm" title="微信小程序，制作属于自己的Icon图标">微信小程序，制作属于自己的Icon图标</a></li>
+                        <li class="py-2"><a href="/news/article-22543.htm" title="设计模式之六大原则——接口隔离原则（ISP）">设计模式之六大原则——接口隔离原则（ISP）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-24-free-node-subscribe-links.htm" title="「11月24日」最高速度20.4M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接">「11月24日」最高速度20.4M/S，2024年V2ray/SSR/Shadowrocket/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-30456.htm" title="急售二手颗粒饲料机一台多少钱（二手颗粒饲料机饲料颗粒机）">急售二手颗粒饲料机一台多少钱（二手颗粒饲料机饲料颗粒机）</a></li>
+                        <li class="py-2"><a href="/news/article-50056.htm" title="【nodejs】【mongo】nodejs数据查询【mongo】">【nodejs】【mongo】nodejs数据查询【mongo】</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-15-shadowrocket-node.htm" title="「12月15日」最高速度21.5M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接">「12月15日」最高速度21.5M/S，2024年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-26720.htm" title="动物疫苗公司 全球排行榜 动物疫苗公司 全球排行榜前十名">动物疫苗公司 全球排行榜 动物疫苗公司 全球排行榜前十名</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <p class="copyright-text mb-0 me-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        SubscribeClashNode订阅节点站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JAVASCRIPT FILES -->
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.sticky.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/magnific-popup-options.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/click-scroll.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
