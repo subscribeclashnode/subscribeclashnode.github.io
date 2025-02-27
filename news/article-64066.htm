@@ -1,0 +1,198 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://subscribeclashnode.github.io/news/article-64066.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>为什么在MySQL中使用两位数年份的日期值不是一个好习惯？</title>
+        <meta name="description" content="YEAR(2)以2位数格式存储一年。例如，我们可以写69来存储1969。在年份(2)中，可以将年份指定为1970到2069（70到69）。 MySQL借助以下规则来解释两位数的年份值-   00-69" />
+        <link rel="icon" href="/assets/website/img/subscribeclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SubscribeClashNode订阅节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://subscribeclashnode.github.io/news/article-64066.htm" />
+    <meta property="og:site_name" content="SubscribeClashNode订阅节点站" />
+    <meta property="og:title" content="为什么在MySQL中使用两位数年份的日期值不是一个好习惯？" />
+    <meta property="og:image" content="https://subscribeclashnode.github.io/uploads/20240607/299f7eaf7b127d8b9a12acc86e7c8b93.webp" />
+        <meta property="og:release_date" content="2025-02-27T05:56:49" />
+    <meta property="og:updated_time" content="2025-02-27T05:56:49" />
+        <meta property="og:description" content="YEAR(2)以2位数格式存储一年。例如，我们可以写69来存储1969。在年份(2)中，可以将年份指定为1970到2069（70到69）。 MySQL借助以下规则来解释两位数的年份值-   00-69" />
+        
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="为什么在MySQL中使用两位数年份的日期值不是一个好习惯？">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/tooplate-waso-strategy.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPWBEXR622"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KPWBEXR622');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="projects-detail-page" id="section_1" data-page="detail">
+        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+        <div class="container">
+            <a href="/" class="xcblog-blog-logo">
+                        <span>Subscribe <b class="text-danger">ClashNode</b></span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/client.htm">客户端</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="hero section-hero section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mx-auto">
+                        <div class="section-hero-text">
+                            <h1 class="text-white">为什么在MySQL中使用两位数年份的日期值不是一个好习惯？</h1>
+                            <small class="small-title text-warning">
+                                <a href="/" class="text-warning">首页</a> / <a href="/news/" class="text-warning">新闻资讯</a> / <span>正文</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about section-padding" id="section_2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>YEAR(2)以2位数格式存储一年。例如，我们可以写69来存储1969。在年份(2)中，可以将年份指定为1970到2069（70到69）。</p> <p>MySQL借助以下规则来解释两位数的年份值-</p> <ul class="list-paddingleft-2"> <li> <p>00-69范围内的年份值将转换为2000-2069。</p> </li> <li> <p>&nbsp;70-99范围内的年份值转换为1970-1999。</p> </li> </ul> <p>我们不能将日期值存储为两位数格式，因为随着世纪的来临，以这种格式存储的值变得模糊。</p> <p>通过以下MySQL示例可以更清楚地理解-</p> <pre>mysql&gt;&nbsp;Create&nbsp;Table&nbsp;year_test(val&nbsp;year(2));  mysql&gt;&nbsp;insert&nbsp;into&nbsp;year_test(val)&nbsp;values('70');  mysql&gt;&nbsp;insert&nbsp;into&nbsp;year_test(val)&nbsp;values('00');  mysql&gt;&nbsp;select&nbsp;*&nbsp;from&nbsp;year_test; +-----+ |&nbsp;val&nbsp;| +-----+ |&nbsp;70&nbsp;&nbsp;| |&nbsp;00&nbsp;&nbsp;| +-----+ 2&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)  mysql&gt;&nbsp;select&nbsp;*&nbsp;from&nbsp;year_test&nbsp;where&nbsp;val&nbsp;=&nbsp;'1970'; +-----+ |&nbsp;val&nbsp;| +-----+ |&nbsp;70&nbsp;&nbsp;| +-----+ 1&nbsp;row&nbsp;in&nbsp;set&nbsp;(0.03&nbsp;sec)  mysql&gt;&nbsp;select&nbsp;*&nbsp;from&nbsp;year_test&nbsp;where&nbsp;val&nbsp;=&nbsp;'2000'; +-----+ |&nbsp;val&nbsp;| +-----+ |&nbsp;00&nbsp;&nbsp;| +-----+ 1&nbsp;row&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)  mysql&gt;&nbsp;select&nbsp;*&nbsp;from&nbsp;year_test&nbsp;where&nbsp;val&nbsp;=&nbsp;'1900'; Empty&nbsp;set&nbsp;(0.06&nbsp;sec)</pre> <p>通过将00存储为“ val”，我们不确定是哪一年表示“ 1900”或“ 2000”。MySQL将其解释为2000年。</p> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-63473.htm">天津宠物猫领养中心电话（天津宠物领养 猫）</a></p>
+                                        <p>下一个：<a href="/news/article-64067.htm">自带疫苗宠物医生给打吗（可以拿疫苗让宠物店帮忙***吗）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-2-free-high-speed-nodes.htm" title="「1月2日」最高速度22.7M/S，2025年SSR/V2ray/Shadowrocket/Clash每天更新免费机场订阅链接">「1月2日」最高速度22.7M/S，2025年SSR/V2ray/Shadowrocket/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-45560.htm" title="新手开宠物店需要了解哪些知识和技能（新手开宠物店需要会什么）">新手开宠物店需要了解哪些知识和技能（新手开宠物店需要会什么）</a></li>
+                        <li class="py-2"><a href="/news/article-45071.htm" title="spring boot 导入配置文件">spring boot 导入配置文件</a></li>
+                        <li class="py-2"><a href="/news/article-40605.htm" title="python3操作hdfs库中报错问题总结">python3操作hdfs库中报错问题总结</a></li>
+                        <li class="py-2"><a href="/news/article-42083.htm" title="如何开一家宠物店赚钱（怎么开宠物店利润多少）">如何开一家宠物店赚钱（怎么开宠物店利润多少）</a></li>
+                        <li class="py-2"><a href="/news/article-47045.htm" title="被猫抓伤出一丝丝血要打几针疫苗（被猫抓出血丝了要打狂犬疫苗吗）">被猫抓伤出一丝丝血要打几针疫苗（被猫抓出血丝了要打狂犬疫苗吗）</a></li>
+                        <li class="py-2"><a href="/news/article-28577.htm" title="宠物店的粮适合买吗现在 宠物店的粮适合买吗现在怎么样">宠物店的粮适合买吗现在 宠物店的粮适合买吗现在怎么样</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-free-clash.htm" title="「11月21日」最高速度20.5M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接">「11月21日」最高速度20.5M/S，2024年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21173.htm" title="宠物领养协议书怎么生效的 宠物领养协议书怎么生效的呢">宠物领养协议书怎么生效的 宠物领养协议书怎么生效的呢</a></li>
+                        <li class="py-2"><a href="/news/article-27185.htm" title="动物疫苗规定有哪些类型（动物疫苗管理办法）">动物疫苗规定有哪些类型（动物疫苗管理办法）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <p class="copyright-text mb-0 me-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        SubscribeClashNode订阅节点站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JAVASCRIPT FILES -->
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.sticky.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/magnific-popup-options.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/click-scroll.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
