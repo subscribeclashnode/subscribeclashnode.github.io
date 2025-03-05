@@ -60,8 +60,10 @@
 <body class="projects-detail-page" id="section_1" data-page="detail">
         <nav class="navbar navbar-expand-lg bg-white shadow-lg">
         <div class="container">
-                        <a href="/" class="navbar-brand">Subscribe <span class="text-danger">ClashNode</span></a>
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a href="/" class="xcblog-blog-logo">
+                        <span>Subscribe <b class="text-danger">ClashNode</b></span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -76,15 +78,12 @@
                         <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
                     </li>
                                         <li class="nav-item">
-                        <a class="nav-link" href="/news/">新闻资讯</a>
+                        <a class="nav-link" href="/client.htm">客户端</a>
                     </li>
                                         <li class="nav-item">
-                        <a class="nav-link" href="#">关于</a>
+                        <a class="nav-link" href="/news/">新闻资讯</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">联系</a>
-                    </li>
-                </ul>
+                                    </ul>
             </div>
         </div>
     </nav>
@@ -110,7 +109,6 @@
                                         <input type="hidden" id="share-website-info" data-name="" data-url="">
                   				  				  				<div id="content_views" class="htmledit_views"> <p><span style="color:#ff9900;">由于很简单,所以我把注释写的很详细,欢迎大家指正错误!!</span></p> <pre><code>#include &lt;stdio.h&gt; #include &lt;malloc.h&gt; #include &lt;assert.h&gt; //创建动态顺序表 typedef struct node { 	int* arr;//指针指向头 	int  szie;//有效元素 	int capacity;//总容量 }node; //1.顺序表初始化 void NodeInit(node* ps, int initcapacity); //2.顺序表释放 void NodeDestory(node* ps); //3.顺序表打印 void NodePrint(node* ps); //4.顺序表尾插 void NodePushback(node* ps, int x); //5.顺序表头插 void NodePushfront(node* ps, int x); //6.顺序表头删 void NodePopfront(node* ps); //7.顺序表尾删 void NodePopback(node* ps); //8.顺序表测试 void Testnode(); int NodeisEmpty(node* ps); //9.判断顺序表是否为空 int NodeisEmpty(node* ps) { 	assert(ps); 	return 0 == ps-&gt;szie; } //10.顺序表寻找元素返回下标 int NodeFind(node* ps, int x); //11.顺序表在pos位置插入x void NodeInsert(node* ps, size_t pos, int x); //12.顺序表删除pos位置的元素 void Nodedelet(node* ps, size_t pos); //1.顺序表的初始化 void NodeInit(node* ps, int initcapacity) { 	assert(ps); 	ps-&gt;arr = (int*)malloc(sizeof(int) * initcapacity); 	if (NULL == ps-&gt;arr) { 		assert(0); 		return; 	} 	ps-&gt;capacity = initcapacity; 	ps-&gt;szie = 0; } //2.顺序表的释放 void NodeDestory(node* ps) { 	assert(ps); 	if (ps-&gt;arr) { 		free(ps-&gt;arr); 		ps-&gt;capacity = 0; 		ps-&gt;szie = 0; 	} } //3.顺序表的打印 void NodePrint(node* ps) { 	assert(ps); 	for (int i = 0; i &lt; ps-&gt;szie; i++) { 		printf("%d ", ps-&gt;arr[i]); 	} 	printf("\n"); } //4.顺序表的尾插 void NodePushback(node* ps, int x) { 	assert(ps); 	if (ps-&gt;capacity &gt; ps-&gt;szie) { 		ps-&gt;arr[ps-&gt;szie] = x; 		ps-&gt;szie++; 	} 	else { 		printf("添加失败!\n"); 	} } //5.顺序表的头插 void NodePushfront(node* ps, int x) { 	assert(ps); 	if (ps-&gt;capacity &gt; ps-&gt;szie) { 		int tmp = ps-&gt;arr[0]; 		for (int i = ps-&gt;szie - 1; i &gt;= 0; i--) { 			ps-&gt;arr[i+1] = ps-&gt;arr[i]; 		} 		ps-&gt;arr[0] = x; 		ps-&gt;szie++; 	} 	else { 		printf("插入失败!\n"); 	}  } //6.顺序表的头删 void NodePopfront(node* ps) { 	assert(ps); 	for (int i = 0; i &lt; ps-&gt;szie - 1; i++) { 		ps-&gt;arr[i] = ps-&gt;arr[i+1]; 	} 	ps-&gt;szie--; } //7.顺序表的尾删 void NodePopback(node* ps) { 	if (NodeisEmpty(ps)) { 		return; 	} 	else { 		ps-&gt;szie--; 	} } //10.顺序表寻找元素返回下标 int NodeFind(node* ps, int x) { 	assert(ps); 	for (int i = 0; i &lt; ps-&gt;szie - 1; i++) { 		if (ps-&gt;arr[i] == x) { 			return i; 		} 	} 	return -1; } //11.顺序表在pos位置插入x void NodeInsert(node* ps, size_t pos, int x) { 	assert(ps); 	if (ps-&gt;capacity &gt; ps-&gt;szie) { 		for (int i =ps-&gt;szie-1; i &gt;pos-1; i--) { 			ps-&gt;arr[i+1] = ps-&gt;arr[i]; 		} 		ps-&gt;arr[pos] = x; 		ps-&gt;szie++; 	} } //12.顺序表删除pos位置的元素 void Nodedelet(node* ps, size_t pos) { 	assert(ps); 	for (int i = pos; i &lt; ps-&gt;szie; i++) { 		ps-&gt;arr[i] = ps-&gt;arr[i+1]; 	} 	ps-&gt;szie--; } //测试用例1 void Testnode1() { 	node s;//创建变量 	NodeInit(&amp;s, 10);//初始化 	NodePushback(&amp;s, 1);//尾插1 	NodePushback(&amp;s, 2);//尾插2 	NodePushback(&amp;s, 3);//尾插3 	NodePushback(&amp;s, 4);//尾插4 	NodePushback(&amp;s, 5);//尾插5 	NodePushback(&amp;s, 6);//尾插6	----&gt;顺序表里的数字为1 2 3 4 5 6 	NodePrint(&amp;s); 	NodePopback(&amp;s);//尾删1位元素 	NodePrint(&amp;s); 	NodePushback(&amp;s, 6);//再加回来 	NodePrint(&amp;s); 	NodePushfront(&amp;s, 0);//头插0;								----&gt;顺序表里的数字为0 1 2 3 4 5 6 	NodePrint(&amp;s); 	NodePopfront(&amp;s, 0);//头删0;								----&gt;顺序表里的数字为1 2 3 4 5 6 	NodePrint(&amp;s); 	NodeInsert(&amp;s, 3, 5);//在顺序表下标为3的元素前面插入5		----&gt;顺序表里的数字为1 2 3 5 4 5 6 	NodePrint(&amp;s); 	Nodedelet(&amp;s, 3);//删除下标为3的元素 	NodePrint(&amp;s); 	NodePrint(&amp;s); 	printf("找到数字3的下标为%d\n", NodeFind(&amp;s, 3));//找到3所对应的下标 	NodeDestory(&amp;s); 	NodePrint(&amp;s); } void Testnode() { 	Testnode1(); } int main() { 	Testnode(); 	return 0; }</code></pre> <p>&nbsp;<span style="color:#ffd900;">运行结果如下:</span></p> <p><img fetchpriority="high" decoding="async" alt="" height="647" src="http://img.555519.xyz/uploads/20230217/1e8de708f1b6eb6cf36e6995aec6b339.jpg"></p> <p>&nbsp;<span style="color:#ffd900;">非常简单,学会的扣1,没学会的扣眼珠子.</span></p> </p></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
-                                        <p>上一个：<a href="/news/article-34968.htm">Docker最常用的镜像命令和容器命令</a></p>
                                         <p>下一个：<a href="/news/article-35849.htm">网上开店无货源（网上开店无货源的货源在哪）</a></p>
                                     </div>
                                     </div>
@@ -121,16 +119,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-31303.htm" title="动物疫苗生产企业资质（生产动物疫苗所需资质）">动物疫苗生产企业资质（生产动物疫苗所需资质）</a></li>
-                        <li class="py-2"><a href="/news/article-29486.htm" title="设计模式-六大原则之单一职责">设计模式-六大原则之单一职责</a></li>
-                        <li class="py-2"><a href="/news/article-37635.htm" title="数据结构与算法知识点总结数组与链表">数据结构与算法知识点总结数组与链表</a></li>
-                        <li class="py-2"><a href="/news/article-34968.htm" title="Docker最常用的镜像命令和容器命令">Docker最常用的镜像命令和容器命令</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-29-shadowrocket-node.htm" title="「12月29日」最高速度22.5M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接">「12月29日」最高速度22.5M/S，2024年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-60493.htm" title="动物疫苗扎到手里怎么办啊图片（动物打了疫苗的,抓伤了人怎么办）">动物疫苗扎到手里怎么办啊图片（动物打了疫苗的,抓伤了人怎么办）</a></li>
+                        <li class="py-2"><a href="/news/article-56512.htm" title="动物检疫疫苗（动物检疫疫苗包括哪些）">动物检疫疫苗（动物检疫疫苗包括哪些）</a></li>
                         <li class="py-2"><a href="/news/article-49004.htm" title="上海宠物医院排名榜（上海出名的宠物医院）">上海宠物医院排名榜（上海出名的宠物医院）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-17-free-shadowrocket-node.htm" title="「11月17日」最高速度22.5M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接">「11月17日」最高速度22.5M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-21173.htm" title="宠物领养协议书怎么生效的 宠物领养协议书怎么生效的呢">宠物领养协议书怎么生效的 宠物领养协议书怎么生效的呢</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-5-free-v2ray-subscribe.htm" title="「12月5日」最高速度19.8M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接">「12月5日」最高速度19.8M/S，2024年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-33787.htm" title="动物疫苗打一次管多长时间有效呢（动物疫苗打一次管多长时间有效呢图片）">动物疫苗打一次管多长时间有效呢（动物疫苗打一次管多长时间有效呢图片）</a></li>
+                        <li class="py-2"><a href="/news/article-46560.htm" title="宠物粮行业分析报告范文（宠物粮食市场前景）">宠物粮行业分析报告范文（宠物粮食市场前景）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-23-free-v2ray.htm" title="「1月23日」最高速度20.9M/S，2025年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接">「1月23日」最高速度20.9M/S，2025年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-46068.htm" title="python读取hdfs上的parquet文件以及python访问hdfs HA的三种方法">python读取hdfs上的parquet文件以及python访问hdfs HA的三种方法</a></li>
+                        <li class="py-2"><a href="/news/article-50564.htm" title="狗狗送人领养怎么说（狗狗送人领养怎么说祝福语）">狗狗送人领养怎么说（狗狗送人领养怎么说祝福语）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-12-free-node-subscribe-links.htm" title="「2月12日」最高速度20.9M/S，2025年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接">「2月12日」最高速度20.9M/S，2025年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-25-shadowrocket-node.htm" title="「1月25日」最高速度21.3M/S，2025年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接">「1月25日」最高速度21.3M/S，2025年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-17-free-clash-subscribe.htm" title="「2月17日」最高速度22.1M/S，2025年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅链接">「2月17日」最高速度22.1M/S，2025年Clash/V2ray/SSR/Shadowrocket每天更新免费机场订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -142,16 +140,13 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                     </ul>
     </div>
