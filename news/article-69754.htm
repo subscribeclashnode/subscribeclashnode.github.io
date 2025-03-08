@@ -1,0 +1,195 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://subscribeclashnode.github.io/news/article-69754.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cpp的异常处理Exception Handling-笔记</title>
+        <meta name="description" content="本文参考这里 Cpp的异常处理建立在三个关键字上：try, catch, throw try-catch try {// protected code }catch(...)//三点省略号，handl" />
+        <link rel="icon" href="/assets/website/img/subscribeclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SubscribeClashNode订阅节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://subscribeclashnode.github.io/news/article-69754.htm" />
+    <meta property="og:site_name" content="SubscribeClashNode订阅节点站" />
+    <meta property="og:title" content="Cpp的异常处理Exception Handling-笔记" />
+    <meta property="og:image" content="https://subscribeclashnode.github.io/uploads/20240607/fe79a46f28a8d90a789f0405bcefabbe.webp" />
+        <meta property="og:release_date" content="2025-03-08T05:06:38" />
+    <meta property="og:updated_time" content="2025-03-08T05:06:38" />
+        <meta property="og:description" content="本文参考这里 Cpp的异常处理建立在三个关键字上：try, catch, throw try-catch try {// protected code }catch(...)//三点省略号，handl" />
+        
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Cpp的异常处理Exception Handling-笔记">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/tooplate-waso-strategy.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPWBEXR622"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KPWBEXR622');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="projects-detail-page" id="section_1" data-page="detail">
+        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+        <div class="container">
+            <a href="/" class="xcblog-blog-logo">
+                        <span>Subscribe <b class="text-danger">ClashNode</b></span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/client.htm">客户端</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="hero section-hero section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mx-auto">
+                        <div class="section-hero-text">
+                            <h1 class="text-white">Cpp的异常处理Exception Handling-笔记</h1>
+                            <small class="small-title text-warning">
+                                <a href="/" class="text-warning">首页</a> / <a href="/news/" class="text-warning">新闻资讯</a> / <span>正文</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about section-padding" id="section_2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> </h1> <p>本文参考<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.tutorialspoint.com/cplusplus/cpp_exceptions_handling.htm"  rel="nofollow">这里</a></p> <p>Cpp的异常处理建立在三个关键字上：<code>try, catch, throw</code></p> <h2 id="try-catch">try-catch</h2> <pre class="prettyprint"><code class="language-cpp hljs"><span class="hljs-keyword">try</span> {<span class="hljs-comment">// protected code</span> }<span class="hljs-keyword">catch</span>(...)<span class="hljs-comment">//三点省略号，handle any type of exception</span> {<span class="hljs-comment">// code to handle any exception</span> }</code></pre> <h2 id="throw">throw</h2> <p>略</p> <h2 id="cpp标准exception">Cpp标准exception</h2> <p>略</p> <h2 id="自定义新exception">自定义新exception</h2> <p>略</p> <hr/> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-69106.htm">动物疫苗去哪打的 动物疫苗去哪打的啊</a></p>
+                                        <p>下一个：<a href="/news/article-69755.htm">丹阳哪里可以领养狗狗的（丹阳哪里可以领养狗狗的地方）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-39132.htm" title="动物疫苗多少钱一支啊图片高清视频下载（动物疫苗新规）">动物疫苗多少钱一支啊图片高清视频下载（动物疫苗新规）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-22-clash-v2ray-ss-ssr.htm" title="「1月22日」最高速度20.3M/S，2025年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅链接">「1月22日」最高速度20.3M/S，2025年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-62870.htm" title="合肥哪里可以领养狗（合肥领养宠物的地方）">合肥哪里可以领养狗（合肥领养宠物的地方）</a></li>
+                        <li class="py-2"><a href="/news/article-47534.htm" title="猫粮进口什么牌子好吃（进口猫粮档次排行）">猫粮进口什么牌子好吃（进口猫粮档次排行）</a></li>
+                        <li class="py-2"><a href="/news/article-44063.htm" title="猫咪三针疫苗打多久可以洗澡了（猫咪三针疫苗打完多久可以绝育）">猫咪三针疫苗打多久可以洗澡了（猫咪三针疫苗打完多久可以绝育）</a></li>
+                        <li class="py-2"><a href="/news/article-42083.htm" title="如何开一家宠物店赚钱（怎么开宠物店利润多少）">如何开一家宠物店赚钱（怎么开宠物店利润多少）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-free-subscribe-node.htm" title="「1月29日」最高速度22.2M/S，2025年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接">「1月29日」最高速度22.2M/S，2025年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-68443.htm" title="宠物狗领养免费政策（宠物犬免费领养）">宠物狗领养免费政策（宠物犬免费领养）</a></li>
+                        <li class="py-2"><a href="/news/article-67195.htm" title="宠康动物医院怎么样 宠康动物医院怎么样啊">宠康动物医院怎么样 宠康动物医院怎么样啊</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-clash-v2ray-ss-ssr.htm" title="「1月8日」最高速度19.7M/S，2025年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接">「1月8日」最高速度19.7M/S，2025年V2ray/Shadowrocket/Clash/SSR每天更新免费机场订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <p class="copyright-text mb-0 me-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        SubscribeClashNode订阅节点站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JAVASCRIPT FILES -->
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.sticky.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/magnific-popup-options.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/click-scroll.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
