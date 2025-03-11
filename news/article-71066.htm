@@ -1,0 +1,195 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://subscribeclashnode.github.io/news/article-71066.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>mongodb开发&#8212;GridFS文件存储</title>
+        <meta name="description" content="GridFS是MongoDB中的一个内置功能，可以用于存放大量小文件。 GridFS使用两集合来存储文件的元数据和内容。文件的元数据存储在文件集合中，文件的内容存储在块集合中。  两集合以FS。默认使" />
+        <link rel="icon" href="/assets/website/img/subscribeclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SubscribeClashNode订阅节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://subscribeclashnode.github.io/news/article-71066.htm" />
+    <meta property="og:site_name" content="SubscribeClashNode订阅节点站" />
+    <meta property="og:title" content="mongodb开发&#8212;GridFS文件存储" />
+    <meta property="og:image" content="https://subscribeclashnode.github.io/uploads/20240607/a7ae4a984e1bd7a67fa77d9c99a195de.webp" />
+        <meta property="og:release_date" content="2025-03-10T04:37:17" />
+    <meta property="og:updated_time" content="2025-03-10T04:37:17" />
+        <meta property="og:description" content="GridFS是MongoDB中的一个内置功能，可以用于存放大量小文件。 GridFS使用两集合来存储文件的元数据和内容。文件的元数据存储在文件集合中，文件的内容存储在块集合中。  两集合以FS。默认使" />
+        
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="mongodb开发&#8212;GridFS文件存储">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/tooplate-waso-strategy.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPWBEXR622"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KPWBEXR622');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="projects-detail-page" id="section_1" data-page="detail">
+        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+        <div class="container">
+            <a href="/" class="xcblog-blog-logo">
+                        <span>Subscribe <b class="text-danger">ClashNode</b></span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/client.htm">客户端</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="hero section-hero section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mx-auto">
+                        <div class="section-hero-text">
+                            <h1 class="text-white">mongodb开发&#8212;GridFS文件存储</h1>
+                            <small class="small-title text-warning">
+                                <a href="/" class="text-warning">首页</a> / <a href="/news/" class="text-warning">新闻资讯</a> / <span>正文</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about section-padding" id="section_2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views">                     <span style="font-size:18px"><span style="white-space:pre"></span>GridFS是MongoDB中的一个内置功能，可以用于存放大量小文件。<br /> GridFS使用两集合来存储文件的元数据和内容。文件的元数据存储在文件集合中，文件的内容存储在块集合中。<br /></span> </p> <p><span style="font-size:18px">两集合以FS。默认使用fs.chunks和fs.files来存储文件。其中fs.files集合存放文件的信息，fs.chunks存放文件数据。</span></p> <p><span style="font-size:18px"><span style="color:#33ccff">有些内容参考自 http://www.server110.com/mongodb/201404/10124.html</span></span></p> <p><span style="font-size:18px">下面是具体的使用方式：</span></p> <p><span style="font-size:18px"><span style="white-space:pre"></span></span></p> <pre><code class="language-java">1.引入spring-boot-starter-data-mongodb的依赖。 	&lt;dependency&gt; 		&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; 		&lt;artifactId&gt;spring-boot-starter-data-mongodb&lt;/artifactId&gt; 	&lt;/dependency&gt;  2.注入模版 	@Autowired 	MongoTemplate mongoTemplate ; 	 	@Autowired 	MongoDbFactory dbFactory ; 3.创建GridFsTemplate模版 	GridFsTemplate gridfsTemplate = new GridFsTemplate(dbFactory, mongoTemplate.getConverter()) ; 4.保存文件 	gridfsTemplate.store(content, filename, contentType, metadata) 	gridfsTemplate.store(file.getInputStream(), fileName, file.getContentType(), metadata); 5.查找文件 	GridFsTemplate gridfsTemplate = new GridFsTemplate(dbFactory, mongoTemplate.getConverter()) ; 		 	Query query = new Query() ; 	 	//查询条件设置 	GridFsCriteria.whereContentType() 	GridFsCriteria.where(key) 	GridFsCriteria.whereMetaData(metadataKey) 	 	Criteria  criteria = GridFsCriteria.whereFilename() ; 	criteria.is(fileName) ;		 	query.addCriteria(criteria); 		 	Order order = new Order(Sort.Direction.DESC, "uploadDate") ; 	Sort sort = new Sort(order) ; 	query.with(sort); 	 	GridFSDBFile gridFils = gridfsTemplate.findOne(query)	 	List&lt;GridFSDBFile&gt; gridFils = gridfsTemplate.find(query) ; 	 	 	//输入到指定的流、文件、获取输入流。 	dbFile.writeTo(Outputstram out ) 	dbFile.getInputStream() 	dbFile.writeTo(file) 	 	//根据文件名查询文件（可以带正则表达式），返回一个Resource 	GridFsResource[] gridFsResource = gridFsTemplate.getResources("test*"); 	  6.删除文件 	gridfsTemplate.delete(query);  讲GridFSDBFile有什么方法。  GridFSDBFile  Core Methods  	The GridFSDBFile  API is quite simple as well:  	getInputStream – returns an InputStream from which data can be read 	getFilename – gets the filename of the file 	getMetaData – gets the metadata for the given file 	containsField – determines if the document contains a field with the given name 	get – gets a field from the object by name 	getId – gets the file’s object ID 	keySet – gets the object’s field names  注意事项 1. GridFS不自动处理md5相同的文件，对于md5相同的文件，如果想在GridFS中只有一个存储，要用户自已处理。 Md5值的计算由客户端完成。 2. 因为GridFS在上传文件过程中是先把文件数据保存到fs.chunks，最后再把文件信息保存到fs.files中，所以 如果在上传文件过程中失败，有可能在fs.chunks中出现垃圾数据。这些垃圾数据可以定期清理掉。</code></pre> <p>                 </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-70414.htm">私人写的协议书签字有效吗（私人写的协议书签字有效吗安全吗）</a></p>
+                                        <p>下一个：<a href="/news/article-71069.htm">领养宠物需要签协议吗合法吗现在（领养狗狗要签协议吗）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-60493.htm" title="动物疫苗扎到手里怎么办啊图片（动物打了疫苗的,抓伤了人怎么办）">动物疫苗扎到手里怎么办啊图片（动物打了疫苗的,抓伤了人怎么办）</a></li>
+                        <li class="py-2"><a href="/news/article-58206.htm" title="feign实现微服务之间的远程调用">feign实现微服务之间的远程调用</a></li>
+                        <li class="py-2"><a href="/news/article-42587.htm" title="动物疫苗空瓶无害化处理 动物疫苗空瓶无害化处理方法">动物疫苗空瓶无害化处理 动物疫苗空瓶无害化处理方法</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-15-free-clash-subscribe.htm" title="「2月15日」最高速度20.4M/S，2025年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅链接">「2月15日」最高速度20.4M/S，2025年Clash/SSR/Shadowrocket/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-46562.htm" title="动物疫苗销售许可证如何办理流程图（动物疫苗经营）">动物疫苗销售许可证如何办理流程图（动物疫苗经营）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-13-free-node-subscribe-links.htm" title="「2月13日」最高速度22.7M/S，2025年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接">「2月13日」最高速度22.7M/S，2025年V2ray/Shadowrocket/SSR/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-10-free-shadowrocket-node.htm" title="「2月10日」最高速度20.3M/S，2025年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅链接">「2月10日」最高速度20.3M/S，2025年SSR/Clash/Shadowrocket/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-40606.htm" title="我所在的城市有一家宠物医院的英语怎么写（我所在的城市有一家宠物医院的英语怎么写作文）">我所在的城市有一家宠物医院的英语怎么写（我所在的城市有一家宠物医院的英语怎么写作文）</a></li>
+                        <li class="py-2"><a href="/news/article-51618.htm" title="收狗狗的平台叫什么的简单介绍">收狗狗的平台叫什么的简单介绍</a></li>
+                        <li class="py-2"><a href="/news/article-49004.htm" title="上海宠物医院排名榜（上海出名的宠物医院）">上海宠物医院排名榜（上海出名的宠物医院）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <p class="copyright-text mb-0 me-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        SubscribeClashNode订阅节点站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JAVASCRIPT FILES -->
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.sticky.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/magnific-popup-options.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/click-scroll.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
