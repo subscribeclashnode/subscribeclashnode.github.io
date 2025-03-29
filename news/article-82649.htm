@@ -1,0 +1,195 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://subscribeclashnode.github.io/news/article-82649.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PHP $ _GET</title>
+        <meta name="description" content="介绍 $_GET是变量的关联数组，通过附加到HTTP请求URL的查询字符串传递到当前脚本。请注意，除GET请求外，所有请求均使用查询字符串填充该数组。 $HTTP_GET_VARS包含相同的初始信息，" />
+        <link rel="icon" href="/assets/website/img/subscribeclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SubscribeClashNode订阅节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://subscribeclashnode.github.io/news/article-82649.htm" />
+    <meta property="og:site_name" content="SubscribeClashNode订阅节点站" />
+    <meta property="og:title" content="PHP $ _GET" />
+    <meta property="og:image" content="https://subscribeclashnode.github.io/uploads/20240607/fde2779eac840e8eb719f1dd3f6c49af.webp" />
+        <meta property="og:release_date" content="2025-03-27T08:15:32" />
+    <meta property="og:updated_time" content="2025-03-27T08:15:32" />
+        <meta property="og:description" content="介绍 $_GET是变量的关联数组，通过附加到HTTP请求URL的查询字符串传递到当前脚本。请注意，除GET请求外，所有请求均使用查询字符串填充该数组。 $HTTP_GET_VARS包含相同的初始信息，" />
+        
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PHP $ _GET">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/tooplate-waso-strategy.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPWBEXR622"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KPWBEXR622');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="projects-detail-page" id="section_1" data-page="detail">
+        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+        <div class="container">
+            <a href="/" class="xcblog-blog-logo">
+                        <span>Subscribe <b class="text-danger">ClashNode</b></span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/client.htm">客户端</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="hero section-hero section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mx-auto">
+                        <div class="section-hero-text">
+                            <h1 class="text-white">PHP $ _GET</h1>
+                            <small class="small-title text-warning">
+                                <a href="/" class="text-warning">首页</a> / <a href="/news/" class="text-warning">新闻资讯</a> / <span>正文</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about section-padding" id="section_2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<h2>介绍</h2> <p><strong>$_GET</strong>是变量的关联数组，通过附加到HTTP请求URL的查询字符串传递到当前脚本。请注意，除GET请求外，所有请求均使用查询字符串填充该数组。</p> <p><strong>$HTTP_GET_VARS</strong>包含相同的初始信息，但已弃用</p> <p>默认情况下，客户端浏览器通过HTTP GET方法在服务器上发送URL请求。附加到URL的查询字符串可能包含由<strong>＆</strong>符号连接的键=值对。$_GET关联数组存储这些键值对</p> <p>假设浏览器中的URL是<strong></strong></p> <h2>示例</h2> <pre>&lt;?php echo&nbsp;"Name&nbsp;:&nbsp;"&nbsp;.&nbsp;$_GET["name"]&nbsp;.&nbsp;"&lt;br&gt;"; echo&nbsp;"Age&nbsp;:&nbsp;"&nbsp;.&nbsp;$_GET["age"]; ?&gt;</pre> <p>输出结果</p> <p>这将产生以下结果-</p> <pre>Name&nbsp;:&nbsp;xyz Age&nbsp;:&nbsp;20</pre> <p>在以下示例中，<code>htmlspecialchars()</code>函数用于转换HTML实体中的字符。</p> <table class="table table-bordered table-striped"> <thead> <tr class="firstRow"> <th>字符</th> <th>替代</th> </tr> </thead> <thead> <tr> <th>&lt;（小于）</th> <th>＆lt;</th> </tr> </thead> <thead> <tr> <th>'（单引号）</th> <th>＆#039; 或‘</th> </tr> </thead> <thead> <tr> <th>”（双引号）</th> <th>＆quot;</th> </tr> </thead> <thead> <tr> <th>＆（＆）</th> <th>＆amp;</th> </tr> </thead> <thead> <tr> <th>&nbsp;&gt;（大于）</th> <th>&nbsp;＆gt;</th> </tr> </thead> <tbody></tbody> </table> <p>假设浏览器中的URL是<strong></strong></p> <h2>示例</h2> <pre>&lt;?php echo&nbsp;"Name:&nbsp;"&nbsp;.&nbsp;htmlspecialchars($_GET["name"])&nbsp;.&nbsp;"&lt;br&gt;"; echo&nbsp;"age:&nbsp;"&nbsp;.&nbsp;htmlspecialchars($_GET["age"])&nbsp;.&nbsp;"&lt;br&gt;"; ?&gt;</pre> <p>输出结果</p> <p>这将产生以下结果-</p> <pre>Name&nbsp;:&nbsp;xyz Age&nbsp;:&nbsp;20</pre> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-81908.htm">兽药安泰又叫什么（兽药安泰又叫什么名字）</a></p>
+                                        <p>下一个：<a href="/news/article-82650.htm">动物医院看病多少钱一天啊图片（动物医院诊疗范围）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-4-clash-node-daily-updates.htm" title="「3月4日」最高速度21.7M/S，2025年SSR/V2ray/Shadowrocket/Clash每天更新免费机场订阅链接">「3月4日」最高速度21.7M/S，2025年SSR/V2ray/Shadowrocket/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-45559.htm" title="美迪青储机厂家电话地址（美迪青储机3300价格）">美迪青储机厂家电话地址（美迪青储机3300价格）</a></li>
+                        <li class="py-2"><a href="/news/article-60493.htm" title="动物疫苗扎到手里怎么办啊图片（动物打了疫苗的,抓伤了人怎么办）">动物疫苗扎到手里怎么办啊图片（动物打了疫苗的,抓伤了人怎么办）</a></li>
+                        <li class="py-2"><a href="/news/article-56512.htm" title="动物检疫疫苗（动物检疫疫苗包括哪些）">动物检疫疫苗（动物检疫疫苗包括哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-35952.htm" title="动物疫苗经销商有哪些（动物疫苗代理）">动物疫苗经销商有哪些（动物疫苗代理）</a></li>
+                        <li class="py-2"><a href="/news/article-58206.htm" title="feign实现微服务之间的远程调用">feign实现微服务之间的远程调用</a></li>
+                        <li class="py-2"><a href="/news/article-64066.htm" title="为什么在MySQL中使用两位数年份的日期值不是一个好习惯？">为什么在MySQL中使用两位数年份的日期值不是一个好习惯？</a></li>
+                        <li class="py-2"><a href="/news/article-40606.htm" title="我所在的城市有一家宠物医院的英语怎么写（我所在的城市有一家宠物医院的英语怎么写作文）">我所在的城市有一家宠物医院的英语怎么写（我所在的城市有一家宠物医院的英语怎么写作文）</a></li>
+                        <li class="py-2"><a href="/news/article-50056.htm" title="【nodejs】【mongo】nodejs数据查询【mongo】">【nodejs】【mongo】nodejs数据查询【mongo】</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-9-free-clash.htm" title="「2月9日」最高速度18.2M/S，2025年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅链接">「2月9日」最高速度18.2M/S，2025年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <p class="copyright-text mb-0 me-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        SubscribeClashNode订阅节点站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JAVASCRIPT FILES -->
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.sticky.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/magnific-popup-options.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/click-scroll.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
