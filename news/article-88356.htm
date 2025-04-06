@@ -1,0 +1,194 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://subscribeclashnode.github.io/news/article-88356.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Django获取当前页面url</title>
+        <meta name="description" content="使用django做了一个聚合网站，每一个页面都有表单，想要统计表单在哪个url提交，因此需要获取当前页面url  方法一 获取主机地址： request.get_host()  获取访问路径： req" />
+        <link rel="icon" href="/assets/website/img/subscribeclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SubscribeClashNode订阅节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://subscribeclashnode.github.io/news/article-88356.htm" />
+    <meta property="og:site_name" content="SubscribeClashNode订阅节点站" />
+    <meta property="og:title" content="Django获取当前页面url" />
+    <meta property="og:image" content="https://subscribeclashnode.github.io/uploads/20240607/a7ae4a984e1bd7a67fa77d9c99a195de.webp" />
+        <meta property="og:release_date" content="2025-04-04T09:10:05" />
+    <meta property="og:updated_time" content="2025-04-04T09:10:05" />
+        <meta property="og:description" content="使用django做了一个聚合网站，每一个页面都有表单，想要统计表单在哪个url提交，因此需要获取当前页面url  方法一 获取主机地址： request.get_host()  获取访问路径： req" />
+        
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Django获取当前页面url">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/tooplate-waso-strategy.css" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPWBEXR622"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KPWBEXR622');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="projects-detail-page" id="section_1" data-page="detail">
+        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+        <div class="container">
+            <a href="/" class="xcblog-blog-logo">
+                        <span>Subscribe <b class="text-danger">ClashNode</b></span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/client.htm">客户端</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="hero section-hero section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mx-auto">
+                        <div class="section-hero-text">
+                            <h1 class="text-white">Django获取当前页面url</h1>
+                            <small class="small-title text-warning">
+                                <a href="/" class="text-warning">首页</a> / <a href="/news/" class="text-warning">新闻资讯</a> / <span>正文</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about section-padding" id="section_2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <p>使用django做了一个聚合网站，每一个页面都有表单，想要统计表单在哪个url提交，因此需要获取当前页面url</p> <h2> <a id="_1" rel="nofollow"></a>方法一</h2> <p>获取主机地址：</p> <pre><code class="prism language-python">request<span class="token punctuation">.</span>get_host<span class="token punctuation">(</span><span class="token punctuation">)</span> </code></pre> <p>获取访问路径：</p> <pre><code class="prism language-python">request<span class="token punctuation">.</span>get_full_path<span class="token punctuation">(</span><span class="token punctuation">)</span> </code></pre> <p>拼接即可得到</p> <h2> <a id="_12" rel="nofollow"></a>方法二</h2> <p>通过查看requests源码</p> <pre><code class="prism language-python">request<span class="token punctuation">.</span>get_raw_uri<span class="token punctuation">(</span><span class="token punctuation">)</span> </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-87650.htm">宠物疫苗可以自己打吗安全吗知乎（宠物疫苗可以自己打吗安全吗知乎文章）</a></p>
+                                        <p>下一个：<a href="/news/article-88357.htm">上海宠物救助站浦东新区（上海宠物狗救助站）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-23-free-clash-subscribe.htm" title="「3月23日」最高速度19.7M/S，2025年SSR/V2ray/Shadowrocket/Clash每天更新免费机场订阅链接">「3月23日」最高速度19.7M/S，2025年SSR/V2ray/Shadowrocket/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-88357.htm" title="上海宠物救助站浦东新区（上海宠物狗救助站）">上海宠物救助站浦东新区（上海宠物狗救助站）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-24-free-clash.htm" title="「3月24日」最高速度21.7M/S，2025年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅链接">「3月24日」最高速度21.7M/S，2025年SSR/V2ray/Clash/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-77104.htm" title="宠物粮代理加盟怎么样 宠物粮代理加盟怎么样赚钱">宠物粮代理加盟怎么样 宠物粮代理加盟怎么样赚钱</a></li>
+                        <li class="py-2"><a href="/news/article-75060.htm" title="聊下 git remote prune origin">聊下 git remote prune origin</a></li>
+                        <li class="py-2"><a href="/news/article-84775.htm" title="动物防疫疫苗管理工作方案怎么写好（动物疫苗管理制度）">动物防疫疫苗管理工作方案怎么写好（动物疫苗管理制度）</a></li>
+                        <li class="py-2"><a href="/news/article-73723.htm" title="如何从HTML表单获取键/值数据集？">如何从HTML表单获取键/值数据集？</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-21-node-share.htm" title="「3月21日」最高速度18.6M/S，2025年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅链接">「3月21日」最高速度18.6M/S，2025年Shadowrocket/Clash/SSR/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-72402.htm" title="在哪里免费领养边牧 在哪里免费领养边牧狗">在哪里免费领养边牧 在哪里免费领养边牧狗</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-29-free-ssr-node.htm" title="「3月29日」最高速度19.8M/S，2025年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接">「3月29日」最高速度19.8M/S，2025年Clash/Shadowrocket/V2ray/SSR每天更新免费机场订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <p class="copyright-text mb-0 me-4">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        SubscribeClashNode订阅节点站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JAVASCRIPT FILES -->
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.sticky.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/magnific-popup-options.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/click-scroll.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
