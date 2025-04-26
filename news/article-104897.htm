@@ -1,0 +1,196 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://subscribeclashnode.github.io/news/article-104897.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>netty系列之:netty中的自动解码器ReplayingDecoder_在线工具</title>
+        <meta name="description" content="目录  简介 ByteToMessageDecoder可能遇到的问题 ReplayingDecoder的实现原理 总结    netty提供了一个从ByteBuf到用户自定义的message的解码器叫" />
+        <link rel="icon" href="/assets/website/img/subscribeclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SubscribeClashNode订阅节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://subscribeclashnode.github.io/news/article-104897.htm" />
+    <meta property="og:site_name" content="SubscribeClashNode订阅节点站" />
+    <meta property="og:title" content="netty系列之:netty中的自动解码器ReplayingDecoder_在线工具" />
+    <meta property="og:image" content="https://subscribeclashnode.github.io/uploads/20240607/a86a622062926de605a20118e77df7e3.webp" />
+        <meta property="og:release_date" content="2025-04-26T07:40:22" />
+    <meta property="og:updated_time" content="2025-04-26T07:40:22" />
+        <meta property="og:description" content="目录  简介 ByteToMessageDecoder可能遇到的问题 ReplayingDecoder的实现原理 总结    netty提供了一个从ByteBuf到用户自定义的message的解码器叫" />
+        
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="netty系列之:netty中的自动解码器ReplayingDecoder_在线工具">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/tooplate-waso-strategy.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPWBEXR622"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KPWBEXR622');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="projects-detail-page" id="section_1" data-page="detail">
+        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+        <div class="container">
+            <a href="/" class="xcblog-blog-logo">
+                        <span>Subscribe <b class="text-danger">ClashNode</b></span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/client.htm">客户端</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="hero section-hero section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mx-auto">
+                        <div class="section-hero-text">
+                            <h1 class="text-white">netty系列之:netty中的自动解码器ReplayingDecoder_在线工具</h1>
+                            <small class="small-title text-warning">
+                                <a href="/" class="text-warning">首页</a> / <a href="/news/" class="text-warning">新闻资讯</a> / <span>正文</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about section-padding" id="section_2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				</p> <div class="toc"> <div class="toc-container-header">目录</div> <ul> <li>简介</li> <li>ByteToMessageDecoder可能遇到的问题</li> <li>ReplayingDecoder的实现原理</li> <li>总结</li> </ul> </div> </h1> <p>netty提供了一个从ByteBuf到用户自定义的message的解码器叫做ByteToMessageDecoder,要使用这个decoder，我们需要继承这个decoder，并实现decode方法，从而在这个方法中实现ByteBuf中的内容到用户自定义message对象的转换。</p> <p>那么在使用ByteToMessageDecoder的过程中会遇到什么问题呢？为什么又会有一个ReplayingDecoder呢？带着这个问题我们一起来看看吧。</p> </h1> <p>要想实现自己的解码器将ByteBuf转换成为自己的消息对象，可以继承ByteToMessageDecoder，然后实现其中的decode方法即可，先来看下decode方法的定义：</p> <pre><code>     protected void decode(ChannelHandlerContext ctx,                              ByteBuf buf, List&lt;Object&gt; out) throws Exception  </code></pre> <p>输入的参数中buf是要解码的ByteBuf，out是解码过后的对象列表，我们需要把ByteBuf中的数据转换成为我们自己的对象加入out的list中。</p> <p>那么这里可能会遇到一个问题，因为我们在调用decode方法的时候buf中的数据可能还没有准备好，比如我们需要一个Integer，但是buf中的数据不够一个整数，那么就需要一些buf中数据逻辑的判断,我们以一个带有消息长度的Buf对象来描述一下这个过程。</p> <p>所谓带有消息长度的Buf对象，就是说Buf消息中的前4位，构成了一个整数，这个整数表示的是buf中后续消息的长度。</p> <p>所以我们读取消息进行转换的流程是，先读取前面4个字节，得到消息的长度，然后再读取该长度的字节，这就是我们真正要获取的消息内容。</p> <p>来看一下如果是继承自ByteToMessageDecoder应该怎么实现这个逻辑呢？</p> <pre><code>   public class IntegerHeaderFrameDecoder extends ByteToMessageDecoder {          @Override      protected void decode(ChannelHandlerContext ctx,                              ByteBuf buf, List&lt;Object&gt; out) throws Exception {           if (buf.readableBytes() &lt; 4) {           return;        }           buf.markReaderIndex();        int length = buf.readInt();           if (buf.readableBytes() &lt; length) {           buf.resetReaderIndex();           return;        }           out.add(buf.readBytes(length));      }    } </code></pre> <p>在decode中，我们首先需要判断buf中可读的字节有没有4个，没有的话直接返回。如果有，则先读取这4个字节的长度，然后再判断buf中的可读字节是否小于应该读取的长度，如果小于，则说明数据还没有准备好，需要调用resetReaderIndex进行重置。</p> <p>最后，如果所有的条件都满足，才真正进行读取工作。</p> <p>有没有一个办法可以不提前进行判断，可以直接按照自己想要的内容来读取buf的方式呢？答案就是ReplayingDecoder。</p> <p>我们先来看一下上面的例子用ReplayingDecoder重写是什么情况：</p> <pre><code>   public class IntegerHeaderFrameDecoder         extends ReplayingDecoder&lt;Void&gt; {         protected void decode(ChannelHandlerContext ctx,                              ByteBuf buf, List&lt;Object&gt; out) throws Exception {           out.add(buf.readBytes(buf.readInt()));      }    } </code></pre> <p>使用ReplayingDecoder，我们可以忽略buf是否已经接收到了足够的可读数据，直接读取即可。</p> <p>相比之下ReplayingDecoder非常的简单。接下来，我们来探究一下ReplayingDecoder的实现原理。</p> </h1> <p>ReplayingDecoder实际上是ByteToMessageDecoder的一个子类，它的定义如下：</p> <pre><code>public abstract class ReplayingDecoder&lt;S&gt; extends ByteToMessageDecoder  </code></pre> <p>在ByteToMessageDecoder中，最重要的方法是channelRead,在这个方法中实际调用了<code>callDecode(ctx, cumulation, out);</code>来实现cumulation到out的解码过程。</p> <p>ReplayingDecoder的秘密就在于对这个方法的重写，我们来看下这个方法的具体实现：</p> <pre><code>   protected void callDecode(ChannelHandlerContext ctx, ByteBuf in, List&lt;Object&gt; out) {         replayable.setCumulation(in);         try {             while (in.isReadable()) {                 int oldReaderIndex = checkpoint = in.readerIndex();                 int outSize = out.size();                 if (outSize &gt; 0) {                     fireChannelRead(ctx, out, outSize);                     out.clear();                     if (ctx.isRemoved()) {                         break;                     }                     outSize = 0;                 }                 S oldState = state;                 int oldInputLength = in.readableBytes();                 try {                     decodeRemovalReentryProtection(ctx, replayable, out);                     if (ctx.isRemoved()) {                         break;                     }                     if (outSize == out.size()) {                         if (oldInputLength == in.readableBytes() &amp;&amp; oldState == state) {                             throw new DecoderException(                                     StringUtil.simpleClassName(getClass()) + ".decode() must consume the inbound " +                                     "data or change its state if it did not decode anything.");                         } else {                             continue;                         }                     }                 } catch (Signal replay) {                     replay.expect(REPLAY);                     if (ctx.isRemoved()) {                         break;                     }                      // Return to the checkpoint (or oldPosition) and retry.                     int checkpoint = this.checkpoint;                     if (checkpoint &gt;= 0) {                         in.readerIndex(checkpoint);                     } else {                     }                     break;                 }                 if (oldReaderIndex == in.readerIndex() &amp;&amp; oldState == state) {                     throw new DecoderException(                            StringUtil.simpleClassName(getClass()) + ".decode() method must consume the inbound data " +                            "or change its state if it decoded something.");                 }                 if (isSingleDecode()) {                     break;                 }             }         } catch (DecoderException e) {             throw e;         } catch (Exception cause) {             throw new DecoderException(cause);         }     } </code></pre> <p>这里的实现和ByteToMessageDecoder不同的是ReplayingDecoder中定义了一个checkpoint,这个checkpint是在尝试进行数据解码之初设置的：</p> <pre><code>int oldReaderIndex = checkpoint = in.readerIndex(); </code></pre> <p>如果是在解码的过程中出现了异常，则使用checkpoint重置index：</p> <pre><code>    int checkpoint = this.checkpoint;          if (checkpoint &gt;= 0) {             in.readerIndex(checkpoint);         } else {     } </code></pre> <p>这里捕获的异常是Signal，Signal是什么呢？</p> <p>Signal是一个Error对象：</p> <pre><code>public final class Signal extends Error implements Constant&lt;Signal&gt;  </code></pre> <p>这个异常是从replayable中抛出来的。</p> <p>replayable是一个特有的ByteBuf对象，叫做ReplayingDecoderByteBuf:</p> <pre><code>final class ReplayingDecoderByteBuf extends ByteBuf </code></pre> <p>在ReplayingDecoderByteBuf中定义了Signal属性：</p> <pre><code>    private static final Signal REPLAY = ReplayingDecoder.REPLAY; </code></pre> <p>这个Signal异常是从ReplayingDecoderByteBuf中的get方法中抛出的，这里以getInt为例,看一下异常是如何抛出的：</p> <pre><code>    public int getInt(int index) {         checkIndex(index, 4);         return buffer.getInt(index);     }  </code></pre> <p>getInt方法首先会去调用checkIndex方法进行buff中的长度检测，如果小于要读取的长度，则会抛出异常REPLAY：</p> <pre><code>    private void checkIndex(int index, int length) {         if (index + length &gt; buffer.writerIndex()) {             throw REPLAY;         }     } </code></pre> <p>这就是Signal异常的由来。</p> </h1> <p>以上就是对ReplayingDecoder的介绍，虽然ReplayingDecoder好用，但是从它的实现可以看出，ReplayingDecoder是通过抛出异常来不断的重试，所以在某些特殊的情况下会造成性能的下降。</p> <p>也就是说在减少我们代码量的同时，降低了程序的执行效率。看来要想马儿跑又想马儿不吃草，这样的好事是不可能的了。</p> <blockquote> <p>本文已收录于 http://www.flydean.com/14-4-netty-replayingdecoder/</p> <p>最通俗的解读，最深刻的干货，最简洁的教程，众多你不知道的小技巧等你来发现！</p> <p>欢迎关注我的公众号:「程序那些事」,懂技术，更懂你！</p> </blockquote> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-104896.htm">CSS3怎么为文字添加背景?</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-85489.htm" title="小猫得了猫瘟能坚持几天（小猫咪得了猫瘟成活的概率为多少）">小猫得了猫瘟能坚持几天（小猫咪得了猫瘟成活的概率为多少）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-28-clash-node.htm" title="「3月28日」最高速度21.8M/S，2025年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接">「3月28日」最高速度21.8M/S，2025年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-30-free-high-speed-nodes.htm" title="「3月30日」最高速度19.1M/S，2025年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅链接">「3月30日」最高速度19.1M/S，2025年Shadowrocket/SSR/Clash/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-4-clash-windows.htm" title="「4月4日」最高速度22.6M/S，2025年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接">「4月4日」最高速度22.6M/S，2025年Shadowrocket/SSR/V2ray/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-90557.htm" title="南京领养猫咪要求（南京在哪领养猫）">南京领养猫咪要求（南京在哪领养猫）</a></li>
+                        <li class="py-2"><a href="/news/article-66553.htm" title="兽用疫苗销售管理制度（销售兽用疫苗需要什么资质）">兽用疫苗销售管理制度（销售兽用疫苗需要什么资质）</a></li>
+                        <li class="py-2"><a href="/news/article-81907.htm" title="Kafka的零拷贝原理解析">Kafka的零拷贝原理解析</a></li>
+                        <li class="py-2"><a href="/news/article-67195.htm" title="宠康动物医院怎么样 宠康动物医院怎么样啊">宠康动物医院怎么样 宠康动物医院怎么样啊</a></li>
+                        <li class="py-2"><a href="/news/article-78484.htm" title="开个宠物诊所需要什么资质（想开宠物诊所需要什么）">开个宠物诊所需要什么资质（想开宠物诊所需要什么）</a></li>
+                        <li class="py-2"><a href="/news/article-86924.htm" title="动物疫苗的储存不合格区什么颜色的线（动物疫苗运输与储存规范）">动物疫苗的储存不合格区什么颜色的线（动物疫苗运输与储存规范）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">77</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <p class="copyright-text mb-0 me-4">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        SubscribeClashNode订阅节点站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JAVASCRIPT FILES -->
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.sticky.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/magnific-popup-options.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/click-scroll.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

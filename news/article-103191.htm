@@ -1,0 +1,197 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://subscribeclashnode.github.io/news/article-103191.htm" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>toString()与new String()用法区别</title>
+        <meta name="description" content="我们在平时工作中做Base6编解码数据转字符串时经常会遇到toString()与new String()，对于这两者的用法区别简单总结一下。  测试用例： 	@Test 	public void my" />
+        <link rel="icon" href="/assets/website/img/subscribeclashnode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="SubscribeClashNode订阅节点站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://subscribeclashnode.github.io/news/article-103191.htm" />
+    <meta property="og:site_name" content="SubscribeClashNode订阅节点站" />
+    <meta property="og:title" content="toString()与new String()用法区别" />
+    <meta property="og:image" content="https://subscribeclashnode.github.io/uploads/20240607/c81387c26dd1cfc8579e0d82a552c3af.webp" />
+        <meta property="og:release_date" content="2025-04-24T09:17:29" />
+    <meta property="og:updated_time" content="2025-04-24T09:17:29" />
+        <meta property="og:description" content="我们在平时工作中做Base6编解码数据转字符串时经常会遇到toString()与new String()，对于这两者的用法区别简单总结一下。  测试用例： 	@Test 	public void my" />
+        
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="toString()与new String()用法区别">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/bootstrap-icons.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/magnific-popup.css" rel="stylesheet">
+    <link href="/assets/website/css/subscribeclashnode/tooplate-waso-strategy.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KPWBEXR622"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KPWBEXR622');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body class="projects-detail-page" id="section_1" data-page="detail">
+        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
+        <div class="container">
+            <a href="/" class="xcblog-blog-logo">
+                        <span>Subscribe <b class="text-danger">ClashNode</b></span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/client.htm">客户端</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <section class="hero section-hero section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center mx-auto">
+                        <div class="section-hero-text">
+                            <h1 class="text-white">toString()与new String()用法区别</h1>
+                            <small class="small-title text-warning">
+                                <a href="/" class="text-warning">首页</a> / <a href="/news/" class="text-warning">新闻资讯</a> / <span>正文</span>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="about section-padding" id="section_2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="htmledit_views"> <p>我们在平时工作中做Base6编解码数据转字符串时经常会遇到toString()与new String()，对于这两者的用法区别简单总结一下。</p> </h1> <p><strong>测试用例：</strong></p> <pre><code class="language-java">	@Test 	public void myTest1() { 		String value = "01234567012345670123456701234567";  		String base64String = Base64.toBase64String(value.getBytes());         System.out.println("Base64编码：" + base64String );          byte[] decode = Base64.decode(base64String);         System.out.println("Base64解码：" + decode );  	}</code></pre> <p><strong>输出结果：</strong></p> <blockquote> <p><strong>Base64编码：MDEyMzQ1NjcwMTIzNDU2NzAxMjM0NTY3MDEyMzQ1Njc=<br /> Base64解码：[B@73d4cc9e</strong></p> </blockquote> <p><strong>对解码后的数据处理：</strong></p> <p>在上边的测试用例稍加改动：</p> <pre><code class="language-java">	@Test 	public void myTest1() { 		String value = "01234567012345670123456701234567";  		String base64String = Base64.toBase64String(value.getBytes());         System.out.println("Base64编码：" + base64String );          byte[] decode = Base64.decode(base64String);         System.out.println("Base64解码：" + decode );          String newString = new String(decode);         System.out.println("newString结果：" + newString );          String toString = decode.toString();         System.out.println("toString结果：" + toString ); 	}</code></pre> <p>输出结果：</p> <blockquote> <p><strong>Base64编码：MDEyMzQ1NjcwMTIzNDU2NzAxMjM0NTY3MDEyMzQ1Njc=<br /> Base64解码：[B@73d4cc9e</strong></p> <p><strong>newString结果：<span style="color:#fe2c24;">01234567012345670123456701234567</span><br /> toString结果：<span style="color:#4da8ee;">[B@73d4cc9e</span></strong></p> </blockquote> <p><strong>对比一下发现，相同的字节数组格式的解码数据，在做字符串转换时，输出的结果区别很大，哪一个用法是正确的？为什么？</strong></p> <p>这里应该用new String()的方法，因为Base64是一种转换编码格式的算法。</p> <hr/> </h1> <ul> <li><strong>toString()：是调用了Object类中的toString()方法。一般是返回这么一个String：[class name]@[hashCode]，实际上就是对象的哈希值。</strong></li> </ul> <p><strong>&nbsp; &nbsp; &nbsp; &nbsp; 这点可以从toString()方法的源码看出</strong></p> <p><img fetchpriority="high" decoding="async" alt="" height="83" src="http://img.555519.xyz/uploads3/20220829/47c995cce3526351af7705ea570f7ca7.jpg"></p> <p>调用该方法将获取一个<strong>String：[class name]@[hashCode]&nbsp;这么一个字符串对象。</strong></p> <ul> <li><strong>new String(byte[]&nbsp;parameter)：入参parameter是一个字节数组，使用java虚拟机默认的编码格式，将这个入参字节数组解码转换为对应的字符。若虚拟机默认的编码格式是ISO-8859-1，按照ascii编码表即可得到字节对应的字符。</strong></li> </ul> <hr/> </h1> <ul> <li><strong>new String()：一般使用字符转码的时候，即字节数组转换为字符串的时候。比如在对数据做编解码/加解密转为二进制字符串时，就可以直接使用此方法进行转换处理。</strong></li> <li><strong>toString()：将对象打印输出的时候，或者需要获取对象的地址的时候使用</strong></li> </ul> </div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-102365.htm">动物疫苗价格表图片大全大图及价格 动物疫苗价格表图片大全大图及价格查询</a></p>
+                                        <p>下一个：<a href="/news/article-103192.htm">CSS3怎么为文字添加背景?</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-1-free-v2ray-subscribe.htm" title="「4月1日」最高速度18.9M/S，2025年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅链接">「4月1日」最高速度18.9M/S，2025年Shadowrocket/Clash/V2ray/SSR每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-104276.htm" title="开一个宠物店怎么样（开一个宠物店怎么样呢）">开一个宠物店怎么样（开一个宠物店怎么样呢）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-12-free-v2ray.htm" title="「4月12日」最高速度19.4M/S，2025年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接">「4月12日」最高速度19.4M/S，2025年Shadowrocket/V2ray/SSR/Clash每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-14-shadowrocket-node.htm" title="「3月14日」最高速度20.4M/S，2025年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接">「3月14日」最高速度20.4M/S，2025年SSR/Shadowrocket/Clash/V2ray每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-26-free-shadowrocket-node.htm" title="「4月26日」最高速度18.6M/S，2025年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接">「4月26日」最高速度18.6M/S，2025年Clash/SSR/V2ray/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-86924.htm" title="动物疫苗的储存不合格区什么颜色的线（动物疫苗运输与储存规范）">动物疫苗的储存不合格区什么颜色的线（动物疫苗运输与储存规范）</a></li>
+                        <li class="py-2"><a href="/news/article-77103.htm" title="给宠物医院的好评怎么写（给宠物医院的好评怎么写简短）">给宠物医院的好评怎么写（给宠物医院的好评怎么写简短）</a></li>
+                        <li class="py-2"><a href="/news/article-67196.htm" title="宠物粮加工需要多少钱一吨呢图片（宠物粮加工需要多少钱一吨呢图片大全）">宠物粮加工需要多少钱一吨呢图片（宠物粮加工需要多少钱一吨呢图片大全）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-10-free-subscribe-node.htm" title="「4月10日」最高速度21.6M/S，2025年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接">「4月10日」最高速度21.6M/S，2025年V2ray/Clash/SSR/Shadowrocket每天更新免费机场订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-16-shadowrocket-node.htm" title="「4月16日」最高速度21.9M/S，2025年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接">「4月16日」最高速度21.9M/S，2025年SSR/Shadowrocket/V2ray/Clash每天更新免费机场订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">77</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12">
+                    <p class="copyright-text mb-0 me-4">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        SubscribeClashNode订阅节点站 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- JAVASCRIPT FILES -->
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.sticky.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/magnific-popup-options.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/click-scroll.js"></script>
+    <script src="/assets/website/js/frontend/subscribeclashnode/custom.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
