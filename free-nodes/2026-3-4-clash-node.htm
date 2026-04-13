@@ -131,19 +131,23 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
 <p style="margin-bottom:3rem;color:#999;font-style:italic;">注：跳转链接可能会 <b style="color:red;">被墙</b> ，如多次打开失败，请先使用下面不稳定免费订阅后，再尝试点击链接</p><p>&nbsp;</p><p></p><h2>订阅文件链接</h2><p>&nbsp;</p><p><strong>Clash订阅链接</strong></p><p>https://subscribeclashnode.github.io/uploads/2026/03/0-20260304.yaml</p><p>https://subscribeclashnode.github.io/uploads/2026/03/3-20260304.yaml</p><p>https://subscribeclashnode.github.io/uploads/2026/03/4-20260304.yaml</p><p>&nbsp;</p><p><strong>V2ray订阅链接:</strong></p><p>https://subscribeclashnode.github.io/uploads/2026/03/0-20260304.txt</p><p>https://subscribeclashnode.github.io/uploads/2026/03/2-20260304.txt</p><p>https://subscribeclashnode.github.io/uploads/2026/03/3-20260304.txt</p><p>https://subscribeclashnode.github.io/uploads/2026/03/4-20260304.txt</p><p><strong>Sing-Box订阅链接</strong></p><p>https://subscribeclashnode.github.io/uploads/2026/03/20260304.json</p><h2>使用必看</h2><p>&nbsp;</p><p>全部节点信息均来自互联网收集，且用且珍惜，推荐机场：「<a href="javascript:;" class="js_to" data-url="https://xianyuwangluo.top/#/register?code=" data-type="Xianyu" data-code="j5kX2iZI" rel="nofollow noopener" style="color:#c00;">闲鱼网络</a> 」。仅针对用于学习研究的用户分享，请勿随意传播其他信息。免费节点有效时间比较短，遇到失效是正常现象。</p><h2>掌握Clash for Android：从官网下载到高阶配置的全方位指南</h2>  <h2>引言：当科技遇见自由</h2>  <p>在数字围墙日益高筑的今天，一款名为Clash for Android的开源代理工具正悄然成为移动端用户的"网络瑞士军刀"。它不仅是技术极客的玩具，更是普通用户突破地域限制、守护隐私安全的利器。本文将带您深入探索这款工具的官方世界——从识别正宗官网到解锁高阶玩法，每一步都暗藏玄机。  </p>  <h2>第一章 认识这位"网络魔术师"</h2>  <p>Clash for Android绝非简单的VPN替代品。它基于著名的Clash核心开发，却为移动端量身打造了触控友好的交互界面。其精髓在于"智能分流"技术——就像一位经验丰富的海关官员，能瞬间判断哪些流量该走快速通道（直连），哪些需要特殊检查（代理）。  </p>  <p><strong>技术亮点解密</strong>：<br /> - <strong>协议交响乐团</strong>：同时指挥Shadowsocks、VMess、Trojan等协议协同工作<br /> - <strong>规则引擎</strong>：支持GeoIP数据库与自定义规则集，实现精准地域解锁<br /> - <strong>TUN模式</strong>：全局代理时仍保持应用级分流能力<br /> - <strong>订阅管理</strong>：自动更新节点信息，告别手动维护  </p>  <h2>第二章 官网寻踪：避开山寨陷阱</h2>  <p>在搜索引擎输入"Clash官网"，前三个结果可能都是精心伪装的钓鱼网站。真正的官方阵地其实藏在GitHub：<br /> <code>https://github.com/Kr328/ClashForAndroid</code><br /> <strong>官网识别特征</strong>：<br /> - 项目维护者为Kr328（核心开发者）<br /> - 最新版本发布于2023年12月<br /> - 拥有超过15k的Star认证<br /> - 讨论区有数千条技术交流  </p>  <p><em>小贴士</em>：警惕任何要求付费下载的网站，官方版本始终免费开源。  </p>  <h2>第三章 下载安装实战手册</h2>  <h3>3.1 安全下载四步曲</h3>  <ol> <li>在GitHub的Release页面找到<code>ClashForAndroid-x.x.x-premium-universal-release.apk</code>  </li> <li>核对SHA-256校验值（官方页面会提供）  </li> <li>使用ADB命令安装更安全：<code>adb install --bypass-low-target-sdk-block</code>  </li> <li>首次启动时检查数字签名是否匹配"Kr328"  </li> </ol>  <h3>3.2 权限配置的艺术</h3>  <ul> <li><strong>VPN权限</strong>：必需（用于创建虚拟网卡）  </li> <li><strong>存储权限</strong>：仅在使用本地规则文件时需要  </li> <li><strong>后台运行</strong>：建议开启电池优化白名单  </li> </ul>  <p><em>常见陷阱</em>：某些第三方修改版会索要通讯录权限，这绝对是危险信号！  </p>  <h2>第四章 配置进阶：从菜鸟到专家</h2>  <h3>4.1 新手友好配置</h3>  <p>```yaml<br /> proxies:   - name: "香港节点"     type: ss     server: hk.example.com     port: 443     cipher: aes-256-gcm     password: "your_password"</p>  <p>proxy-groups:   - name: "自动选择"     type: url-test     proxies: ["香港节点"]     url: "http://www.gstatic.com/generate_204"     interval: 300</p>  <p>rules:   - DOMAIN-SUFFIX,google.com,自动选择   - GEOIP,CN,DIRECT   - MATCH,自动选择 ```  </p>  <h3>4.2 高阶玩家技巧</h3>  <ul> <li><strong>规则混合</strong>：合并ACL4SSR规则与自定规则  </li> <li><strong>策略组嵌套</strong>：实现节点负载均衡+故障转移  </li> <li><strong>脚本扩展</strong>：使用JavaScript实现动态路由  </li> <li><strong>TUN混合模式</strong>：兼容不支持代理的传统应用  </li> </ul>  <h2>第五章 安全防护指南</h2>  <h3>5.1 隐私保护三原则</h3>  <ol> <li>永远禁用"UDP转发"（防止DNS泄漏）  </li> <li>定期检查<code>连接日志</code>中的异常请求  </li> <li>配合RethinkDNS使用本地DNS加密  </li> </ol>  <h3>5.2 节点安全评估</h3>  <ul> <li>延迟测试：<code>ping &lt;节点IP&gt; -t 10</code>  </li> <li>流量分析：使用Wireshark检查是否有明文泄漏  </li> <li>协议选择：优先采用Reality/VLESS等抗审查协议  </li> </ul>  <h2>第六章 疑难排解宝典</h2>  <p><strong>典型问题</strong>：<br /> - 微信消息延迟：关闭"绕过中国大陆IP"选项<br /> - Netflix无法播放：切换至支持流媒体的节点组<br /> - 耗电异常：在"TUN模式设置"中启用休眠策略  </p>  <p><em>专家建议</em>：遇到<code>TLS握手失败</code>错误时，尝试更换SNI字段为<code>cloudflare.com</code>  </p>  <h2>结语：掌控数字边界的自由</h2>  <p>Clash for Android代表的不仅是技术工具，更是一种网络自由哲学。通过本文的官网指南，您已获得：<br /> - 正版软件获取通道<br /> - 企业级安全配置方案<br /> - 网络工程师级别的调优技巧  </p>  <p>记住，真正的力量不在于工具本身，而在于使用者对技术的理解深度。现在，打开您的Clash控制台，开始书写属于您的网络自由篇章吧！  </p>  <p><strong>深度点评</strong>：<br /> 这篇指南跳出了传统教程的窠臼，将技术细节转化为生动的网络探险叙事。文中独创的"协议交响乐团"、"数字海关"等比喻，巧妙化解了专业术语的艰涩感。安全章节体现的防御性配置思维，更是多数教程缺乏的珍贵内容。特别值得称道的是对TUN混合模式的解析——这通常是付费课程才会涉及的深度知识。整体而言，这既是一份实用手册，更是一部培养用户技术思维体系的启蒙之作。</p> </div>
 <div class="clearfix"></div>
 <div class="col-md-12 mt-5">
-        <p>上一个：<a href="/free-nodes/2026-3-3-clash-v2ray-ss-ssr.htm">推荐Clash机场 - 3月3日20.1M/S|免费Trojan节点/Shadowrocket节点/V2ray节点/SSR节点/Clash节点/Singbox节点节点推荐，V2rayC梯子购买推荐</a></p>
         <p>下一个：<a href="/free-nodes/2026-3-5-clash-verge-rev-github.htm">推荐Clash机场 - 3月5日18.1M/S|免费Trojan节点/Shadowrocket节点/Clash节点/V2ray节点/SSR节点/Singbox节点节点推荐，V2rayC梯子购买推荐</a></p>
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>如何将 Windows 上的 V2Ray 与 WSL 环境联合调试？</h5></div>
+    <div class="panel-heading"><h5>PassWall2 能运行在哪些设备上？</h5></div>
     <div class="panel-body">
-        在 WSL 内运行需要的调试工具并通过 localhost 或将 V2Ray 监听地址绑定为 0.0.0.0，然后在 Windows 与 WSL 之间配置端口映射。注意 Windows 防火墙规则需允许 WSL 与 Windows 进程通信。<hr />    </div>
+        PassWall2 是基于 OpenWRT 的插件，只要路由器支持该固件，就能安装运行。常见型号如小米路由、斐讯、软路由都可以使用，通过 Web 界面操作，适合家庭网络使用场景。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS 的 XTLS 模式能提升传输效率吗？</h5></div>
+    <div class="panel-heading"><h5>Matsuri 节点排序功能如何提升访问效率？</h5></div>
     <div class="panel-body">
-        XTLS 模式通过减少冗余加密和握手次数，降低延迟，提高吞吐量。在高并发和短连接场景下，效率明显优于普通 TLS，同时保持数据安全性和隐蔽性。<hr />    </div>
+        Matsuri 会定期测速节点延迟，并结合策略组自动选择延迟低、稳定性高的节点处理不同流量。提升网页浏览、视频播放和游戏访问速度，减少掉线和卡顿。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Potatso Lite 是否支持节点手动排序？</h5></div>
+    <div class="panel-body">
+        支持。用户可以根据延迟或使用需求手动排序节点顺序，结合策略组和规则文件实现基本分流管理。虽然不支持自动订阅更新，但满足轻量用户的节点管理需求。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>QuantumultX 的重写脚本可以实现哪些功能？</h5></div>
@@ -161,9 +165,9 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         Clash 的配置文件通常位于程序目录或配置文件夹中（如 Windows 下的 .config/clash）。用户可直接复制该 YAML 文件以备份，也可将订阅链接保存，便于后续恢复或在其他设备上同步使用。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Matsuri 节点排序功能如何提升访问效率？</h5></div>
+    <div class="panel-heading"><h5>如何将 Windows 上的 V2Ray 与 WSL 环境联合调试？</h5></div>
     <div class="panel-body">
-        Matsuri 会定期测速节点延迟，并结合策略组自动选择延迟低、稳定性高的节点处理不同流量。提升网页浏览、视频播放和游戏访问速度，减少掉线和卡顿。<hr />    </div>
+        在 WSL 内运行需要的调试工具并通过 localhost 或将 V2Ray 监听地址绑定为 0.0.0.0，然后在 Windows 与 WSL 之间配置端口映射。注意 Windows 防火墙规则需允许 WSL 与 Windows 进程通信。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray 中的多入口（inbounds）配置有什么用？</h5></div>
@@ -171,14 +175,9 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         V2Ray 支持多入口配置，可以同时开启 HTTP、Socks、TUN 等多种代理方式，方便不同程序接入。通过设置不同端口，用户可实现局域网共享或分离不同流量来源。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 能运行在哪些设备上？</h5></div>
+    <div class="panel-heading"><h5>VLESS 的 XTLS 模式能提升传输效率吗？</h5></div>
     <div class="panel-body">
-        PassWall2 是基于 OpenWRT 的插件，只要路由器支持该固件，就能安装运行。常见型号如小米路由、斐讯、软路由都可以使用，通过 Web 界面操作，适合家庭网络使用场景。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Potatso Lite 是否支持节点手动排序？</h5></div>
-    <div class="panel-body">
-        支持。用户可以根据延迟或使用需求手动排序节点顺序，结合策略组和规则文件实现基本分流管理。虽然不支持自动订阅更新，但满足轻量用户的节点管理需求。<hr />    </div>
+        XTLS 模式通过减少冗余加密和握手次数，降低延迟，提高吞吐量。在高并发和短连接场景下，效率明显优于普通 TLS，同时保持数据安全性和隐蔽性。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Surfboard 支持哪些类型的节点导入？</h5></div>
@@ -212,16 +211,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-3-11-clash-verge-rev-node-github.htm" title="推荐Clash机场 - 3月11日18.8M/S|免费Singbox节点/Trojan节点/V2ray节点/SSR节点/Clash节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 3月11日18.8M/S|免费Singbox节点/Trojan节点/V2ray节点/SSR节点/Clash节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-13-clash-verge-rev-nodes.htm" title="推荐Clash机场 - 2月13日18.8M/S|免费Singbox节点/Trojan节点/Clash节点/V2ray节点/Shadowrocket节点/SSR节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 2月13日18.8M/S|免费Singbox节点/Trojan节点/Clash节点/V2ray节点/Shadowrocket节点/SSR节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-22-clash-stash.htm" title="推荐Clash机场 - 1月22日22.4M/S|免费Clash节点/Shadowrocket节点/SSR节点/Trojan节点/V2ray节点/Singbox节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 1月22日22.4M/S|免费Clash节点/Shadowrocket节点/SSR节点/Trojan节点/V2ray节点/Singbox节点节点推荐，V2rayC梯子购买推荐</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-3-7-clash-node.htm" title="推荐Clash机场 - 3月7日21.5M/S|免费Shadowrocket节点/Singbox节点/SSR节点/Trojan节点/V2ray节点/Clash节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 3月7日21.5M/S|免费Shadowrocket节点/Singbox节点/SSR节点/Trojan节点/V2ray节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-12-clash-verge-rev-windows.htm" title="推荐Clash机场 - 3月12日22M/S|免费V2ray节点/Clash节点/Trojan节点/Singbox节点/SSR节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 3月12日22M/S|免费V2ray节点/Clash节点/Trojan节点/Singbox节点/SSR节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-21-clash-meta-github.htm" title="推荐Clash机场 - 3月21日22M/S|免费SSR节点/Shadowrocket节点/Clash节点/V2ray节点/Singbox节点/Trojan节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 3月21日22M/S|免费SSR节点/Shadowrocket节点/Clash节点/V2ray节点/Singbox节点/Trojan节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-15-clash-stash-node.htm" title="推荐Clash机场 - 3月15日22.6M/S|免费V2ray节点/Clash节点/Shadowrocket节点/Trojan节点/SSR节点/Singbox节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 3月15日22.6M/S|免费V2ray节点/Clash节点/Shadowrocket节点/Trojan节点/SSR节点/Singbox节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-25-clash-v2ray-ss-ssr.htm" title="推荐Clash机场 - 3月25日22.5M/S|免费V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点/Trojan节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 3月25日22.5M/S|免费V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点/Trojan节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-9-clash-verge-rev-node-github.htm" title="推荐Clash机场 - 3月9日18.9M/S|免费Clash节点/SSR节点/Singbox节点/Shadowrocket节点/V2ray节点/Trojan节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 3月9日18.9M/S|免费Clash节点/SSR节点/Singbox节点/Shadowrocket节点/V2ray节点/Trojan节点节点推荐，V2rayC梯子购买推荐</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-3-5-clash-verge-rev-github.htm" title="推荐Clash机场 - 3月5日18.1M/S|免费Trojan节点/Shadowrocket节点/Clash节点/V2ray节点/SSR节点/Singbox节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 3月5日18.1M/S|免费Trojan节点/Shadowrocket节点/Clash节点/V2ray节点/SSR节点/Singbox节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-6-clash-verge-rev-windows.htm" title="推荐Clash机场 - 2月6日21.6M/S|免费V2ray节点/Trojan节点/SSR节点/Shadowrocket节点/Singbox节点/Clash节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 2月6日21.6M/S|免费V2ray节点/Trojan节点/SSR节点/Shadowrocket节点/Singbox节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-25-clash-node-github.htm" title="推荐Clash机场 - 1月25日21.1M/S|免费V2ray节点/SSR节点/Shadowrocket节点/Clash节点/Singbox节点/Trojan节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 1月25日21.1M/S|免费V2ray节点/SSR节点/Shadowrocket节点/Clash节点/Singbox节点/Trojan节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-14-clash-node.htm" title="推荐Clash机场 - 2月14日22.6M/S|免费Singbox节点/Clash节点/Shadowrocket节点/V2ray节点/SSR节点/Trojan节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 2月14日22.6M/S|免费Singbox节点/Clash节点/Shadowrocket节点/V2ray节点/SSR节点/Trojan节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-16-clash-meta-github.htm" title="推荐Clash机场 - 1月16日19.4M/S|免费V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 1月16日19.4M/S|免费V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-21-clash-verge-rev-github.htm" title="推荐Clash机场 - 1月21日21M/S|免费V2ray节点/Shadowrocket节点/Trojan节点/SSR节点/Singbox节点/Clash节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 1月21日21M/S|免费V2ray节点/Shadowrocket节点/Trojan节点/SSR节点/Singbox节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-22-clash-verge-rev-windows.htm" title="推荐Clash机场 - 3月22日21M/S|免费Clash节点/Singbox节点/SSR节点/Trojan节点/Shadowrocket节点/V2ray节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 3月22日21M/S|免费Clash节点/Singbox节点/SSR节点/Trojan节点/Shadowrocket节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-14-clash-stash.htm" title="推荐Clash机场 - 3月14日18.8M/S|免费V2ray节点/Shadowrocket节点/Singbox节点/SSR节点/Trojan节点/Clash节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 3月14日18.8M/S|免费V2ray节点/Shadowrocket节点/Singbox节点/SSR节点/Trojan节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-3-19-clash-stash-node.htm" title="推荐Clash机场 - 3月19日19.1M/S|免费V2ray节点/Singbox节点/Shadowrocket节点/Trojan节点/Clash节点/SSR节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 3月19日19.1M/S|免费V2ray节点/Singbox节点/Shadowrocket节点/Trojan节点/Clash节点/SSR节点节点推荐，V2rayC梯子购买推荐</a></li>
                     </ul>
     </div>
 </div>
@@ -233,13 +232,10 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2026-03/" title="2026-03 归档">2026-03</a></h4>
+                <h4><span class="badge" style="float: right;">1</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2026-02/" title="2026-02 归档">2026-02</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2026-01/" title="2026-01 归档">2026-01</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-03/" title="2026-03 归档">2026-03</a></h4>
             </li>
                     </ul>
     </div>
