@@ -299,19 +299,9 @@ A5：不必强制每日更换，但应在发现节点失效或网络不稳定时
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VMess AEAD 加密如何保证数据安全？</h5></div>
-    <div class="panel-body">
-        AEAD 加密防止数据篡改、重放攻击和流量特征泄露。在高封锁环境下使用，可保证节点长期可用，提升数据安全和连接稳定性，同时降低被检测风险。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 如何选择合适混淆提高稳定性？</h5></div>
     <div class="panel-body">
         选择混淆方式时应根据网络环境和封锁程度，例如 tls1.2_ticket_auth 可模拟 HTTPS 流量。合理组合协议和混淆可提升节点稳定性和抗封锁能力，确保长期科学上网体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 如何通过命令行管理配置？</h5></div>
-    <div class="panel-body">
-        Clash 内置命令行接口，可用于启动、停止、切换配置或查看日志。通过命令行运行 `clash -f config.yaml` 可加载指定配置文件，适合服务器或无人值守场景。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>QuantumultX 如何实现按端口和协议分流？</h5></div>
@@ -319,24 +309,19 @@ A5：不必强制每日更换，但应在发现节点失效或网络不稳定时
         QuantumultX 支持按 TCP、UDP、端口及应用协议分流流量，结合策略组选择最优节点。可为游戏、视频和广告屏蔽提供最佳网络体验，提高访问速度和稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 的主要用途是什么？</h5></div>
-    <div class="panel-body">
-        Hiddify Next 是 Hiddify 系列的新版本，集成了 VLESS、Trojan、Reality 等新型协议支持。它为用户提供一站式代理配置与分享功能，适合初学者快速上手使用。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Matsuri 如何结合 Xray 内核实现多协议支持？</h5></div>
-    <div class="panel-body">
-        Matsuri 可加载 Xray 核心，通过配置多 inbound/outbound 模块实现 VMess、VLess、Trojan 等协议共存。用户可在单一服务端配置文件中同时支持多客户端访问，便于统一管理。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekobox 如何管理不同协议节点？</h5></div>
-    <div class="panel-body">
-        Nekobox 可以同时管理 Shadowsocks、VMess、Trojan 等多种协议节点。结合策略组和分流规则，可实现不同流量走不同节点，提升网络效率和管理便利性。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 的混淆和协议设置如何选择才能绕过封锁？</h5></div>
     <div class="panel-body">
         选择模拟 HTTPS 的混淆方式如 tls1.2_ticket_auth，并搭配 AEAD 或协议插件，可以有效隐藏流量特征，降低被封锁风险。不同网络环境需测试选择最优组合。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VLESS + XTLS 在移动网络下的优势有哪些？</h5></div>
+    <div class="panel-body">
+        XTLS 模式减少握手次数和加密开销，适合高延迟或不稳定的移动网络。结合策略组和多节点切换，可提升网页浏览、视频播放和游戏的连接稳定性和流畅度。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hiddify Next 的主要用途是什么？</h5></div>
+    <div class="panel-body">
+        Hiddify Next 是 Hiddify 系列的新版本，集成了 VLESS、Trojan、Reality 等新型协议支持。它为用户提供一站式代理配置与分享功能，适合初学者快速上手使用。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Shadowrocket 的节点测速结果如何优化网络体验？</h5></div>
@@ -344,9 +329,24 @@ A5：不必强制每日更换，但应在发现节点失效或网络不稳定时
         Shadowrocket 测量节点延迟和丢包率，将延迟低的节点优先使用。结合策略组和分流规则，可提升网页浏览、视频播放和游戏的访问速度和稳定性，优化整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS + XTLS 在移动网络下的优势有哪些？</h5></div>
+    <div class="panel-heading"><h5>Matsuri 如何结合 Xray 内核实现多协议支持？</h5></div>
     <div class="panel-body">
-        XTLS 模式减少握手次数和加密开销，适合高延迟或不稳定的移动网络。结合策略组和多节点切换，可提升网页浏览、视频播放和游戏的连接稳定性和流畅度。    </div>
+        Matsuri 可加载 Xray 核心，通过配置多 inbound/outbound 模块实现 VMess、VLess、Trojan 等协议共存。用户可在单一服务端配置文件中同时支持多客户端访问，便于统一管理。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>VMess AEAD 加密如何保证数据安全？</h5></div>
+    <div class="panel-body">
+        AEAD 加密防止数据篡改、重放攻击和流量特征泄露。在高封锁环境下使用，可保证节点长期可用，提升数据安全和连接稳定性，同时降低被检测风险。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekobox 如何管理不同协议节点？</h5></div>
+    <div class="panel-body">
+        Nekobox 可以同时管理 Shadowsocks、VMess、Trojan 等多种协议节点。结合策略组和分流规则，可实现不同流量走不同节点，提升网络效率和管理便利性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Clash 如何通过命令行管理配置？</h5></div>
+    <div class="panel-body">
+        Clash 内置命令行接口，可用于启动、停止、切换配置或查看日志。通过命令行运行 `clash -f config.yaml` 可加载指定配置文件，适合服务器或无人值守场景。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -394,16 +394,16 @@ A5：不必强制每日更换，但应在发现节点失效或网络不稳定时
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-windows-2026-9-21.htm" title="推荐Clash机场 - 9月21日23M/S|免费Trojan节点/Clash节点/Shadowrocket节点/Singbox节点/V2ray节点/SSR节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 9月21日23M/S|免费Trojan节点/Clash节点/Shadowrocket节点/Singbox节点/V2ray节点/SSR节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-github-2026-9-29.htm" title="推荐Clash机场 - 9月29日21.8M/S|免费V2ray节点/Shadowrocket节点/Trojan节点/Clash节点/SSR节点/Singbox节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 9月29日21.8M/S|免费V2ray节点/Shadowrocket节点/Trojan节点/Clash节点/SSR节点/Singbox节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-2026-9-3.htm" title="推荐Clash机场 - 9月3日22.2M/S|免费V2ray节点/Clash节点/Trojan节点/SSR节点/Singbox节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 9月3日22.2M/S|免费V2ray节点/Clash节点/Trojan节点/SSR节点/Singbox节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-github-2026-9-7.htm" title="推荐Clash机场 - 9月7日19.6M/S|免费V2ray节点/Shadowrocket节点/Clash节点/Singbox节点/Trojan节点/SSR节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 9月7日19.6M/S|免费V2ray节点/Shadowrocket节点/Clash节点/Singbox节点/Trojan节点/SSR节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-30-clash-verge-rev-nodes.htm" title="推荐Clash机场 - 9月30日23M/S|免费SSR节点/Shadowrocket节点/Singbox节点/Trojan节点/Clash节点/V2ray节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 9月30日23M/S|免费SSR节点/Shadowrocket节点/Singbox节点/Trojan节点/Clash节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-stash-2026-10-15.htm" title="推荐Clash机场 - 10月15日21.9M/S|免费Trojan节点/Singbox节点/V2ray节点/Clash节点/SSR节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 10月15日21.9M/S|免费Trojan节点/Singbox节点/V2ray节点/Clash节点/SSR节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-windows-2026-9-17.htm" title="推荐Clash机场 - 9月17日19.7M/S|免费V2ray节点/Singbox节点/Shadowrocket节点/Trojan节点/Clash节点/SSR节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 9月17日19.7M/S|免费V2ray节点/Singbox节点/Shadowrocket节点/Trojan节点/Clash节点/SSR节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-6-free-node-subscribe.htm" title="推荐Clash机场 - 10月6日20M/S|免费SSR节点/Singbox节点/Clash节点/Trojan节点/V2ray节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 10月6日20M/S|免费SSR节点/Singbox节点/Clash节点/Trojan节点/V2ray节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-v2ray-ss-ssr-2026-10-9.htm" title="推荐Clash机场 - 10月9日20.1M/S|免费Clash节点/Singbox节点/V2ray节点/Shadowrocket节点/SSR节点/Trojan节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 10月9日20.1M/S|免费Clash节点/Singbox节点/V2ray节点/Shadowrocket节点/SSR节点/Trojan节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/node-share-2026-9-23.htm" title="推荐Clash机场 - 9月23日19.4M/S|免费SSR节点/Trojan节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 9月23日19.4M/S|免费SSR节点/Trojan节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-24-free-node-subscribe.htm" title="推荐Clash机场 - 9月24日22.2M/S|免费Trojan节点/V2ray节点/SSR节点/Clash节点/Shadowrocket节点/Singbox节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 9月24日22.2M/S|免费Trojan节点/V2ray节点/SSR节点/Clash节点/Shadowrocket节点/Singbox节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-stash-2026-9-25.htm" title="推荐Clash机场 - 9月25日20.3M/S|免费Trojan节点/SSR节点/Clash节点/V2ray节点/Singbox节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 9月25日20.3M/S|免费Trojan节点/SSR节点/Clash节点/V2ray节点/Singbox节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-windows-2026-9-17.htm" title="推荐Clash机场 - 9月17日19.7M/S|免费V2ray节点/Singbox节点/Shadowrocket节点/Trojan节点/Clash节点/SSR节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 9月17日19.7M/S|免费V2ray节点/Singbox节点/Shadowrocket节点/Trojan节点/Clash节点/SSR节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-windows-2026-9-21.htm" title="推荐Clash机场 - 9月21日23M/S|免费Trojan节点/Clash节点/Shadowrocket节点/Singbox节点/V2ray节点/SSR节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 9月21日23M/S|免费Trojan节点/Clash节点/Shadowrocket节点/Singbox节点/V2ray节点/SSR节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-2026-10-17.htm" title="推荐Clash机场 - 10月17日18.2M/S|免费Trojan节点/Shadowrocket节点/Singbox节点/SSR节点/Clash节点/V2ray节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 10月17日18.2M/S|免费Trojan节点/Shadowrocket节点/Singbox节点/SSR节点/Clash节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-github-2026-9-29.htm" title="推荐Clash机场 - 9月29日21.8M/S|免费V2ray节点/Shadowrocket节点/Trojan节点/Clash节点/SSR节点/Singbox节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 9月29日21.8M/S|免费V2ray节点/Shadowrocket节点/Trojan节点/Clash节点/SSR节点/Singbox节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-12-clash-verge-rev-node-share.htm" title="推荐Clash机场 - 9月12日19M/S|免费V2ray节点/SSR节点/Trojan节点/Clash节点/Singbox节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 9月12日19M/S|免费V2ray节点/SSR节点/Trojan节点/Clash节点/Singbox节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-26-clash-verge-rev-nodes.htm" title="推荐Clash机场 - 9月26日20.9M/S|免费V2ray节点/SSR节点/Singbox节点/Trojan节点/Clash节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 9月26日20.9M/S|免费V2ray节点/SSR节点/Singbox节点/Trojan节点/Clash节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-14-clash-verge-rev-node-share.htm" title="推荐Clash机场 - 10月14日18.5M/S|免费V2ray节点/Trojan节点/Clash节点/Singbox节点/Shadowrocket节点/SSR节点节点推荐，V2rayC梯子购买推荐">推荐Clash机场 - 10月14日18.5M/S|免费V2ray节点/Trojan节点/Clash节点/Singbox节点/Shadowrocket节点/SSR节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -415,7 +415,7 @@ A5：不必强制每日更换，但应在发现节点失效或网络不稳定时
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">14</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
